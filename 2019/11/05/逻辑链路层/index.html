@@ -13,15 +13,21 @@
     
 
     
-        <meta name="description" content="一、概述数据链路层使用物理层提供的服务在通信信道上发送和接受比特。二、功能
+        <meta name="description" content="一、概述   数据链路层使用物理层提供的服务在通信信道上发送和接受比特。
+二、功能
 向网络层提供一个定义良好的服务接口
 处理传输错误
-调节数据流，确保慢速的接收方不会被快速的接收方淹没三、服务
+调节数据流，确保慢速的接收方不会被快速的接收方淹没
+
+
+三、服务向网络层提供以下三种服务：
+
 无确认的无连接服务
 有确认的无连接服务
-有确认的有连接服务四、成帧
-字节计数法
-字节填充的标志字节法: 用标志字节"/>
+有确认的有连接服务
+
+
+四、成帧"/>
     
 
     <!--Author-->
@@ -36,15 +42,21 @@
 
     <!--Open Graph Description-->
     
-        <meta property="og:description" content="一、概述数据链路层使用物理层提供的服务在通信信道上发送和接受比特。二、功能
+        <meta property="og:description" content="一、概述   数据链路层使用物理层提供的服务在通信信道上发送和接受比特。
+二、功能
 向网络层提供一个定义良好的服务接口
 处理传输错误
-调节数据流，确保慢速的接收方不会被快速的接收方淹没三、服务
+调节数据流，确保慢速的接收方不会被快速的接收方淹没
+
+
+三、服务向网络层提供以下三种服务：
+
 无确认的无连接服务
 有确认的无连接服务
-有确认的有连接服务四、成帧
-字节计数法
-字节填充的标志字节法: 用标志字节"/>
+有确认的有连接服务
+
+
+四、成帧"/>
     
 
     <!--Open Graph Site Name-->
@@ -209,16 +221,32 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><pre><code>数据链路层使用物理层提供的服务在通信信道上发送和接受比特。</code></pre><h2 id="二、功能"><a href="#二、功能" class="headerlink" title="二、功能"></a>二、功能</h2><ol>
+                <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>   数据链路层使用物理层提供的服务在通信信道上发送和接受比特。</p>
+<h2 id="二、功能"><a href="#二、功能" class="headerlink" title="二、功能"></a>二、功能</h2><ol>
 <li>向网络层提供一个定义良好的服务接口</li>
 <li>处理传输错误</li>
-<li>调节数据流，确保慢速的接收方不会被快速的接收方淹没<h2 id="三、服务"><a href="#三、服务" class="headerlink" title="三、服务"></a>三、服务</h2></li>
+<li>调节数据流，确保慢速的接收方不会被快速的接收方淹没</li>
+</ol>
+<hr>
+<h2 id="三、服务"><a href="#三、服务" class="headerlink" title="三、服务"></a>三、服务</h2><p>向网络层提供以下三种服务：</p>
+<ol>
 <li>无确认的无连接服务</li>
 <li>有确认的无连接服务</li>
-<li>有确认的有连接服务<h2 id="四、成帧"><a href="#四、成帧" class="headerlink" title="四、成帧"></a>四、成帧</h2></li>
-<li>字节计数法</li>
-<li>字节填充的标志字节法:<br> 用标志字节FLAG来代表一帧的开始和结束，并用转义字符ESC来解决透明传输问题<br> 例题：</li>
+<li>有确认的有连接服务</li>
 </ol>
+<hr>
+<h2 id="四、成帧"><a href="#四、成帧" class="headerlink" title="四、成帧"></a>四、成帧</h2><ol>
+<li><p>字节计数法</p>
+</li>
+<li><p>字节填充的标志字节法:<br> 用标志字节FLAG来代表一帧的开始和结束，并用转义字符ESC来解决透明传输问题  </p>
+<h3 id="例题"><a href="#例题" class="headerlink" title=" 例题: "></a><font color = "00ffff"> 例题: </font></h3><p> <img src="https://github.com/BryantZK/pictures/raw/master/3-1.png" alt="例题3-1"></p>
+<h3 id="Answer"><a href="#Answer" class="headerlink" title=" Answer: "></a><font color = "00ffff" > Answer: </font></h3><pre><code>ESC ESC C ESC ESC ESC FLAG G ESC FLAG D </code></pre></li>
+<li><p>比特填充的标志比特法<br>011111110或十六进制0x7E作为标志字节。若传输的数据遇到连续五个1，则在其后添加一个0，打断六个以上的连续1字节流</p>
+</li>
+<li><p>物理层编码违禁法</p>
+</li>
+</ol>
+<hr>
 
 
                 
