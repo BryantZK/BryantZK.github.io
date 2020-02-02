@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="MyBatis学习笔记  （一）本系列笔记学习的是黑马程序员推出的ssm系列课程，感谢老师的精彩讲解，在此立贴以示感激。
+一、MyBatis概述​        MyBatis是一款优秀的Java持久层框架，它封装了JDBC，使开发者只需要关注Sql语句本身，二不需要花费精力去处理加载驱动，创建连接"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="MyBatis学习笔记（一）"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="MyBatis学习笔记  （一）本系列笔记学习的是黑马程序员推出的ssm系列课程，感谢老师的精彩讲解，在此立贴以示感激。
+一、MyBatis概述​        MyBatis是一款优秀的Java持久层框架，它封装了JDBC，使开发者只需要关注Sql语句本身，二不需要花费精力去处理加载驱动，创建连接"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Hexo"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>MyBatis学习笔记（一） - Hexo</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="noopener">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>MyBatis学习笔记（一）</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2020-02-02
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="MyBatis学习笔记-（一）"><a href="#MyBatis学习笔记-（一）" class="headerlink" title="MyBatis学习笔记  （一）"></a>MyBatis学习笔记  （一）</h1><p><strong>本系列笔记学习的是黑马程序员推出的ssm系列课程，感谢老师的精彩讲解，在此立贴以示感激。</strong></p>
+<h2 id="一、MyBatis概述"><a href="#一、MyBatis概述" class="headerlink" title="一、MyBatis概述"></a>一、MyBatis概述</h2><p>​        MyBatis是一款优秀的Java持久层框架，它封装了JDBC，使开发者只需要关注Sql语句本身，二不需要花费精力去处理加载驱动，创建连接、创建Statement等繁杂的过程  </p>
+<p>​        MyBatis通过xml或注解的方式将要执行的各种statement配置起来，并通过java对象和statement中sql的动态参数进行映射生成最终执行的sql语句，最后由MyBatis框架执行sql并将结果映射为java对象并返回。</p>
+<p>​        采用ORM思想解决了实体和数据库映射的问题，对JDBC进行了封装，屏蔽了JDBC API底层访问细节，是我们不用与JDBC API打交道，就可以完成对数据库的持久化操作。</p>
+<h2 id="二、环境搭建"><a href="#二、环境搭建" class="headerlink" title="二、环境搭建"></a>二、环境搭建</h2><h5 id="1-创建maven工程并导入坐标，即在pom-xml中添加依赖（包括mybatis，mysql，log4j，junit-："><a href="#1-创建maven工程并导入坐标，即在pom-xml中添加依赖（包括mybatis，mysql，log4j，junit-：" class="headerlink" title="1.创建maven工程并导入坐标，即在pom.xml中添加依赖（包括mybatis，mysql，log4j，junit)："></a>1.创建maven工程并导入坐标，即在pom.xml中添加依赖（包括mybatis，mysql，log4j，junit)：</h5><p><img src="/.com//E:%5C%E6%97%A5%E5%B8%B8%E6%80%BB%E7%BB%93%5Cssm%E6%A1%86%E6%9E%B6%5C%E6%88%AA%E5%9B%BE%5Cimage-20200128225556171.png" alt="image-20200128225556171"></p>
+<h5 id="2-创建数据库表以及对应的Java实体类"><a href="#2-创建数据库表以及对应的Java实体类" class="headerlink" title="2.创建数据库表以及对应的Java实体类"></a>2.创建数据库表以及对应的Java实体类</h5><h5 id="3-创建dao接口"><a href="#3-创建dao接口" class="headerlink" title="3.创建dao接口"></a>3.创建dao接口</h5><p>​    <img src="/.com//E:%5C%E6%97%A5%E5%B8%B8%E6%80%BB%E7%BB%93%5Cssm%E6%A1%86%E6%9E%B6%5C%E6%88%AA%E5%9B%BE%5Cimage-20200128225845313.png" alt="image-20200128225845313"></p>
+<h5 id="4-创建MyBatis的主配置文件（SqlMapConfig-xml"><a href="#4-创建MyBatis的主配置文件（SqlMapConfig-xml" class="headerlink" title="4.创建MyBatis的主配置文件（SqlMapConfig.xml):"></a>4.创建MyBatis的主配置文件（SqlMapConfig.xml):</h5><p>​                    <img src="/.com//E:%5C%E6%97%A5%E5%B8%B8%E6%80%BB%E7%BB%93%5Cssm%E6%A1%86%E6%9E%B6%5C%E6%88%AA%E5%9B%BE%5Cimage-20200128230044243.png" alt="image-20200128230044243"></p>
+<p>​                </p>
+<h5 id="5-创建映射配置文件（IUserDao-xml）："><a href="#5-创建映射配置文件（IUserDao-xml）：" class="headerlink" title="5.创建映射配置文件（IUserDao.xml）："></a>5.创建映射配置文件（IUserDao.xml）：</h5><p><img src="/.com//C:%5CUsers%5C24207%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200128230018307.png" alt="image-20200128230018307"></p>
+<h5 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h5><p>​        <strong>1.在MyBatis中，dao常被成为Mapper</strong></p>
+<p>​        <strong>2.包与目录的创建方式不同：</strong></p>
+<p>​                例如：com.itheima.IUserDao以packege方式创建是三级目录，</p>
+<p>​                                                                    以目录方式创建是一级目录。</p>
+<p>​        <strong>3.MyBatis的映射文件和Dao接口的包结构必须相同。（即IUserDao.xml与IUserDao.java的包结构必须相同）</strong></p>
+<p><img src="/.com//E:%5C%E6%97%A5%E5%B8%B8%E6%80%BB%E7%BB%93%5Cssm%E6%A1%86%E6%9E%B6%5C%E6%88%AA%E5%9B%BE%5Cimage-20200129085711766.png" alt="image-20200129085711766"></p>
+<p>​        <strong>4.映射配置文件的mapper的namespace属性必须是dao接口的全限定类名</strong></p>
+<p><img src="/.com//E:%5C%E6%97%A5%E5%B8%B8%E6%80%BB%E7%BB%93%5Cssm%E6%A1%86%E6%9E%B6%5C%E6%88%AA%E5%9B%BE%5Cimage-20200129085905528.png" alt="image-20200129085905528"></p>
+<p>​        <strong>5.映射配置文件的操作配置id属性必须是dao接口的方法名</strong></p>
+<p><img src="/.com//E:%5C%E6%97%A5%E5%B8%B8%E6%80%BB%E7%BB%93%5Cssm%E6%A1%86%E6%9E%B6%5C%E6%88%AA%E5%9B%BE%5Cimage-20200129085925224.png" alt="image-20200129085925224"></p>
+<h2 id="三、入门案例"><a href="#三、入门案例" class="headerlink" title="三、入门案例"></a>三、入门案例</h2><pre><code>###      1.步骤：</code></pre><p><img src="/.com//E:%5C%E6%97%A5%E5%B8%B8%E6%80%BB%E7%BB%93%5Cssm%E6%A1%86%E6%9E%B6%5C%E6%88%AA%E5%9B%BE%5Cimage-20200129090754826.png" alt="image-20200129090754826"></p>
+<h3 id="2-设计模式："><a href="#2-设计模式：" class="headerlink" title="2.设计模式："></a>2.设计模式：</h3><h3 id><a href="#" class="headerlink" title></a><img src="/.com//E:%5C%E6%97%A5%E5%B8%B8%E6%80%BB%E7%BB%93%5Cssm%E6%A1%86%E6%9E%B6%5C%E6%88%AA%E5%9B%BE%5Cimage-20200129090833062.png" alt="image-20200129090833062"></h3><h3 id="3-过程分析："><a href="#3-过程分析：" class="headerlink" title="3.过程分析："></a>3.过程分析：</h3><p>​        <strong>（1）解析主配置文件获取数据库连接：</strong></p>
+<p>​                    MyBatis据此自动注册驱动，获取连接，创建connection对象<br>​        <strong>（2）解析映射配置文件：</strong></p>
+<p>​                    获取执行的sql语句，MyBatis据此构造preparedStatement。</p>
+<p>​        <strong>（3）执行查询操作：</strong></p>
+<p>​                    ResultSet rs = preparedStatemnt.executeQuery();</p>
+<p>​           <strong>(4) 遍历结果集并封装</strong></p>
+<p>​                        List<E> list = new ArrayList ();</E></p>
+<p>​                        while(rs.next()){</p>
+<p>​                                        E  element = class.forName(配置的全限定类名（即resultType）).newInstance（）;</p>
+<p>​                                        进行封装,把每个rs中的属性封装到element的属性之中</p>
+<p>​                                        把element加入到list中</p>
+<p>​                                        list.add(element);</p>
+<p>​                        }</p>
+<p>​                        <em>tip:在MyBatis中存在一个mapper对象，将Sql语句与封装结果的实体类全限定类名封装成一体</em></p>
+<p>​                        <em>且存在一个map，用来保存实体类与其接口的对应关系。map的key为实体类的全限定类名（namespace属性）与接口的名称（id属性），value为sql语句与封装结果的全限定类名(resultType)</em>。  </p>
+<p>​               <strong>(5)返回list</strong></p>
+<p>​                </p>
+<p>​        </p>
+<p>​                    </p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2020 John Doe<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
