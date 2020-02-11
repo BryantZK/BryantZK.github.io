@@ -13,10 +13,8 @@
     
 
     
-        <meta name="description" content="MyBatis学习笔记  （一）
-本系列笔记学习的是黑马程序员推出的ssm系列课程，感谢老师的精彩讲解，在此立贴以示感激。
-一、MyBatis概述
-​		MyBatis是一款优秀的Java持久层框架，它封装了JDBC，使开发者只需要关注Sql语句本身，二不需要花费精力去处理加载驱动，创建连接、创建S"/>
+        <meta name="description" content="MyBatis学习笔记  （一）本系列笔记学习的是黑马程序员推出的ssm系列课程，感谢老师的精彩讲解，在此立贴以示感激。
+一、MyBatis概述​        MyBatis是一款优秀的Java持久层框架，它封装了JDBC，使开发者只需要关注Sql语句本身，二不需要花费精力去处理加载驱动，创建连接"/>
     
 
     <!--Author-->
@@ -31,10 +29,8 @@
 
     <!--Open Graph Description-->
     
-        <meta property="og:description" content="MyBatis学习笔记  （一）
-本系列笔记学习的是黑马程序员推出的ssm系列课程，感谢老师的精彩讲解，在此立贴以示感激。
-一、MyBatis概述
-​		MyBatis是一款优秀的Java持久层框架，它封装了JDBC，使开发者只需要关注Sql语句本身，二不需要花费精力去处理加载驱动，创建连接、创建S"/>
+        <meta property="og:description" content="MyBatis学习笔记  （一）本系列笔记学习的是黑马程序员推出的ssm系列课程，感谢老师的精彩讲解，在此立贴以示感激。
+一、MyBatis概述​        MyBatis是一款优秀的Java持久层框架，它封装了JDBC，使开发者只需要关注Sql语句本身，二不需要花费精力去处理加载驱动，创建连接"/>
     
 
     <!--Open Graph Site Name-->
@@ -199,61 +195,45 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h1>MyBatis学习笔记  （一）</h1>
-<p><strong>本系列笔记学习的是黑马程序员推出的ssm系列课程，感谢老师的精彩讲解，在此立贴以示感激。</strong></p>
-<h2>一、MyBatis概述</h2>
-<p>​		MyBatis是一款优秀的Java持久层框架，它封装了JDBC，使开发者只需要关注Sql语句本身，二不需要花费精力去处理加载驱动，创建连接、创建Statement等繁杂的过程</p>
-<p>​		MyBatis通过xml或注解的方式将要执行的各种statement配置起来，并通过java对象和statement中sql的动态参数进行映射生成最终执行的sql语句，最后由MyBatis框架执行sql并将结果映射为java对象并返回。</p>
-<p>​		采用ORM思想解决了实体和数据库映射的问题，对JDBC进行了封装，屏蔽了JDBC API底层访问细节，是我们不用与JDBC API打交道，就可以完成对数据库的持久化操作。</p>
-<h2>二、环境搭建</h2>
-<h5>1.创建maven工程并导入坐标，即在pom.xml中添加依赖（包括mybatis，mysql，log4j，junit)：</h5>
-<p><img src="/.com//E:%5C%E6%97%A5%E5%B8%B8%E6%80%BB%E7%BB%93%5Cssm%E6%A1%86%E6%9E%B6%5C%E6%88%AA%E5%9B%BE%5Cimage-20200128225556171.png" alt="image-20200128225556171"></p>
-<h5>2.创建数据库表以及对应的Java实体类</h5>
-<h5>3.创建dao接口</h5>
-<p>​	<img src="/.com//E:%5C%E6%97%A5%E5%B8%B8%E6%80%BB%E7%BB%93%5Cssm%E6%A1%86%E6%9E%B6%5C%E6%88%AA%E5%9B%BE%5Cimage-20200128225845313.png" alt="image-20200128225845313"></p>
-<h5>4.创建MyBatis的主配置文件（SqlMapConfig.xml):</h5>
-<p>​					<img src="/.com//E:%5C%E6%97%A5%E5%B8%B8%E6%80%BB%E7%BB%93%5Cssm%E6%A1%86%E6%9E%B6%5C%E6%88%AA%E5%9B%BE%5Cimage-20200128230044243.png" alt="image-20200128230044243"></p>
-<p>​</p>
-<h5>5.创建映射配置文件（IUserDao.xml）：</h5>
-<p><img src="/.com//C:%5CUsers%5C24207%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200128230018307.png" alt="image-20200128230018307"></p>
-<h5>注意事项：</h5>
-<p>​		<strong>1.在MyBatis中，dao常被成为Mapper</strong></p>
-<p>​		<strong>2.包与目录的创建方式不同：</strong></p>
-<p>​				例如：com.itheima.IUserDao以packege方式创建是三级目录，</p>
-<p>​																	以目录方式创建是一级目录。</p>
-<p>​		<strong>3.MyBatis的映射文件和Dao接口的包结构必须相同。（即IUserDao.xml与IUserDao.java的包结构必须相同）</strong></p>
+                <h1 id="MyBatis学习笔记-（一）"><a href="#MyBatis学习笔记-（一）" class="headerlink" title="MyBatis学习笔记  （一）"></a>MyBatis学习笔记  （一）</h1><p><strong>本系列笔记学习的是黑马程序员推出的ssm系列课程，感谢老师的精彩讲解，在此立贴以示感激。</strong></p>
+<h2 id="一、MyBatis概述"><a href="#一、MyBatis概述" class="headerlink" title="一、MyBatis概述"></a>一、MyBatis概述</h2><p>​        MyBatis是一款优秀的Java持久层框架，它封装了JDBC，使开发者只需要关注Sql语句本身，二不需要花费精力去处理加载驱动，创建连接、创建Statement等繁杂的过程  </p>
+<p>​        MyBatis通过xml或注解的方式将要执行的各种statement配置起来，并通过java对象和statement中sql的动态参数进行映射生成最终执行的sql语句，最后由MyBatis框架执行sql并将结果映射为java对象并返回。</p>
+<p>​        采用ORM思想解决了实体和数据库映射的问题，对JDBC进行了封装，屏蔽了JDBC API底层访问细节，是我们不用与JDBC API打交道，就可以完成对数据库的持久化操作。</p>
+<h2 id="二、环境搭建"><a href="#二、环境搭建" class="headerlink" title="二、环境搭建"></a>二、环境搭建</h2><h5 id="1-创建maven工程并导入坐标，即在pom-xml中添加依赖（包括mybatis，mysql，log4j，junit-："><a href="#1-创建maven工程并导入坐标，即在pom-xml中添加依赖（包括mybatis，mysql，log4j，junit-：" class="headerlink" title="1.创建maven工程并导入坐标，即在pom.xml中添加依赖（包括mybatis，mysql，log4j，junit)："></a>1.创建maven工程并导入坐标，即在pom.xml中添加依赖（包括mybatis，mysql，log4j，junit)：</h5><p><img src="/.com//E:%5C%E6%97%A5%E5%B8%B8%E6%80%BB%E7%BB%93%5Cssm%E6%A1%86%E6%9E%B6%5C%E6%88%AA%E5%9B%BE%5Cimage-20200128225556171.png" alt="image-20200128225556171"></p>
+<h5 id="2-创建数据库表以及对应的Java实体类"><a href="#2-创建数据库表以及对应的Java实体类" class="headerlink" title="2.创建数据库表以及对应的Java实体类"></a>2.创建数据库表以及对应的Java实体类</h5><h5 id="3-创建dao接口"><a href="#3-创建dao接口" class="headerlink" title="3.创建dao接口"></a>3.创建dao接口</h5><p>​    <img src="/.com//E:%5C%E6%97%A5%E5%B8%B8%E6%80%BB%E7%BB%93%5Cssm%E6%A1%86%E6%9E%B6%5C%E6%88%AA%E5%9B%BE%5Cimage-20200128225845313.png" alt="image-20200128225845313"></p>
+<h5 id="4-创建MyBatis的主配置文件（SqlMapConfig-xml"><a href="#4-创建MyBatis的主配置文件（SqlMapConfig-xml" class="headerlink" title="4.创建MyBatis的主配置文件（SqlMapConfig.xml):"></a>4.创建MyBatis的主配置文件（SqlMapConfig.xml):</h5><p>​                    <img src="/.com//E:%5C%E6%97%A5%E5%B8%B8%E6%80%BB%E7%BB%93%5Cssm%E6%A1%86%E6%9E%B6%5C%E6%88%AA%E5%9B%BE%5Cimage-20200128230044243.png" alt="image-20200128230044243"></p>
+<p>​                </p>
+<h5 id="5-创建映射配置文件（IUserDao-xml）："><a href="#5-创建映射配置文件（IUserDao-xml）：" class="headerlink" title="5.创建映射配置文件（IUserDao.xml）："></a>5.创建映射配置文件（IUserDao.xml）：</h5><p><img src="/.com//C:%5CUsers%5C24207%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200128230018307.png" alt="image-20200128230018307"></p>
+<h5 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h5><p>​        <strong>1.在MyBatis中，dao常被成为Mapper</strong></p>
+<p>​        <strong>2.包与目录的创建方式不同：</strong></p>
+<p>​                例如：com.itheima.IUserDao以packege方式创建是三级目录，</p>
+<p>​                                                                    以目录方式创建是一级目录。</p>
+<p>​        <strong>3.MyBatis的映射文件和Dao接口的包结构必须相同。（即IUserDao.xml与IUserDao.java的包结构必须相同）</strong></p>
 <p><img src="/.com//E:%5C%E6%97%A5%E5%B8%B8%E6%80%BB%E7%BB%93%5Cssm%E6%A1%86%E6%9E%B6%5C%E6%88%AA%E5%9B%BE%5Cimage-20200129085711766.png" alt="image-20200129085711766"></p>
-<p>​		<strong>4.映射配置文件的mapper的namespace属性必须是dao接口的全限定类名</strong></p>
+<p>​        <strong>4.映射配置文件的mapper的namespace属性必须是dao接口的全限定类名</strong></p>
 <p><img src="/.com//E:%5C%E6%97%A5%E5%B8%B8%E6%80%BB%E7%BB%93%5Cssm%E6%A1%86%E6%9E%B6%5C%E6%88%AA%E5%9B%BE%5Cimage-20200129085905528.png" alt="image-20200129085905528"></p>
-<p>​		<strong>5.映射配置文件的操作配置id属性必须是dao接口的方法名</strong></p>
+<p>​        <strong>5.映射配置文件的操作配置id属性必须是dao接口的方法名</strong></p>
 <p><img src="/.com//E:%5C%E6%97%A5%E5%B8%B8%E6%80%BB%E7%BB%93%5Cssm%E6%A1%86%E6%9E%B6%5C%E6%88%AA%E5%9B%BE%5Cimage-20200129085925224.png" alt="image-20200129085925224"></p>
-<h2>三、入门案例</h2>
-<pre><code>	###  	1.步骤：
-</code></pre>
-<p><img src="/.com//E:%5C%E6%97%A5%E5%B8%B8%E6%80%BB%E7%BB%93%5Cssm%E6%A1%86%E6%9E%B6%5C%E6%88%AA%E5%9B%BE%5Cimage-20200129090754826.png" alt="image-20200129090754826"></p>
-<h3>2.设计模式：</h3>
-<h3><img src="/.com//E:%5C%E6%97%A5%E5%B8%B8%E6%80%BB%E7%BB%93%5Cssm%E6%A1%86%E6%9E%B6%5C%E6%88%AA%E5%9B%BE%5Cimage-20200129090833062.png" alt="image-20200129090833062"></h3>
-<h3>3.过程分析：</h3>
-<p>​		<strong>（1）解析主配置文件获取数据库连接：</strong></p>
-<p>​					MyBatis据此自动注册驱动，获取连接，创建connection对象
-​		<strong>（2）解析映射配置文件：</strong></p>
-<p>​					获取执行的sql语句，MyBatis据此构造preparedStatement。</p>
-<p>​		<strong>（3）执行查询操作：</strong></p>
-<p>​					ResultSet rs = preparedStatemnt.executeQuery();</p>
-<p>​		   <strong>(4) 遍历结果集并封装</strong></p>
-<p>​						List&lt;E&gt; list = new ArrayList ();</p>
-<p>​						while(rs.next()){</p>
-<p>​										E  element = class.forName(配置的全限定类名（即resultType）).newInstance（）;</p>
-<p>​										进行封装,把每个rs中的属性封装到element的属性之中</p>
-<p>​										把element加入到list中</p>
-<p>​										list.add(element);</p>
-<p>​						}</p>
-<p>​						<em>tip:在MyBatis中存在一个mapper对象，将Sql语句与封装结果的实体类全限定类名封装成一体</em></p>
-<p>​						<em>且存在一个map，用来保存实体类与其接口的对应关系。map的key为实体类的全限定类名（namespace属性）与接口的名称（id属性），value为sql语句与封装结果的全限定类名(resultType)</em>。</p>
-<p>​		 	  <strong>(5)返回list</strong></p>
-<p>​</p>
-<p>​</p>
-<p>​</p>
+<h2 id="三、入门案例"><a href="#三、入门案例" class="headerlink" title="三、入门案例"></a>三、入门案例</h2><pre><code>###      1.步骤：</code></pre><p><img src="/.com//E:%5C%E6%97%A5%E5%B8%B8%E6%80%BB%E7%BB%93%5Cssm%E6%A1%86%E6%9E%B6%5C%E6%88%AA%E5%9B%BE%5Cimage-20200129090754826.png" alt="image-20200129090754826"></p>
+<h3 id="2-设计模式："><a href="#2-设计模式：" class="headerlink" title="2.设计模式："></a>2.设计模式：</h3><h3 id><a href="#" class="headerlink" title></a><img src="/.com//E:%5C%E6%97%A5%E5%B8%B8%E6%80%BB%E7%BB%93%5Cssm%E6%A1%86%E6%9E%B6%5C%E6%88%AA%E5%9B%BE%5Cimage-20200129090833062.png" alt="image-20200129090833062"></h3><h3 id="3-过程分析："><a href="#3-过程分析：" class="headerlink" title="3.过程分析："></a>3.过程分析：</h3><p>​        <strong>（1）解析主配置文件获取数据库连接：</strong></p>
+<p>​                    MyBatis据此自动注册驱动，获取连接，创建connection对象<br>​        <strong>（2）解析映射配置文件：</strong></p>
+<p>​                    获取执行的sql语句，MyBatis据此构造preparedStatement。</p>
+<p>​        <strong>（3）执行查询操作：</strong></p>
+<p>​                    ResultSet rs = preparedStatemnt.executeQuery();</p>
+<p>​           <strong>(4) 遍历结果集并封装</strong></p>
+<p>​                        List<E> list = new ArrayList ();</E></p>
+<p>​                        while(rs.next()){</p>
+<p>​                                        E  element = class.forName(配置的全限定类名（即resultType）).newInstance（）;</p>
+<p>​                                        进行封装,把每个rs中的属性封装到element的属性之中</p>
+<p>​                                        把element加入到list中</p>
+<p>​                                        list.add(element);</p>
+<p>​                        }</p>
+<p>​                        <em>tip:在MyBatis中存在一个mapper对象，将Sql语句与封装结果的实体类全限定类名封装成一体</em></p>
+<p>​                        <em>且存在一个map，用来保存实体类与其接口的对应关系。map的key为实体类的全限定类名（namespace属性）与接口的名称（id属性），value为sql语句与封装结果的全限定类名(resultType)</em>。  </p>
+<p>​               <strong>(5)返回list</strong></p>
+<p>​                </p>
+<p>​        </p>
+<p>​                    </p>
 
 
                 
