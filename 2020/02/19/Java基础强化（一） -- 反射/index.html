@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="Java基础强化（一） – 反射​        在学习完MyBatis与Spring技术之后，笔者决定先去巩固一些之前不牢固的java以及javaWeb基础。主要内容包括：反射、注解、并发与线程、servlet、request、response、监听器、过滤器、Maven。在扎实基础之后，再前往学"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Java基础强化（一） -- 反射"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="Java基础强化（一） – 反射​        在学习完MyBatis与Spring技术之后，笔者决定先去巩固一些之前不牢固的java以及javaWeb基础。主要内容包括：反射、注解、并发与线程、servlet、request、response、监听器、过滤器、Maven。在扎实基础之后，再前往学"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Hexo"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>Java基础强化（一） -- 反射 - Hexo</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="noopener">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Java基础强化（一） -- 反射</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2020-02-19
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="Java基础强化（一）-–-反射"><a href="#Java基础强化（一）-–-反射" class="headerlink" title="Java基础强化（一） – 反射"></a>Java基础强化（一） – 反射</h1><p>​        在学习完MyBatis与Spring技术之后，笔者决定先去巩固一些之前不牢固的java以及javaWeb基础。主要内容包括：反射、注解、并发与线程、servlet、request、response、监听器、过滤器、Maven。在扎实基础之后，再前往学习Spring的后续内容。</p>
+<h2 id="一、反射概述"><a href="#一、反射概述" class="headerlink" title="一、反射概述"></a>一、反射概述</h2><p>​        1.反射：框架设计的灵魂</p>
+<pre><code>框架：半成品软件。在框架的基础上开发，可以简化编码。
+
+反射：将类的各个组成部分封装为其他对象，这就是反射机制  </code></pre><p>​        2.好处：</p>
+<p>​                （1）便于程序在运行过程中操作这些对象。</p>
+<p>​                （2）可以解耦，提高程序的可扩展性</p>
+<p>​        3.获取Class对象的方法:</p>
+<p>​                （1）Class.forName(“全类名”)：将字节码加载进内存，返回Class对象</p>
+<p>​                            <em>多用于配置文件，将全类名定义在配置文件中。读取文件，加载类即可</em></p>
+<p>​                （2）类名.class:通过类名的属性class获取</p>
+<p>​                            <em>多用于参数的传递</em></p>
+<p>​                （3）对象.getClass():getClass是Object类中的方法</p>
+<p>​                            <em>多用于凭借对象获取字节码</em>    </p>
+<p>​                <strong>同一个字节码文件(*.class)在一次运行过程中，只会被加载一次，不论通过上述哪种方式获取class对象，结果都是同一个</strong></p>
+<h2 id="二、Class对象的功能"><a href="#二、Class对象的功能" class="headerlink" title="二、Class对象的功能"></a>二、Class对象的功能</h2><p>​    1.获取成员变量</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*返回一个Filed对象数组，保存本类及其父类的public成员变量*/</span></span><br><span class="line">Field [] getFields();</span><br><span class="line"><span class="comment">/*返回一个Filed对象，该对象是指定名称的本类或父类public成员变量*/</span></span><br><span class="line"><span class="function">Filed <span class="title">getFiled</span><span class="params">(String name)</span></span>;</span><br><span class="line"><span class="comment">/*返回一个Filed对象数组，保存本类的任意访问权限的成员变量*/</span></span><br><span class="line">Filed [] getDeclaredFileds();</span><br><span class="line"><span class="comment">/*返回一个Filed对象，该对象是指定类名的本类的任意访问权限的成员变量*/</span></span><br><span class="line"><span class="function">Filed <span class="title">getDeclaredFiled</span><span class="params">(String name)</span> </span>;</span><br></pre></td></tr></table></figure>
+
+<p>​    2.获取构造函数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*返回Class对象类的所有public构造器*/</span></span><br><span class="line">Construcator [] getConstructors();</span><br><span class="line"><span class="comment">/*返回Class对象类中的指定名字的public构造器*/</span></span><br><span class="line"><span class="function">Constructor <span class="title">getConstructor</span><span class="params">(String name)</span></span>;</span><br><span class="line"><span class="comment">/*返回Class对象类中所有构造器*/</span></span><br><span class="line">Constructor [] getDeclaredConstructors();</span><br><span class="line"><span class="comment">/*返回Class对象类中指定名字的构造器*/</span></span><br><span class="line"><span class="function">Constructor <span class="title">getDeclaredConstructor</span><span class="params">(String name)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>​        实例程序：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*创建Teacher的Class对象类*/</span></span><br><span class="line">Class class5  = Class.forName(<span class="string">"domain.Teacher"</span>);</span><br><span class="line"><span class="comment">/*获取Teacher的所有构造函数*/</span></span><br><span class="line">Constructor []constructors = class5.getConstructors(); <span class="comment">//teacher中有两个构造函数</span></span><br><span class="line"><span class="comment">/*打印Teacher的所有构造函数*/</span></span><br><span class="line"><span class="keyword">for</span>(Constructor constructor : constructors)&#123;</span><br><span class="line">	System.out.println(constructor);</span><br><span class="line">&#125;	</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">public domain.Teacher()</span></span><br><span class="line"><span class="comment">public domain.Teacher(java.lang.String,java.lang.Integer)</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>​     3.获取成员方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*获取Class对象类与其父类的所有public方法*/</span></span><br><span class="line">Method [] getMethods();</span><br><span class="line"><span class="comment">/*获取Class对象类与其父类的指定名称的public方法*/</span></span><br><span class="line"><span class="function">Method <span class="title">getMethod</span> <span class="params">(String name)</span></span>;</span><br><span class="line"><span class="comment">/*获取Class对象类的所有方法*/</span></span><br><span class="line">Method[] getDeclaredMethods()</span><br><span class="line"><span class="comment">/*获取Class对象类的指定名称的方法*/</span>;</span><br><span class="line"><span class="function">Method <span class="title">getDeclaredMethod</span><span class="params">(String name)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>​        实例程序</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*创建Teacher的Class对象类*/</span></span><br><span class="line">Class class5  = Class.forName(<span class="string">"domain.Teacher"</span>);</span><br><span class="line"><span class="comment">/*获取Teacher类中的无参teach方法*/</span></span><br><span class="line">Method method1 = class5.getMethod(<span class="string">"teach"</span>);</span><br><span class="line"><span class="comment">/*获取Teacher类中的有参teach方法*/</span></span><br><span class="line">Method method2 = class5.getMethod(<span class="string">"teach"</span>, String<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line"><span class="comment">/*打印Teacher类中的两个teach方法*/</span></span><br><span class="line">System.out.println(method1);</span><br><span class="line">System.out.println(method2);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	public void domain.Teacher.teach()</span></span><br><span class="line"><span class="comment">	public void domain.Teacher.teach(java.lang.String)</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p>  4.获取类名</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">String <span class="title">getName</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、Filed类"><a href="#三、Filed类" class="headerlink" title="三、Filed类"></a>三、Filed类</h2><p>​        <strong>Filed类的常用方法</strong></p>
+<p>​                (1) Object get(Object obj);</p>
+<p>​                        获取obj对象中该成员变量的值.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*创建Teacher类的实例化对象teacher1*/</span></span><br><span class="line">Teacher teacher1 =  <span class="keyword">new</span> Teacher();</span><br><span class="line"><span class="comment">/*将teacher1中name的值设成"李老师"*/</span></span><br><span class="line">   teacher1.setName(<span class="string">"李老师"</span>);</span><br><span class="line"><span class="comment">/*获取Teacher的Class对象类*/</span></span><br><span class="line">   Class class0 = Class.forName(<span class="string">"domain.Teacher"</span>);</span><br><span class="line"><span class="comment">/*获取Teacher中的name成员变量*/</span></span><br><span class="line">   Field name = class0.getField(<span class="string">"name"</span>);</span><br><span class="line"><span class="comment">/*打印Teacher中的name成员变量*/</span></span><br><span class="line">   System.out.println(name.get(teacher1));</span><br><span class="line"><span class="comment">/*李老师*/</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>​                (2) void set(Object obj,Object value);</p>
+<p>​                        将obj对象中该成员变量的值设成value</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   <span class="comment">/*通过field的set方法将teacher1对象的name值设成"王老师"*/</span></span><br><span class="line">name.set(teacher1,<span class="string">"王老师"</span>);</span><br><span class="line"><span class="comment">/*打印Teacher中的name成员变量*/</span></span><br><span class="line">   System.out.println(name.get(teacher1));</span><br><span class="line"><span class="comment">/*王老师*/</span></span><br></pre></td></tr></table></figure>
+
+<p>​                (3)setAccessible(boolean flag);</p>
+<p>​                        若程序要访问私有成员变量的值，则需要通过本函数进行访问权限设置，即暴力反射</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*将对象teacher1的age值设成40*/</span></span><br><span class="line">teacher1.setAge(<span class="number">40</span>);</span><br><span class="line"><span class="comment">/*获取Teacher中的age成员变量*/</span></span><br><span class="line">   Field age = class.getDeclaredField("age");//age为私有变量，不能用getField函数</span><br><span class="line">   age.setAccessible(<span class="keyword">true</span>);<span class="comment">//暴力反射</span></span><br><span class="line"><span class="comment">/*打印teacher1对象中age的值*/</span></span><br><span class="line">   System.out.println(age.get(teacher1)); <span class="comment">//40</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="四、Constructor类"><a href="#四、Constructor类" class="headerlink" title="四、Constructor类"></a>四、Constructor类</h2><p>​        <strong>Constructor类中的常用方法</strong></p>
+<p>​                （1）newInstance（Object…  initargs）</p>
+<p>​                            根据构造器构造对象，参数为构造器所需参数</p>
+<p>​                    示例程序：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">	<span class="comment">/*获取无参构造函数*/</span></span><br><span class="line">Constructor constructor = class5.getConstructor();</span><br><span class="line"><span class="comment">/*用无参构造函数创建Teacher对象*/</span></span><br><span class="line">   Teacher teacher2 = (Teacher) constructor.newInstance();</span><br><span class="line"><span class="comment">/*获取双参构造函数*/</span></span><br><span class="line">   Constructor constructor1 = class5.getConstructor(String<span class="class">.<span class="keyword">class</span>,<span class="title">Integer</span>.<span class="title">class</span>)</span>;</span><br><span class="line">   <span class="comment">/*用双参构造函数创建Teacher对象*/</span></span><br><span class="line">Teacher teacher3 = (Teacher) constructor1.newInstance(<span class="string">"李老师"</span>,<span class="number">40</span>);</span><br><span class="line"><span class="comment">/*打印结果*/</span></span><br><span class="line">   System.out.println(teacher2);</span><br><span class="line">   System.out.println(teacher3);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Teacher&#123;name='null', age=null&#125;		</span></span><br><span class="line"><span class="comment">Teacher&#123;name='李老师', age=40&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="五、Method类"><a href="#五、Method类" class="headerlink" title="五、Method类"></a>五、Method类</h2><p>​        <strong>Method类中的常用方法</strong></p>
+<p>​                （1）invoke(Object obj,Object…  initargs)</p>
+<p>​                            执行被获取的方法，参数为执行该方法的对象，以及方法所需要的参数</p>
+<p>​                示例程序：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*获取无参构造函数*/</span></span><br><span class="line">Constructor constructor = class5.getConstructor();</span><br><span class="line"><span class="comment">/*用无参构造函数创建Teacher对象*/</span></span><br><span class="line">   Teacher teacher2 = (Teacher) constructor.newInstance();</span><br><span class="line"><span class="comment">/*获取双参构造函数*/</span></span><br><span class="line">   Constructor constructor1 = class5.getConstructor(String<span class="class">.<span class="keyword">class</span>,<span class="title">Integer</span>.<span class="title">class</span>)</span>;</span><br><span class="line">   <span class="comment">/*用双参构造函数创建Teacher对象*/</span></span><br><span class="line">Teacher teacher3 = (Teacher) constructor1.newInstance(<span class="string">"李老师"</span>,<span class="number">40</span>);</span><br><span class="line"><span class="comment">/*调用无参teach方法*/</span></span><br><span class="line">method1.invoke(teacher3);</span><br><span class="line"><span class="comment">/*调用有参teach方法*/</span></span><br><span class="line">method2.invoke(teacher3,<span class="string">"五年级一班"</span>);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	上课中</span></span><br><span class="line"><span class="comment">	在五年级一班上课中</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p>​                以上teach方法实现如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">teach</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"上课中"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">teach</span><span class="params">(String classroom)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"在"</span> + classroom + <span class="string">"上课中"</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2020 John Doe<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

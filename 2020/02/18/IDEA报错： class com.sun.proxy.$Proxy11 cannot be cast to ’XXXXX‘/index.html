@@ -13,9 +13,8 @@
     
 
     
-        <meta name="description" content="IDEA报错： class com.sun.proxy.$Proxy11 cannot be cast to ’XXXXX‘
-​		今天在学习Spring事务配置的过程中，发生了如上错误。原程序如下：
-12345678public void testFindById()&amp;#123;        /"/>
+        <meta name="description" content="IDEA报错： class com.sun.proxy.$Proxy11 cannot be cast to ’XXXXX‘​        今天在学习Spring事务配置的过程中，发生了如上错误。原程序如下：
+12345678public void testFindById()&amp;#123;    "/>
     
 
     <!--Author-->
@@ -30,9 +29,8 @@
 
     <!--Open Graph Description-->
     
-        <meta property="og:description" content="IDEA报错： class com.sun.proxy.$Proxy11 cannot be cast to ’XXXXX‘
-​		今天在学习Spring事务配置的过程中，发生了如上错误。原程序如下：
-12345678public void testFindById()&amp;#123;        /"/>
+        <meta property="og:description" content="IDEA报错： class com.sun.proxy.$Proxy11 cannot be cast to ’XXXXX‘​        今天在学习Spring事务配置的过程中，发生了如上错误。原程序如下：
+12345678public void testFindById()&amp;#123;    "/>
     
 
     <!--Open Graph Site Name-->
@@ -197,13 +195,14 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h1>IDEA报错： class com.sun.proxy.$Proxy11 cannot be cast to ’XXXXX‘</h1>
-<p>​		今天在学习Spring事务配置的过程中，发生了如上错误。原程序如下：</p>
-<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFindById</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//获取ApplicationConext对象</span></span><br><span class="line">        ApplicationContext ac = <span class="keyword">new</span>  ClassPathXmlApplicationContext(<span class="string">"bean.xml"</span>);</span><br><span class="line">        <span class="comment">//获取AccountServiceImpl对象</span></span><br><span class="line">        IAccountService as = (AccountServiceImpl) ac.getBean(<span class="string">"accountService"</span>);</span><br><span class="line">        <span class="comment">//执行方法</span></span><br><span class="line">        System.out.println(as.findById(<span class="number">2</span>));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<p>​		该测试类方法测试了根据id查找account对象的功能。在没有配置事务的时候，程序可以正常执行，但是在根据AOP配置了事务之后，出现了题示问题。</p>
-<p>​		**问题分析：**由于Spring AOP的动态代理机制如下：对于没有实现任何接口的类，采用CGLIB方法；对于实现了接口的对象，默认使用JDK动态创建代理对象。而AccountServiceImpl实现了IAccountService接口，所以在获取bean对象并进行强制转换时，要转换成父类IAccountService。</p>
-<p>​		**解决方法：**所以将上述代码中小括号中的AccountServiceImpl改成IAccountService即可.</p>
-<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFindById</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//获取ApplicationConext对象</span></span><br><span class="line">        ApplicationContext ac = <span class="keyword">new</span>  ClassPathXmlApplicationContext(<span class="string">"bean.xml"</span>);</span><br><span class="line">        <span class="comment">//获取AccountServiceImpl对象</span></span><br><span class="line">        IAccountService as = (IAccountService) ac.getBean(<span class="string">"accountService"</span>);</span><br><span class="line">        <span class="comment">//执行方法</span></span><br><span class="line">        System.out.println(as.findById(<span class="number">2</span>));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+                <h1 id="IDEA报错：-class-com-sun-proxy-Proxy11-cannot-be-cast-to-’XXXXX‘"><a href="#IDEA报错：-class-com-sun-proxy-Proxy11-cannot-be-cast-to-’XXXXX‘" class="headerlink" title="IDEA报错： class com.sun.proxy.$Proxy11 cannot be cast to ’XXXXX‘"></a>IDEA报错： class com.sun.proxy.$Proxy11 cannot be cast to ’XXXXX‘</h1><p>​        今天在学习Spring事务配置的过程中，发生了如上错误。原程序如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFindById</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//获取ApplicationConext对象</span></span><br><span class="line">        ApplicationContext ac = <span class="keyword">new</span>  ClassPathXmlApplicationContext(<span class="string">"bean.xml"</span>);</span><br><span class="line">        <span class="comment">//获取AccountServiceImpl对象</span></span><br><span class="line">        IAccountService as = (AccountServiceImpl) ac.getBean(<span class="string">"accountService"</span>);</span><br><span class="line">        <span class="comment">//执行方法</span></span><br><span class="line">        System.out.println(as.findById(<span class="number">2</span>));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>​        该测试类方法测试了根据id查找account对象的功能。在没有配置事务的时候，程序可以正常执行，但是在根据AOP配置了事务之后，出现了题示问题。</p>
+<p>​        <strong>问题分析：</strong>由于Spring AOP的动态代理机制如下：对于没有实现任何接口的类，采用CGLIB方法；对于实现了接口的对象，默认使用JDK动态创建代理对象。而AccountServiceImpl实现了IAccountService接口，所以在获取bean对象并进行强制转换时，要转换成父类IAccountService。</p>
+<p>​        <strong>解决方法：</strong>所以将上述代码中小括号中的AccountServiceImpl改成IAccountService即可.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFindById</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//获取ApplicationConext对象</span></span><br><span class="line">        ApplicationContext ac = <span class="keyword">new</span>  ClassPathXmlApplicationContext(<span class="string">"bean.xml"</span>);</span><br><span class="line">        <span class="comment">//获取AccountServiceImpl对象</span></span><br><span class="line">        IAccountService as = (IAccountService) ac.getBean(<span class="string">"accountService"</span>);</span><br><span class="line">        <span class="comment">//执行方法</span></span><br><span class="line">        System.out.println(as.findById(<span class="number">2</span>));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
 
 
                 
