@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="Java基础强化（二） – 注解一、注解概述​        1.定义
+​                注解（Annotation），也叫元数据。一种代码级别的说明。它是JDK1.5及以后版本引入的一个特性，与类、接口、枚举是在同一个层次。它可以声明在包、类、字段、方法、局部变量、方法参数等的前面"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Java基础强化（二） -- 注解"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="Java基础强化（二） – 注解一、注解概述​        1.定义
+​                注解（Annotation），也叫元数据。一种代码级别的说明。它是JDK1.5及以后版本引入的一个特性，与类、接口、枚举是在同一个层次。它可以声明在包、类、字段、方法、局部变量、方法参数等的前面"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Hexo"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>Java基础强化（二） -- 注解 - Hexo</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="noopener">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Java基础强化（二） -- 注解</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2020-02-20
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="Java基础强化（二）-–-注解"><a href="#Java基础强化（二）-–-注解" class="headerlink" title="Java基础强化（二） – 注解"></a>Java基础强化（二） – 注解</h1><h2 id="一、注解概述"><a href="#一、注解概述" class="headerlink" title="一、注解概述"></a>一、注解概述</h2><p>​        <strong>1.定义</strong></p>
+<p>​                注解（Annotation），也叫元数据。一种代码级别的说明。它是JDK1.5及以后版本引入的一个特性，与类、接口、枚举是在同一个层次。它可以声明在包、类、字段、方法、局部变量、方法参数等的前面，用来对这些元素进行说明，注释。</p>
+<p>​        <strong>2.作用描述</strong></p>
+<p>​                （1）编译检查：通过代码里标识的注解让编译器能够实现基本的编译检查[@Override]</p>
+<p>​                （2）编写文档：通过代码里的标识的注解生成doc文档</p>
+<p>​                （3）代码分析：通过代码里标识的注解对代码进行分析[使用反射]</p>
+<p>​        <strong>3.JDK中预定义的注解</strong></p>
+<p>​                <strong>@Override：</strong>检测被改注释标注的方法是否是继承自父类（接口）的</p>
+<p>​                <strong>@Deprecated：</strong>该注解标注的内容，标识已过时。即虽然可以使用，但是不推荐使用</p>
+<p>​                <strong>@SuppressWarnings：</strong>压制警告</p>
+<p>​                            *一般传递参数all，@SuppressWarnings(“all”)</p>
+<h2 id="二、自定义注解"><a href="#二、自定义注解" class="headerlink" title="二、自定义注解"></a>二、自定义注解</h2><p>​        <strong>1.格式</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">元注解</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> 注解名称&#123;</span><br><span class="line">    属性列表;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​        <strong>2.本质</strong></p>
+<p>​                注解本质是一个接口，该接口默认继承Annotation接口</p>
+<pre><code>&gt;
+&gt;
+&gt;假设按照上述1.格式自定义一个接口My Anno，并通过反编译的方式，我们会得到一下结果
+&gt;
+&gt;public interface MyAnno extends java.lang.annotation.Annotation{}</code></pre><p>​        <strong>3.属性：接口中的方法</strong></p>
+<p>​                要求：</p>
+<p>​                        （1）属性的返回值有一下列取值</p>
+<blockquote>
+<ul>
+<li>基本数据类型</li>
+<li>String</li>
+<li>枚举</li>
+<li>注解</li>
+<li>上述类型的数组                            </li>
+</ul>
+</blockquote>
+<p>​                        </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyAnno&#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">show1</span> <span class="params">()</span></span>;</span><br><span class="line">    <span class="function">String <span class="title">show2</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function">Person <span class="title">show3</span><span class="params">()</span> <span class="keyword">default</span> "Person.p1"</span>;</span><br><span class="line">    <span class="meta">@Override</span> show4();</span><br><span class="line">    String[] show5();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>​                        （2）定义了属性，在使用时需要给属性赋值</p>
+<p>​                                    （a)如果定义属性时，使用default    关键字给属性默认初始化，则使用注解时，可以不进行属性的赋值</p>
+<p>​                                    （b)如果只有一个属性需要赋值，且这个属性名称是value，则“value=”可以省略，直接定义值即可</p>
+<p>​                                    （c)数组赋值时，值使用{}包裹。如果数组中只有一个值，则{}可以省略</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@MyAnno</span>(show1=<span class="number">1</span>,show2=<span class="string">"hello"</span>,show4=<span class="meta">@Override</span>,show5=&#123;<span class="string">"abc"</span>,<span class="string">"bcd"</span>&#125;)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">show</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>​        <strong>4.元注解：用于描述注解的注解</strong></p>
+<p>​                常用的元注解有四个：</p>
+<blockquote>
+<ul>
+<li><p>@Target : 描述注解能够作用的位置</p>
+<p>​    ElementType的取值：</p>
+<pre><code>* Type：表示注解可以作用于类上 
+* Method：表示注解可以作用于方法上
+* Field：表示注解可以作用于成员变量上</code></pre></li>
+<li><p>@Retention：描述注解被保留的阶段</p>
+<ul>
+<li>@Retention（RetentionPolicy.RUNTIME）：当前被描述的注解，会保留到class字节码文件中，并被JVM读取到  </li>
+</ul>
+</li>
+<li><p>@Documented：描述注解是否被抽取到API文档中</p>
+</li>
+<li><p>@Inherited：描述注解是否被子类继承</p>
+</li>
+</ul>
+</blockquote>
+<p>​        <strong>5.程序中对注解的解析</strong></p>
+<p>​                在程序中使用（解析）注解，获取注解中定义的属性值</p>
+<p>​                （1）获取被注解的对象（类，方法，成员变量等）</p>
+<p>​                （2）获取指定的注解</p>
+<p>​                                <em>通过getAnnotation(class)方法</em></p>
+<p>​                （3）调用注解中的抽象方法来获取配置的属性值</p>
+<p>​                            示例程序：</p>
+<p>​                                    首先定义一个Prop注解，有两个属性：className用来存储类名，methodName用来存储方法名</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(<span class="string">"ElementType.Type"</span>)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Prop&#123;</span><br><span class="line">    <span class="function">String <span class="title">className</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function">String <span class="title">methodName</span><span class="params">()</span> </span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​                                        则我们可以按如下方式使用并调用注解中的属性。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Prop</span>(className=<span class="string">"cn.itcast.annotation.Demo1"</span>,methodName=<span class="string">"show"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReflectTest</span>	</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span> <span class="params">(String [] args)</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">        <span class="comment">//获取被注解的类字节码文件</span></span><br><span class="line">        Class&lt;ReflectTest&gt; reflectTestClass = ReflectTest<span class="class">.<span class="keyword">class</span> </span>;</span><br><span class="line">        <span class="comment">//获取类上的注解对象</span></span><br><span class="line">        Prop prop = reflectTestClass.getAnnotation(Prop<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">    	<span class="comment">//调用注解对象中定义的抽象方法，获取属性</span></span><br><span class="line">        String className = prop.className();</span><br><span class="line">        String methodName = prop.methodName();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​                                            对于以上程序调用我们可以理解成Java为我们自动生成了一个如下的Prop实现类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PropImpl</span> <span class="title">implments</span> <span class="title">Prop</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">className</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"cn.itcast.annotation.Demo1"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">methodName</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"show"</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2020 John Doe<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
