@@ -13,13 +13,9 @@
     
 
     
-        <meta name="description" content="MyBatis学习笔记（二）
-一、MyBatis通过代理dao的方式实现CRUD操作
-1.编写步骤
-​		（1）在dao接口中创建相应的CRUD方法
-​		（2）配置xml文件：
-​					选择正确的标签（select insert update delete）
-​					配置id，result"/>
+        <meta name="description" content="MyBatis学习笔记（二）一、MyBatis通过代理dao的方式实现CRUD操作1.编写步骤​        （1）在dao接口中创建相应的CRUD方法
+​        （2）配置xml文件：
+​                    选择正确的标签（select insert update d"/>
     
 
     <!--Author-->
@@ -34,13 +30,9 @@
 
     <!--Open Graph Description-->
     
-        <meta property="og:description" content="MyBatis学习笔记（二）
-一、MyBatis通过代理dao的方式实现CRUD操作
-1.编写步骤
-​		（1）在dao接口中创建相应的CRUD方法
-​		（2）配置xml文件：
-​					选择正确的标签（select insert update delete）
-​					配置id，result"/>
+        <meta property="og:description" content="MyBatis学习笔记（二）一、MyBatis通过代理dao的方式实现CRUD操作1.编写步骤​        （1）在dao接口中创建相应的CRUD方法
+​        （2）配置xml文件：
+​                    选择正确的标签（select insert update d"/>
     
 
     <!--Open Graph Site Name-->
@@ -205,52 +197,56 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h1>MyBatis学习笔记（二）</h1>
-<h2>一、MyBatis通过代理dao的方式实现CRUD操作</h2>
-<h3>1.编写步骤</h3>
-<p>​		（1）在dao接口中创建相应的CRUD方法</p>
-<p>​		（2）配置xml文件：</p>
-<p>​					选择正确的标签（select insert update delete）</p>
-<p>​					配置id，resultType，parameter属性</p>
-<p>​					配置sql语句</p>
-<p>​		（3）使用代理dao调用方法即可</p>
-<h3>2.parameter属性分析</h3>
-<p>​			<strong>parameter属性可以设置成三种类型：简单类型，pojo对象，pojo的封装对象</strong></p>
-<pre><code>	### （1）简单类型
-</code></pre>
-<p>​				直接传入简单类型名即可，不区分大小写</p>
-<h3>（2）pojo对象</h3>
-<p>​				传入对象的全限定类名。</p>
-<p>​				由于MyBatis使用ognl表达式解析对象字段的值，在sql语句引用对象中的属性值时，可省略<strong>对象名.属性名</strong>的写法，直接写<strong>属性名</strong>即可</p>
-<h3>（3）pojo包装对象</h3>
-<p>​				有时查询需要用到不止一个对象的信息，则可以将多个对象封装在一个包装对象中，进行传递。</p>
-<h2>二、实体类属性与表列名不同时的转换处理</h2>
-<p>​	举例：在实体类中，User的属性为userId，userName，userAddress</p>
-<p>​				在数据库表中，User表的属性为id，username，address。</p>
-<p>​				如果不进行一致性转换，那么resultset在封装的时候，会找不到封装目标属性，导致封装失败。</p>
-<p>​				一致性转换有以下两种方法</p>
+                <h1 id="MyBatis学习笔记（二）"><a href="#MyBatis学习笔记（二）" class="headerlink" title="MyBatis学习笔记（二）"></a>MyBatis学习笔记（二）</h1><h2 id="一、MyBatis通过代理dao的方式实现CRUD操作"><a href="#一、MyBatis通过代理dao的方式实现CRUD操作" class="headerlink" title="一、MyBatis通过代理dao的方式实现CRUD操作"></a>一、MyBatis通过代理dao的方式实现CRUD操作</h2><h3 id="1-编写步骤"><a href="#1-编写步骤" class="headerlink" title="1.编写步骤"></a>1.编写步骤</h3><p>​        （1）在dao接口中创建相应的CRUD方法</p>
+<p>​        （2）配置xml文件：</p>
+<p>​                    选择正确的标签（select insert update delete）</p>
+<p>​                    配置id，resultType，parameter属性</p>
+<p>​                    配置sql语句</p>
+<p>​        （3）使用代理dao调用方法即可</p>
+<h3 id="2-parameter属性分析"><a href="#2-parameter属性分析" class="headerlink" title="2.parameter属性分析"></a>2.parameter属性分析</h3><p>​            <strong>parameter属性可以设置成三种类型：简单类型，pojo对象，pojo的封装对象</strong></p>
+<pre><code>### （1）简单类型</code></pre><p>​                直接传入简单类型名即可，不区分大小写</p>
+<h3 id="（2）pojo对象"><a href="#（2）pojo对象" class="headerlink" title="（2）pojo对象"></a>（2）pojo对象</h3><p>​                传入对象的全限定类名。</p>
+<p>​                由于MyBatis使用ognl表达式解析对象字段的值，在sql语句引用对象中的属性值时，可省略<strong>对象名.属性名</strong>的写法，直接写<strong>属性名</strong>即可</p>
+<h3 id="（3）pojo包装对象"><a href="#（3）pojo包装对象" class="headerlink" title="（3）pojo包装对象"></a>（3）pojo包装对象</h3><p>​                有时查询需要用到不止一个对象的信息，则可以将多个对象封装在一个包装对象中，进行传递。</p>
+<h2 id="二、实体类属性与表列名不同时的转换处理"><a href="#二、实体类属性与表列名不同时的转换处理" class="headerlink" title="二、实体类属性与表列名不同时的转换处理"></a>二、实体类属性与表列名不同时的转换处理</h2><p>​    举例：在实体类中，User的属性为userId，userName，userAddress</p>
+<p>​                在数据库表中，User表的属性为id，username，address。</p>
+<p>​                如果不进行一致性转换，那么resultset在封装的时候，会找不到封装目标属性，导致封装失败。</p>
+<p>​                一致性转换有以下两种方法    </p>
 <p><strong>1.改写sql语句，进行直接转换:</strong>  (执行效率更高)</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from user</span><br></pre></td></tr></table></figure></p>
-<p>​	-&gt;</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select id as userId, username as userName, address as userAdress from user</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from user</span><br></pre></td></tr></table></figure>
+
+<p>​    -&gt;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select id as userId, username as userName, address as userAdress from user</span><br></pre></td></tr></table></figure>
+
 <hr>
 <p><strong>as 前时数据库表的列名，as后时java实体类的属性名</strong></p>
 <p><strong>2.在映射配置文件(IUserDao.xml)中配置resultMap属性</strong>:（开发效率更高）</p>
-<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">id</span> = <span class="string">"userMap"</span> <span class="attr">type</span> = <span class="string">"com.itheima.domain.User"</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 主键字段的对应 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span> <span class="attr">property</span>=<span class="string">"userId"</span> <span class="attr">colomn</span>=<span class="string">"id"</span>&gt;</span><span class="tag">&lt;/<span class="name">id</span>&gt;</span> </span><br><span class="line">    <span class="comment">&lt;!-- 非主键字段的对应 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">"userName"</span> <span class="attr">colomn</span>=<span class="string">"username"</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">"userAddress"</span> <span class="attr">colomn</span>=<span class="string">"address"</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">id</span> = <span class="string">"userMap"</span> <span class="attr">type</span> = <span class="string">"com.itheima.domain.User"</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 主键字段的对应 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span> <span class="attr">property</span>=<span class="string">"userId"</span> <span class="attr">colomn</span>=<span class="string">"id"</span>&gt;</span><span class="tag">&lt;/<span class="name">id</span>&gt;</span> </span><br><span class="line">    <span class="comment">&lt;!-- 非主键字段的对应 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">"userName"</span> <span class="attr">colomn</span>=<span class="string">"username"</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">"userAddress"</span> <span class="attr">colomn</span>=<span class="string">"address"</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p><strong>然后在下面的各个有返回类型属性配置的sql语句配置中，使用resultMap代替resultType：</strong></p>
-<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findAll"</span> <span class="attr">resultMap</span>=<span class="string">"userMap"</span>&gt;</span></span><br><span class="line">select * form user</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h2>三、property标签的使用</h2>
-<p><strong>在配置数据库连接池的过程中需要用到property属性</strong></p>
-<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置数据源(连接池) --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dataSource</span> <span class="attr">type</span>=<span class="string">"POOLED"</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- 配置连接数据库的基本信息 --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driver"</span> <span class="attr">value</span>=<span class="string">"com.mysql.cj.jdbc.Driver"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"url"</span> <span class="attr">value</span>=<span class="string">"jdbc:mysql://localhost:3306/test?serverTimezone=UTC"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">value</span>=<span class="string">"root"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"123456"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dataSource</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findAll"</span> <span class="attr">resultMap</span>=<span class="string">"userMap"</span>&gt;</span></span><br><span class="line">select * form user</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="三、property标签的使用"><a href="#三、property标签的使用" class="headerlink" title="三、property标签的使用"></a>三、property标签的使用</h2><p><strong>在配置数据库连接池的过程中需要用到property属性</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置数据源(连接池) --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dataSource</span> <span class="attr">type</span>=<span class="string">"POOLED"</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- 配置连接数据库的基本信息 --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driver"</span> <span class="attr">value</span>=<span class="string">"com.mysql.cj.jdbc.Driver"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"url"</span> <span class="attr">value</span>=<span class="string">"jdbc:mysql://localhost:3306/test?serverTimezone=UTC"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">value</span>=<span class="string">"root"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"123456"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dataSource</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p><strong>也可以通过外联配置文件的方式来进行配置，此时需用properties标签指定外联配置文件的路径，再将property中的value改成引用的形式即可</strong></p>
-<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- jdbcConfig.properties中指定了数据库连接所需的driver,url,username,password等属性--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">properties</span> <span class="attr">resource</span> = <span class="string">"jdbcConfig.properties"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置数据源(连接池) --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dataSource</span> <span class="attr">type</span>=<span class="string">"POOLED"</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- 配置连接数据库的基本信息 --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driver"</span> <span class="attr">value</span>=<span class="string">“$&#123;jdbc.driver&#125;”</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"url"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.url&#125;"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.username&#125;"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.password&#125;"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dataSource</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h2>四、typeAlias与packege标签的使用</h2>
-<p><strong>typeAlias标签用于配置domain中类的别名，即可将全限定类名配置别名，使其使用更加简单</strong>:</p>
-<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">typeAliases</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- type指定实体类的全限定类名，name指定别名 --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 配置别名之后，使用别名可以不再区分大小写 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">typealias</span> <span class="attr">type</span>=<span class="string">"com.itheim.domain.user"</span> <span class="attr">name</span>=<span class="string">"user"</span>&gt;</span><span class="tag">&lt;/<span class="name">typealias</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">typeAliases</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- jdbcConfig.properties中指定了数据库连接所需的driver,url,username,password等属性--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">properties</span> <span class="attr">resource</span> = <span class="string">"jdbcConfig.properties"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置数据源(连接池) --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dataSource</span> <span class="attr">type</span>=<span class="string">"POOLED"</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- 配置连接数据库的基本信息 --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driver"</span> <span class="attr">value</span>=<span class="string">“$&#123;jdbc.driver&#125;”</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"url"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.url&#125;"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.username&#125;"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.password&#125;"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dataSource</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="四、typeAlias与packege标签的使用"><a href="#四、typeAlias与packege标签的使用" class="headerlink" title="四、typeAlias与packege标签的使用"></a>四、typeAlias与packege标签的使用</h2><p><strong>typeAlias标签用于配置domain中类的别名，即可将全限定类名配置别名，使其使用更加简单</strong>:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">typeAliases</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- type指定实体类的全限定类名，name指定别名 --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 配置别名之后，使用别名可以不再区分大小写 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">typealias</span> <span class="attr">type</span>=<span class="string">"com.itheim.domain.user"</span> <span class="attr">name</span>=<span class="string">"user"</span>&gt;</span><span class="tag">&lt;/<span class="name">typealias</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">typeAliases</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
 <p><strong>标签用于指定要配置别名的包，当指定之后，该包下的实体类都会注册别名，并且别名就是类名。</strong></p>
 <p><strong>同样，别名不再区分大小写</strong></p>
-<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">typeAliases</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"com.itheima.domain"</span>&gt;</span><span class="tag">&lt;/<span class="name">package</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">typeAliases</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--配置之后，domain下的所有实体类都被配置了别名，例如com.itheima.domain.user的别名为user--&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">typeAliases</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"com.itheima.domain"</span>&gt;</span><span class="tag">&lt;/<span class="name">package</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">typeAliases</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--配置之后，domain下的所有实体类都被配置了别名，例如com.itheima.domain.user的别名为user--&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
 
 
                 
