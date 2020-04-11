@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="JavaWeb基础（二） –浅谈HTTP协议一、概述1.HTTP是超文本传输协议（Hyper Text Transfer Protocol）,基于客户端/服务器模式，通常运行在TCP协议之上，指定了客户端可能给服务器发送的请求消息格式与从服务器端接收到的响应消息格式
+2.特点：
+
+基于TCP/IP高"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="JavaWeb基础（二） --浅谈HTTP协议"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="JavaWeb基础（二） –浅谈HTTP协议一、概述1.HTTP是超文本传输协议（Hyper Text Transfer Protocol）,基于客户端/服务器模式，通常运行在TCP协议之上，指定了客户端可能给服务器发送的请求消息格式与从服务器端接收到的响应消息格式
+2.特点：
+
+基于TCP/IP高"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Hexo"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>JavaWeb基础（二） --浅谈HTTP协议 - Hexo</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="noopener">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>JavaWeb基础（二） --浅谈HTTP协议</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2020-04-11
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="JavaWeb基础（二）-–浅谈HTTP协议"><a href="#JavaWeb基础（二）-–浅谈HTTP协议" class="headerlink" title="JavaWeb基础（二） –浅谈HTTP协议"></a>JavaWeb基础（二） –浅谈HTTP协议</h2><h3 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h3><p>1.HTTP是超文本传输协议（Hyper Text Transfer Protocol）,基于客户端/服务器模式，通常运行在TCP协议之上，指定了客户端可能给服务器发送的<strong>请求消息格式</strong>与从服务器端接收到的<strong>响应消息格式</strong></p>
+<p>2.特点：</p>
+<ul>
+<li>基于TCP/IP高级协议</li>
+<li>默认端口号：80</li>
+<li>基于请求/响应模型：请求与响应一一对应</li>
+<li>无状态：每次请求之间互相独立，不能交互数据</li>
+</ul>
+<p>3.历史版本：</p>
+<ul>
+<li>1.0每次请求响应都会建立新的连接</li>
+<li>1.1连接可复用</li>
+</ul>
+<p>4.工作流程：</p>
+<p>​    1）客户端与服务器建立连接</p>
+<p>​    2）客户端向服务器发送请求</p>
+<p>​    3）服务器向客户端返回响应</p>
+<p>​    4）客户端与服务器关闭连接</p>
+<h3 id="二、请求消息数据格式"><a href="#二、请求消息数据格式" class="headerlink" title="二、请求消息数据格式"></a>二、请求消息数据格式</h3><p><em>示例（请求行+请求头）：</em></p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GET</span> <span class="string">/account/1</span> HTTP/1.1</span><br><span class="line"><span class="attribute">Host</span>: localhost:8080</span><br><span class="line"><span class="attribute">Connection</span>: keep-alive</span><br><span class="line"><span class="attribute">Accept</span>: application/json, text/javascript, */*; q=0.01</span><br><span class="line"><span class="attribute">Sec-Fetch-Dest</span>: empty</span><br><span class="line"><span class="attribute">X-Requested-With</span>: XMLHttpRequest</span><br><span class="line"><span class="attribute">User-Agent</span>: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36</span><br><span class="line"><span class="attribute">Sec-Fetch-Site</span>: same-origin</span><br><span class="line"><span class="attribute">Sec-Fetch-Mode</span>: cors</span><br><span class="line"><span class="attribute">Referer</span>: http://localhost:8080/</span><br><span class="line"><span class="attribute">Accept-Encoding</span>: gzip, deflate, br</span><br><span class="line"><span class="attribute">Accept-Language</span>: zh-CN,zh;q=0.9</span><br><span class="line"><span class="attribute">Cookie</span>: Idea-43a43cdb=b61fe043-32cd-4285-a7ca-ee6d7dc5b478; JSESSIONID=3B5EDF7D0AFFFCE19CD524B2BF10E087</span><br></pre></td></tr></table></figure>
+
+<p>1.请求行</p>
+<blockquote>
+<p>请求方式  请求url  请求协议/版本</p>
+</blockquote>
+<blockquote>
+<p>请求方式：HTTP协议有7种请求方式，常用的由两种</p>
+<ul>
+<li>GET：<ul>
+<li>请求参数在请求行中，在url后</li>
+<li>请求的url长度有限制</li>
+<li>不安全</li>
+</ul>
+</li>
+<li>POST：<ul>
+<li>请求参数在请求体中</li>
+<li>请求的url长度无限制</li>
+<li>安全</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>2.请求头</p>
+<blockquote>
+<p>请求头名称：请求头值 （即key：value模式）</p>
+</blockquote>
+<blockquote>
+<p>常见请求头：</p>
+<ul>
+<li><p><font color="red">User-Agent:</font>浏览器的版本信息</p>
+</li>
+<li><p>Accept：浏览器支持解析的数据格式</p>
+</li>
+<li><p>Accept-Language：浏览器支持的语言</p>
+</li>
+<li><p>Accpet-Encoding:浏览器支持的压缩格式</p>
+</li>
+<li><p><font color="red">Referer：</font>本次发起本次请求的源地址</p>
+<blockquote>
+<p>Referer作用：</p>
+<ul>
+<li>防盗链</li>
+<li>统计工作</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<p>3.请求空行</p>
+<blockquote>
+<p>一个空行，用于分隔请求头域请求体，十分重要！</p>
+</blockquote>
+<p>4.请求体（正文）</p>
+<blockquote>
+<p>变量名 = 变量值(key = value形式)</p>
+</blockquote>
+<h3 id="三、响应消息数据格式"><a href="#三、响应消息数据格式" class="headerlink" title="三、响应消息数据格式"></a>三、响应消息数据格式</h3><p>示例(响应行+响应头)</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 <span class="number">200</span> OK</span><br><span class="line"><span class="attribute">Bdpagetype</span>: 1</span><br><span class="line"><span class="attribute">Bdqid</span>: 0x8c1fd4b80004c846</span><br><span class="line"><span class="attribute">Cache-Control</span>: private</span><br><span class="line"><span class="attribute">Connection</span>: keep-alive</span><br><span class="line"><span class="attribute">Content-Encoding</span>: gzip</span><br><span class="line"><span class="attribute">Content-Type</span>: text/html;charset=utf-8</span><br><span class="line"><span class="attribute">Date</span>: Sat, 11 Apr 2020 01:52:17 GMT</span><br><span class="line"><span class="attribute">Expires</span>: Sat, 11 Apr 2020 01:51:57 GMT</span><br><span class="line"><span class="attribute">Server</span>: BWS/1.1</span><br><span class="line"><span class="attribute">Set-Cookie</span>: BDSVRTM=0; path=/</span><br><span class="line"><span class="attribute">Set-Cookie</span>: BD_HOME=1; path=/</span><br><span class="line"><span class="attribute">Set-Cookie</span>: H_PS_PSSID=1463_31170_21093_31187_31271_31229_30823_26350_31163_22157; path=/; domain=.baidu.com</span><br><span class="line"><span class="attribute">Strict-Transport-Security</span>: max-age=172800</span><br><span class="line"><span class="attribute">Traceid</span>: 1586569937060619521010097022776327325766</span><br><span class="line"><span class="attribute">X-Ua-Compatible</span>: IE=Edge,chrome=1</span><br><span class="line"><span class="attribute">Transfer-Encoding</span>: chunked</span><br></pre></td></tr></table></figure>
+
+<p>1.响应行</p>
+<blockquote>
+<p>协议/版本  响应状态码  状态码描述</p>
+</blockquote>
+<blockquote>
+<p>响应状态码：</p>
+<ul>
+<li>1xx:服务器接受客户端消息，但没有接受完成，等待一段时间后，发送1xx状态码</li>
+<li>2xx：成功。<ul>
+<li>200（成功）</li>
+</ul>
+</li>
+<li>3xx：重定向。<ul>
+<li>302（重定向）</li>
+<li>304（访问缓存，即原来的缓存文件未经修改，可以直接访问）</li>
+</ul>
+</li>
+<li>4xx：客户端错误<ul>
+<li>404（找不到被请求的路径）</li>
+<li>405（请求方法不被允许）</li>
+</ul>
+</li>
+<li>5xx：服务器端错误<ul>
+<li>500（服务器内部出现异常）</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>2.响应头</p>
+<blockquote>
+<p>头名称：值(key:value形式)</p>
+</blockquote>
+<blockquote>
+<p>常见响应头：</p>
+<ul>
+<li>Content-Type:本次响应数据格式及编码格式</li>
+<li>Content-diposition：打开响应体数据的方式<ul>
+<li>in-line（在当前页面展示），默认值</li>
+<li>attachment;filename= xxx(以附件形式打开响应体)，文件下载</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>3.响应空行</p>
+<blockquote>
+<p>空行，分隔响应头与响应体，十分重要！</p>
+</blockquote>
+<p>4.响应体</p>
+<blockquote>
+<p>客户端返回的数据</p>
+</blockquote>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2020 John Doe<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
