@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="JavaWeb基础（六） Redis超简单入门一、概述Redis是C语言开发的高性能NOSQL开源数据库。
+
+NOSQL = Not Only SQL（即不仅仅是SQL），是一种全新的数据库理念，泛指非关系型数据库
+NOSQL数据库通过key，value的格式将数据存在内存当中，查询速度快，扩展性强"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="JavaWeb基础（六） --Redis超简单入门"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="JavaWeb基础（六） Redis超简单入门一、概述Redis是C语言开发的高性能NOSQL开源数据库。
+
+NOSQL = Not Only SQL（即不仅仅是SQL），是一种全新的数据库理念，泛指非关系型数据库
+NOSQL数据库通过key，value的格式将数据存在内存当中，查询速度快，扩展性强"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Hexo"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>JavaWeb基础（六） --Redis超简单入门 - Hexo</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="noopener">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>JavaWeb基础（六） --Redis超简单入门</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2020-04-17
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="JavaWeb基础（六）-Redis超简单入门"><a href="#JavaWeb基础（六）-Redis超简单入门" class="headerlink" title="JavaWeb基础（六） Redis超简单入门"></a>JavaWeb基础（六） Redis超简单入门</h2><h3 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h3><p>Redis是C语言开发的高性能NOSQL开源数据库。</p>
+<blockquote>
+<p>NOSQL = Not Only SQL（即不仅仅是SQL），是一种全新的数据库理念，泛指非关系型数据库</p>
+<p>NOSQL数据库通过key，value的格式将数据存在内存当中，查询速度快，扩展性强</p>
+</blockquote>
+<p>Redis具有高性能的特点，官方测试数据显示，Redis可支持50个并发执行100000个请求，读的速度为110000次/秒，写的速度是81000次/秒</p>
+<p>Redis通过多种键值数据类型来适应不同场景下的存储需求</p>
+<blockquote>
+<p>Redis支持的数据类型：</p>
+<p>1）字符串类型  string</p>
+<p>2）哈希类型 hash</p>
+<p>3）列表类型 list</p>
+<p>4）集合类型set</p>
+<p>5） 有序集合类型sortedset</p>
+</blockquote>
+<p>Redis的常见应用场景：</p>
+<blockquote>
+<p>1）缓存（数据查询，短链接，新闻内容，商品内容）</p>
+<p>2）聊天室的在线好友列表</p>
+<p>3）任务队列</p>
+<p>4）应用排行榜</p>
+<p>5）网站访问统计</p>
+<p>6）数据过期处理</p>
+<p>7）分布式集群架构session分离</p>
+</blockquote>
+<h3 id="二、安装与启动"><a href="#二、安装与启动" class="headerlink" title="二、安装与启动"></a>二、安装与启动</h3><h5 id="安装Redis"><a href="#安装Redis" class="headerlink" title="安装Redis"></a>安装Redis</h5><p>只需在redis官网下载压缩包，并解压即可直接使用。</p>
+<p><em>本文以redis 3.2.100为例</em></p>
+<h5 id="启动Redis"><a href="#启动Redis" class="headerlink" title="启动Redis"></a>启动Redis</h5><p>1）点击redis-server.exe，打开redis服务器</p>
+<p>2）点击redis-cli.exe，打开redis客户端</p>
+<h3 id="三、命令行操作"><a href="#三、命令行操作" class="headerlink" title="三、命令行操作"></a>三、命令行操作</h3><p>Redis的使用其实很方便，对应数据类型的操作名输入正确后，会自动提示操作所需的参数</p>
+<h5 id="1-字符串类型-string"><a href="#1-字符串类型-string" class="headerlink" title="1.字符串类型 string"></a>1.字符串类型 string</h5><blockquote>
+<ul>
+<li>存储：set key value</li>
+<li>获取:  get key </li>
+<li>删除：del key </li>
+</ul>
+</blockquote>
+<h5 id="2-哈希类型-hash"><a href="#2-哈希类型-hash" class="headerlink" title="2.哈希类型 hash"></a>2.哈希类型 hash</h5><p>hash类型其实就是指map类型</p>
+<blockquote>
+<ul>
+<li><p>存储： hset key field value</p>
+</li>
+<li><p>获取：hget key field</p>
+<p>​             hgetall key </p>
+</li>
+<li><p>删除：hdel key filed</p>
+</li>
+</ul>
+</blockquote>
+<h5 id="3-列表类型-list"><a href="#3-列表类型-list" class="headerlink" title="3.列表类型 list"></a>3.列表类型 list</h5><p>list比较像双端栈</p>
+<blockquote>
+<ul>
+<li><p>存储：lpush list value – 将元素从左边加入表</p>
+<p>​            rpush list value – 将元素从右边加入表</p>
+</li>
+<li><p>获取：lrange key start end –获取list中从start到end范围的元素</p>
+</li>
+<li><p>删除：lpop list – 删除最左边的元素，并返回</p>
+<p>​             rpop list – 删除最右边的元素，并返回</p>
+</li>
+</ul>
+</blockquote>
+<h5 id="4-集合类型-set"><a href="#4-集合类型-set" class="headerlink" title="4.集合类型 set"></a>4.集合类型 set</h5><blockquote>
+<ul>
+<li>存储： sadd set value</li>
+<li>获取：smembers set – 获取set集合中所有元素</li>
+<li>删除：srem set value – 删除set集合中某个元素</li>
+</ul>
+</blockquote>
+<h5 id="5-有序集合类型-sortedset"><a href="#5-有序集合类型-sortedset" class="headerlink" title="5.有序集合类型 sortedset"></a>5.有序集合类型 sortedset</h5><p>sortedset 需要我们给每个元素安排一个score，并会根据score的大小排列元素的顺序</p>
+<p>score的范围:0 ~2^32-1</p>
+<blockquote>
+<ul>
+<li><p>存储： zadd sset score value – 根据score的大小顺序存储值</p>
+</li>
+<li><p>获取： zrange sset start end </p>
+<p>​              zrange sset start end withscores –显示列表的同时，显示每个元素的score</p>
+</li>
+<li><p>删除：zren sset value</p>
+</li>
+</ul>
+</blockquote>
+<h5 id="6-通用小命令"><a href="#6-通用小命令" class="headerlink" title="6.通用小命令"></a>6.通用小命令</h5><blockquote>
+<p>1.keys * : 查询所有键</p>
+<p>2.type key : 获取键对应的value值</p>
+<p>3.del key: 删除指定的key value</p>
+</blockquote>
+<h3 id="四、持久化"><a href="#四、持久化" class="headerlink" title="四、持久化"></a>四、持久化</h3><p>Redis是一个内存数据库，只有通过持久化操作，才能将数据保存到硬盘中，实现永久保存</p>
+<h6 id="1-RDB-默认方式"><a href="#1-RDB-默认方式" class="headerlink" title="1.RDB:默认方式"></a>1.RDB:默认方式</h6><p>RDB方式会在一定的间隔时间中，检测key的变化情况，然后持久化数据</p>
+<blockquote>
+<p>1.打开redsi.windows.conf文件，找到以下三条配置信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;save 900 1</span><br><span class="line">&gt;save 300 10</span><br><span class="line">&gt;save 60 100000</span><br></pre></td></tr></table></figure>
+
+<p>这三句配置的含义如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;若至少1个键更改，则在900秒后持久化</span><br><span class="line">&gt;若至少10个键更改，则在300秒后持久化</span><br><span class="line">&gt;若至少10000个键更改，则在60秒后持久化</span><br></pre></td></tr></table></figure>
+
+<p>可自行修改数据，如将</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;save 60 10000</span><br></pre></td></tr></table></figure>
+
+<p>改成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;save 5 10</span><br></pre></td></tr></table></figure>
+
+<p>然后进行测试</p>
+<p>2.重启Redis服务器，并指定配置文件名称</p>
+<p>在命令行中进入Redis目录，并输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;redis-server.exe redis.windows.conf</span><br></pre></td></tr></table></figure>
+
+<p>3.打开Redis客户端，进行存储操作。</p>
+<p>进行五次存储操作，在10秒后，这些数据会被持久化到一个dump.rdb的文件中。</p>
+<p>4.重启Redis服务器与客户端，进行获取操作</p>
+<p>若获取成功表示持久化操作成功</p>
+</blockquote>
+<h5 id="2-AOF-日志记录方式，每次操作后，进行持久化"><a href="#2-AOF-日志记录方式，每次操作后，进行持久化" class="headerlink" title="2.AOF:日志记录方式，每次操作后，进行持久化"></a>2.AOF:日志记录方式，每次操作后，进行持久化</h5><blockquote>
+<p>1.编辑redis.windows.conf文件</p>
+<p>将    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;appendonly no </span><br></pre></td></tr></table></figure>
+
+<p>改成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;appendonly yes</span><br><span class="line">&gt;# 表示开启</span><br></pre></td></tr></table></figure>
+
+<p>2.重新打开Redis服务器</p>
+<p>3.打开Redsi客户端，并进行操作。</p>
+<p>由于进行了持久化配置，Redis会将数据持久化到一个appendonly.aof的文件中</p>
+<p>4.重新打开Redis服务器与客户端，获取之前存储的值</p>
+<p>若获取成功，说明持久化操作成功</p>
+</blockquote>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2020 John Doe<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
