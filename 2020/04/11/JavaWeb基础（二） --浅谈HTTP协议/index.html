@@ -13,12 +13,10 @@
     
 
     
-        <meta name="description" content="JavaWeb基础（二） --浅谈HTTP协议
-一、概述
-1.HTTP是超文本传输协议（Hyper Text Transfer Protocol）,基于客户端/服务器模式，通常运行在TCP协议之上，指定了客户端可能给服务器发送的请求消息格式与从服务器端接收到的响应消息格式
+        <meta name="description" content="JavaWeb基础（二） –浅谈HTTP协议一、概述1.HTTP是超文本传输协议（Hyper Text Transfer Protocol）,基于客户端/服务器模式，通常运行在TCP协议之上，指定了客户端可能给服务器发送的请求消息格式与从服务器端接收到的响应消息格式
 2.特点：
 
-基于TCP/"/>
+基于TCP/IP高"/>
     
 
     <!--Author-->
@@ -33,12 +31,10 @@
 
     <!--Open Graph Description-->
     
-        <meta property="og:description" content="JavaWeb基础（二） --浅谈HTTP协议
-一、概述
-1.HTTP是超文本传输协议（Hyper Text Transfer Protocol）,基于客户端/服务器模式，通常运行在TCP协议之上，指定了客户端可能给服务器发送的请求消息格式与从服务器端接收到的响应消息格式
+        <meta property="og:description" content="JavaWeb基础（二） –浅谈HTTP协议一、概述1.HTTP是超文本传输协议（Hyper Text Transfer Protocol）,基于客户端/服务器模式，通常运行在TCP协议之上，指定了客户端可能给服务器发送的请求消息格式与从服务器端接收到的响应消息格式
 2.特点：
 
-基于TCP/"/>
+基于TCP/IP高"/>
     
 
     <!--Open Graph Site Name-->
@@ -203,9 +199,7 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h2>JavaWeb基础（二） --浅谈HTTP协议</h2>
-<h3>一、概述</h3>
-<p>1.HTTP是超文本传输协议（Hyper Text Transfer Protocol）,基于客户端/服务器模式，通常运行在TCP协议之上，指定了客户端可能给服务器发送的<strong>请求消息格式</strong>与从服务器端接收到的<strong>响应消息格式</strong></p>
+                <h2 id="JavaWeb基础（二）-–浅谈HTTP协议"><a href="#JavaWeb基础（二）-–浅谈HTTP协议" class="headerlink" title="JavaWeb基础（二） –浅谈HTTP协议"></a>JavaWeb基础（二） –浅谈HTTP协议</h2><h3 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h3><p>1.HTTP是超文本传输协议（Hyper Text Transfer Protocol）,基于客户端/服务器模式，通常运行在TCP协议之上，指定了客户端可能给服务器发送的<strong>请求消息格式</strong>与从服务器端接收到的<strong>响应消息格式</strong></p>
 <p>2.特点：</p>
 <ul>
 <li>基于TCP/IP高级协议</li>
@@ -219,13 +213,13 @@
 <li>1.1连接可复用</li>
 </ul>
 <p>4.工作流程：</p>
-<p>​	1）客户端与服务器建立连接</p>
-<p>​	2）客户端向服务器发送请求</p>
-<p>​	3）服务器向客户端返回响应</p>
-<p>​	4）客户端与服务器关闭连接</p>
-<h3>二、请求消息数据格式</h3>
-<p><em>示例（请求行+请求头）：</em></p>
-<p><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GET</span> <span class="string">/account/1</span> HTTP/1.1</span><br><span class="line"><span class="attribute">Host</span>: localhost:8080</span><br><span class="line"><span class="attribute">Connection</span>: keep-alive</span><br><span class="line"><span class="attribute">Accept</span>: application/json, text/javascript, */*; q=0.01</span><br><span class="line"><span class="attribute">Sec-Fetch-Dest</span>: empty</span><br><span class="line"><span class="attribute">X-Requested-With</span>: XMLHttpRequest</span><br><span class="line"><span class="attribute">User-Agent</span>: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36</span><br><span class="line"><span class="attribute">Sec-Fetch-Site</span>: same-origin</span><br><span class="line"><span class="attribute">Sec-Fetch-Mode</span>: cors</span><br><span class="line"><span class="attribute">Referer</span>: http://localhost:8080/</span><br><span class="line"><span class="attribute">Accept-Encoding</span>: gzip, deflate, br</span><br><span class="line"><span class="attribute">Accept-Language</span>: zh-CN,zh;q=0.9</span><br><span class="line"><span class="attribute">Cookie</span>: Idea-43a43cdb=b61fe043-32cd-4285-a7ca-ee6d7dc5b478; JSESSIONID=3B5EDF7D0AFFFCE19CD524B2BF10E087</span><br></pre></td></tr></table></figure></p>
+<p>​    1）客户端与服务器建立连接</p>
+<p>​    2）客户端向服务器发送请求</p>
+<p>​    3）服务器向客户端返回响应</p>
+<p>​    4）客户端与服务器关闭连接</p>
+<h3 id="二、请求消息数据格式"><a href="#二、请求消息数据格式" class="headerlink" title="二、请求消息数据格式"></a>二、请求消息数据格式</h3><p><em>示例（请求行+请求头）：</em></p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GET</span> <span class="string">/account/1</span> HTTP/1.1</span><br><span class="line"><span class="attribute">Host</span>: localhost:8080</span><br><span class="line"><span class="attribute">Connection</span>: keep-alive</span><br><span class="line"><span class="attribute">Accept</span>: application/json, text/javascript, */*; q=0.01</span><br><span class="line"><span class="attribute">Sec-Fetch-Dest</span>: empty</span><br><span class="line"><span class="attribute">X-Requested-With</span>: XMLHttpRequest</span><br><span class="line"><span class="attribute">User-Agent</span>: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36</span><br><span class="line"><span class="attribute">Sec-Fetch-Site</span>: same-origin</span><br><span class="line"><span class="attribute">Sec-Fetch-Mode</span>: cors</span><br><span class="line"><span class="attribute">Referer</span>: http://localhost:8080/</span><br><span class="line"><span class="attribute">Accept-Encoding</span>: gzip, deflate, br</span><br><span class="line"><span class="attribute">Accept-Language</span>: zh-CN,zh;q=0.9</span><br><span class="line"><span class="attribute">Cookie</span>: Idea-43a43cdb=b61fe043-32cd-4285-a7ca-ee6d7dc5b478; JSESSIONID=3B5EDF7D0AFFFCE19CD524B2BF10E087</span><br></pre></td></tr></table></figure>
+
 <p>1.请求行</p>
 <blockquote>
 <p>请求方式  请求url  请求协议/版本</p>
@@ -233,14 +227,18 @@
 <blockquote>
 <p>请求方式：HTTP协议有7种请求方式，常用的由两种</p>
 <ul>
-<li>GET：</li>
+<li>GET：<ul>
 <li>请求参数在请求行中，在url后</li>
 <li>请求的url长度有限制</li>
 <li>不安全</li>
-<li>POST：</li>
+</ul>
+</li>
+<li>POST：<ul>
 <li>请求参数在请求体中</li>
 <li>请求的url长度无限制</li>
 <li>安全</li>
+</ul>
+</li>
 </ul>
 </blockquote>
 <p>2.请求头</p>
@@ -250,22 +248,15 @@
 <blockquote>
 <p>常见请求头：</p>
 <ul>
-<li>
-<p>&lt;font color=&quot;red&quot;&gt;User-Agent:&lt;/font&gt;浏览器的版本信息</p>
+<li><p><font color="red">User-Agent:</font>浏览器的版本信息</p>
 </li>
-<li>
-<p>Accept：浏览器支持解析的数据格式</p>
+<li><p>Accept：浏览器支持解析的数据格式</p>
 </li>
-<li>
-<p>Accept-Language：浏览器支持的语言</p>
+<li><p>Accept-Language：浏览器支持的语言</p>
 </li>
-<li>
-<p>Accpet-Encoding:浏览器支持的压缩格式</p>
+<li><p>Accpet-Encoding:浏览器支持的压缩格式</p>
 </li>
-<li>
-<p>&lt;font color=&quot;red&quot;&gt;Referer：&lt;/font&gt;本次发起本次请求的源地址</p>
-</li>
-</ul>
+<li><p><font color="red">Referer：</font>本次发起本次请求的源地址</p>
 <blockquote>
 <p>Referer作用：</p>
 <ul>
@@ -273,6 +264,8 @@
 <li>统计工作</li>
 </ul>
 </blockquote>
+</li>
+</ul>
 </blockquote>
 <p>3.请求空行</p>
 <blockquote>
@@ -282,9 +275,9 @@
 <blockquote>
 <p>变量名 = 变量值(key = value形式)</p>
 </blockquote>
-<h3>三、响应消息数据格式</h3>
-<p>示例(响应行+响应头)</p>
-<p><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 <span class="number">200</span> OK</span><br><span class="line"><span class="attribute">Bdpagetype</span>: 1</span><br><span class="line"><span class="attribute">Bdqid</span>: 0x8c1fd4b80004c846</span><br><span class="line"><span class="attribute">Cache-Control</span>: private</span><br><span class="line"><span class="attribute">Connection</span>: keep-alive</span><br><span class="line"><span class="attribute">Content-Encoding</span>: gzip</span><br><span class="line"><span class="attribute">Content-Type</span>: text/html;charset=utf-8</span><br><span class="line"><span class="attribute">Date</span>: Sat, 11 Apr 2020 01:52:17 GMT</span><br><span class="line"><span class="attribute">Expires</span>: Sat, 11 Apr 2020 01:51:57 GMT</span><br><span class="line"><span class="attribute">Server</span>: BWS/1.1</span><br><span class="line"><span class="attribute">Set-Cookie</span>: BDSVRTM=0; path=/</span><br><span class="line"><span class="attribute">Set-Cookie</span>: BD_HOME=1; path=/</span><br><span class="line"><span class="attribute">Set-Cookie</span>: H_PS_PSSID=1463_31170_21093_31187_31271_31229_30823_26350_31163_22157; path=/; domain=.baidu.com</span><br><span class="line"><span class="attribute">Strict-Transport-Security</span>: max-age=172800</span><br><span class="line"><span class="attribute">Traceid</span>: 1586569937060619521010097022776327325766</span><br><span class="line"><span class="attribute">X-Ua-Compatible</span>: IE=Edge,chrome=1</span><br><span class="line"><span class="attribute">Transfer-Encoding</span>: chunked</span><br></pre></td></tr></table></figure></p>
+<h3 id="三、响应消息数据格式"><a href="#三、响应消息数据格式" class="headerlink" title="三、响应消息数据格式"></a>三、响应消息数据格式</h3><p>示例(响应行+响应头)</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 <span class="number">200</span> OK</span><br><span class="line"><span class="attribute">Bdpagetype</span>: 1</span><br><span class="line"><span class="attribute">Bdqid</span>: 0x8c1fd4b80004c846</span><br><span class="line"><span class="attribute">Cache-Control</span>: private</span><br><span class="line"><span class="attribute">Connection</span>: keep-alive</span><br><span class="line"><span class="attribute">Content-Encoding</span>: gzip</span><br><span class="line"><span class="attribute">Content-Type</span>: text/html;charset=utf-8</span><br><span class="line"><span class="attribute">Date</span>: Sat, 11 Apr 2020 01:52:17 GMT</span><br><span class="line"><span class="attribute">Expires</span>: Sat, 11 Apr 2020 01:51:57 GMT</span><br><span class="line"><span class="attribute">Server</span>: BWS/1.1</span><br><span class="line"><span class="attribute">Set-Cookie</span>: BDSVRTM=0; path=/</span><br><span class="line"><span class="attribute">Set-Cookie</span>: BD_HOME=1; path=/</span><br><span class="line"><span class="attribute">Set-Cookie</span>: H_PS_PSSID=1463_31170_21093_31187_31271_31229_30823_26350_31163_22157; path=/; domain=.baidu.com</span><br><span class="line"><span class="attribute">Strict-Transport-Security</span>: max-age=172800</span><br><span class="line"><span class="attribute">Traceid</span>: 1586569937060619521010097022776327325766</span><br><span class="line"><span class="attribute">X-Ua-Compatible</span>: IE=Edge,chrome=1</span><br><span class="line"><span class="attribute">Transfer-Encoding</span>: chunked</span><br></pre></td></tr></table></figure>
+
 <p>1.响应行</p>
 <blockquote>
 <p>协议/版本  响应状态码  状态码描述</p>
@@ -293,16 +286,24 @@
 <p>响应状态码：</p>
 <ul>
 <li>1xx:服务器接受客户端消息，但没有接受完成，等待一段时间后，发送1xx状态码</li>
-<li>2xx：成功。</li>
+<li>2xx：成功。<ul>
 <li>200（成功）</li>
-<li>3xx：重定向。</li>
+</ul>
+</li>
+<li>3xx：重定向。<ul>
 <li>302（重定向）</li>
 <li>304（访问缓存，即原来的缓存文件未经修改，可以直接访问）</li>
-<li>4xx：客户端错误</li>
+</ul>
+</li>
+<li>4xx：客户端错误<ul>
 <li>404（找不到被请求的路径）</li>
 <li>405（请求方法不被允许）</li>
-<li>5xx：服务器端错误</li>
+</ul>
+</li>
+<li>5xx：服务器端错误<ul>
 <li>500（服务器内部出现异常）</li>
+</ul>
+</li>
 </ul>
 </blockquote>
 <p>2.响应头</p>
@@ -313,9 +314,11 @@
 <p>常见响应头：</p>
 <ul>
 <li>Content-Type:本次响应数据格式及编码格式</li>
-<li>Content-diposition：打开响应体数据的方式</li>
+<li>Content-diposition：打开响应体数据的方式<ul>
 <li>in-line（在当前页面展示），默认值</li>
 <li>attachment;filename= xxx(以附件形式打开响应体)，文件下载</li>
+</ul>
+</li>
 </ul>
 </blockquote>
 <p>3.响应空行</p>
