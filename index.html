@@ -172,10 +172,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-05-01 09:35:50 / 修改时间：09:32:17" itemprop="dateCreated datePublished" datetime="2020-05-01T09:35:50+08:00">2020-05-01</time>
+              <time title="创建时间：2020-05-01 09:35:50" itemprop="dateCreated datePublished" datetime="2020-05-01T09:35:50+08:00">2020-05-01</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-30 15:19:46" itemprop="dateModified" datetime="2020-05-30T15:19:46+08:00">2020-05-30</time>
+              </span>
 
           
 
@@ -188,16 +194,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>SpringBoot@Componet注解注入失败</h2>
-<p>1.问题描述：</p>
-<p>​		在springboot程序编写中，明明给Person类加了@Component注解，容器却显示找不到Person类的Bean对象。</p>
-<p>​		网上找了很多种常规解法，发现都无效，后来才意识到，可能是包扫描的问题，由于当时我的主程序是放在一个与主程序同名的文件夹下，根据默认包扫描规则--扫描主程序所在包及其所有子包中的类，那么方在domain包下的Person类自然不会被扫描到，所以@Component虽然标注了，但却不会生效。</p>
-<p><img src="/.com//E:%5C%E5%A4%A7%E5%AD%A6%E8%B5%84%E6%96%99%5C%E6%97%A5%E5%B8%B8%E6%80%BB%E7%BB%93%5C%E6%88%AA%E5%9B%BE%5C3.png" alt></p>
-<p>2.解决方法：</p>
-<p>​		在主程序上添加Componet注解</p>
-<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ComponentScan</span>(<span class="string">"com.example"</span>)</span><br></pre></td></tr></table></figure></p>
-<p>​		让springboot成功扫描example下的所有包，则水到渠成，问题解决</p>
-
+          <h2 id="SpringBoot-Componet注解注入失败"><a href="#SpringBoot-Componet注解注入失败" class="headerlink" title="SpringBoot@Componet注解注入失败"></a>SpringBoot@Componet注解注入失败</h2><p>1.问题描述：</p>
+<p>​        在springboot程序编写中，明明给Person类加了@Component注解，容器却显示找不到Person类的Bean对象。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/01/SpringBoot@Componet%E6%B3%A8%E8%A7%A3%E6%B3%A8%E5%85%A5%E5%A4%B1%E8%B4%A5/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -239,10 +245,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-04-17 19:36:17 / 修改时间：19:31:55" itemprop="dateCreated datePublished" datetime="2020-04-17T19:36:17+08:00">2020-04-17</time>
+              <time title="创建时间：2020-04-17 19:36:17" itemprop="dateCreated datePublished" datetime="2020-04-17T19:36:17+08:00">2020-04-17</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-30 15:16:59" itemprop="dateModified" datetime="2020-05-30T15:16:59+08:00">2020-05-30</time>
+              </span>
 
           
 
@@ -255,150 +267,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>JavaWeb基础（六） Redis超简单入门</h2>
-<h3>一、概述</h3>
-<p>Redis是C语言开发的高性能NOSQL开源数据库。</p>
+          <h2 id="JavaWeb基础（六）-Redis超简单入门"><a href="#JavaWeb基础（六）-Redis超简单入门" class="headerlink" title="JavaWeb基础（六） Redis超简单入门"></a>JavaWeb基础（六） Redis超简单入门</h2><h3 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h3><p>Redis是C语言开发的高性能NOSQL开源数据库。</p>
 <blockquote>
 <p>NOSQL = Not Only SQL（即不仅仅是SQL），是一种全新的数据库理念，泛指非关系型数据库</p>
 <p>NOSQL数据库通过key，value的格式将数据存在内存当中，查询速度快，扩展性强</p>
 </blockquote>
-<p>Redis具有高性能的特点，官方测试数据显示，Redis可支持50个并发执行100000个请求，读的速度为110000次/秒，写的速度是81000次/秒</p>
-<p>Redis通过多种键值数据类型来适应不同场景下的存储需求</p>
-<blockquote>
-<p>Redis支持的数据类型：</p>
-<p>1）字符串类型  string</p>
-<p>2）哈希类型 hash</p>
-<p>3）列表类型 list</p>
-<p>4）集合类型set</p>
-<p>5） 有序集合类型sortedset</p>
-</blockquote>
-<p>Redis的常见应用场景：</p>
-<blockquote>
-<p>1）缓存（数据查询，短链接，新闻内容，商品内容）</p>
-<p>2）聊天室的在线好友列表</p>
-<p>3）任务队列</p>
-<p>4）应用排行榜</p>
-<p>5）网站访问统计</p>
-<p>6）数据过期处理</p>
-<p>7）分布式集群架构session分离</p>
-</blockquote>
-<h3>二、安装与启动</h3>
-<h5>安装Redis</h5>
-<p>只需在redis官网下载压缩包，并解压即可直接使用。</p>
-<p><em>本文以redis 3.2.100为例</em></p>
-<h5>启动Redis</h5>
-<p>1）点击redis-server.exe，打开redis服务器</p>
-<p>2）点击redis-cli.exe，打开redis客户端</p>
-<h3>三、命令行操作</h3>
-<p>Redis的使用其实很方便，对应数据类型的操作名输入正确后，会自动提示操作所需的参数</p>
-<h5>1.字符串类型 string</h5>
-<blockquote>
-<ul>
-<li>存储：set key value</li>
-<li>获取:  get key</li>
-<li>删除：del key</li>
-</ul>
-</blockquote>
-<h5>2.哈希类型 hash</h5>
-<p>hash类型其实就是指map类型</p>
-<blockquote>
-<ul>
-<li>
-<p>存储： hset key field value</p>
-</li>
-<li>
-<p>获取：hget key field</p>
-</li>
-</ul>
-<p>​	         hgetall key</p>
-<ul>
-<li>删除：hdel key filed</li>
-</ul>
-</blockquote>
-<h5>3.列表类型 list</h5>
-<p>list比较像双端栈</p>
-<blockquote>
-<ul>
-<li>存储：lpush list value -- 将元素从左边加入表</li>
-</ul>
-<p>​			rpush list value -- 将元素从右边加入表</p>
-<ul>
-<li>
-<p>获取：lrange key start end --获取list中从start到end范围的元素</p>
-</li>
-<li>
-<p>删除：lpop list -- 删除最左边的元素，并返回</p>
-</li>
-</ul>
-<p>​       	  rpop list -- 删除最右边的元素，并返回</p>
-</blockquote>
-<h5>4.集合类型 set</h5>
-<blockquote>
-<ul>
-<li>存储： sadd set value</li>
-<li>获取：smembers set -- 获取set集合中所有元素</li>
-<li>删除：srem set value -- 删除set集合中某个元素</li>
-</ul>
-</blockquote>
-<h5>5.有序集合类型 sortedset</h5>
-<p>sortedset 需要我们给每个元素安排一个score，并会根据score的大小排列元素的顺序</p>
-<p>score的范围:0 ~2^32-1</p>
-<blockquote>
-<ul>
-<li>
-<p>存储： zadd sset score value -- 根据score的大小顺序存储值</p>
-</li>
-<li>
-<p>获取： zrange sset start end</p>
-</li>
-</ul>
-<p>​              zrange sset start end withscores --显示列表的同时，显示每个元素的score</p>
-<ul>
-<li>删除：zren sset value</li>
-</ul>
-</blockquote>
-<h5>6.通用小命令</h5>
-<blockquote>
-<p>1.keys * : 查询所有键</p>
-<p>2.type key : 获取键对应的value值</p>
-<p>3.del key: 删除指定的key value</p>
-</blockquote>
-<h3>四、持久化</h3>
-<p>Redis是一个内存数据库，只有通过持久化操作，才能将数据保存到硬盘中，实现永久保存</p>
-<h6>1.RDB:默认方式</h6>
-<p>RDB方式会在一定的间隔时间中，检测key的变化情况，然后持久化数据</p>
-<blockquote>
-<p>1.打开redsi.windows.conf文件，找到以下三条配置信息：</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;save 900 1</span><br><span class="line">&gt;save 300 10</span><br><span class="line">&gt;save 60 100000</span><br></pre></td></tr></table></figure></p>
-<p>这三句配置的含义如下：</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;若至少1个键更改，则在900秒后持久化</span><br><span class="line">&gt;若至少10个键更改，则在300秒后持久化</span><br><span class="line">&gt;若至少10000个键更改，则在60秒后持久化</span><br></pre></td></tr></table></figure></p>
-<p>可自行修改数据，如将</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;save 60 10000</span><br></pre></td></tr></table></figure></p>
-<p>改成</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;save 5 10</span><br></pre></td></tr></table></figure></p>
-<p>然后进行测试</p>
-<p>2.重启Redis服务器，并指定配置文件名称</p>
-<p>在命令行中进入Redis目录，并输入</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;redis-server.exe redis.windows.conf</span><br></pre></td></tr></table></figure></p>
-<p>3.打开Redis客户端，进行存储操作。</p>
-<p>进行五次存储操作，在10秒后，这些数据会被持久化到一个dump.rdb的文件中。</p>
-<p>4.重启Redis服务器与客户端，进行获取操作</p>
-<p>若获取成功表示持久化操作成功</p>
-</blockquote>
-<h5>2.AOF:日志记录方式，每次操作后，进行持久化</h5>
-<blockquote>
-<p>1.编辑redis.windows.conf文件</p>
-<p>将</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;appendonly no </span><br></pre></td></tr></table></figure></p>
-<p>改成</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;appendonly yes</span><br><span class="line">&gt;# 表示开启</span><br></pre></td></tr></table></figure></p>
-<p>2.重新打开Redis服务器</p>
-<p>3.打开Redsi客户端，并进行操作。</p>
-<p>由于进行了持久化配置，Redis会将数据持久化到一个appendonly.aof的文件中</p>
-<p>4.重新打开Redis服务器与客户端，获取之前存储的值</p>
-<p>若获取成功，说明持久化操作成功</p>
-</blockquote>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/04/17/JavaWeb%E5%9F%BA%E7%A1%80%EF%BC%88%E5%85%AD%EF%BC%89%20--Redis%E8%B6%85%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -448,7 +329,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-12 19:56:17" itemprop="dateModified" datetime="2020-04-12T19:56:17+08:00">2020-04-12</time>
+                <time title="修改时间：2020-05-30 15:16:15" itemprop="dateModified" datetime="2020-05-30T15:16:15+08:00">2020-05-30</time>
               </span>
 
           
@@ -462,130 +343,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>JavaWeb基础（二） --浅谈HTTP协议</h2>
-<h3>一、概述</h3>
-<p>1.HTTP是超文本传输协议（Hyper Text Transfer Protocol）,基于客户端/服务器模式，通常运行在TCP协议之上，指定了客户端可能给服务器发送的<strong>请求消息格式</strong>与从服务器端接收到的<strong>响应消息格式</strong></p>
-<p>2.特点：</p>
-<ul>
-<li>基于TCP/IP高级协议</li>
-<li>默认端口号：80</li>
-<li>基于请求/响应模型：请求与响应一一对应</li>
-<li>无状态：每次请求之间互相独立，不能交互数据</li>
-</ul>
-<p>3.历史版本：</p>
-<ul>
-<li>1.0每次请求响应都会建立新的连接</li>
-<li>1.1连接可复用</li>
-</ul>
-<p>4.工作流程：</p>
-<p>​	1）客户端与服务器建立连接</p>
-<p>​	2）客户端向服务器发送请求</p>
-<p>​	3）服务器向客户端返回响应</p>
-<p>​	4）客户端与服务器关闭连接</p>
-<h3>二、请求消息数据格式</h3>
-<p><em>示例（请求行+请求头）：</em></p>
-<p><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GET</span> <span class="string">/account/1</span> HTTP/1.1</span><br><span class="line"><span class="attribute">Host</span>: localhost:8080</span><br><span class="line"><span class="attribute">Connection</span>: keep-alive</span><br><span class="line"><span class="attribute">Accept</span>: application/json, text/javascript, */*; q=0.01</span><br><span class="line"><span class="attribute">Sec-Fetch-Dest</span>: empty</span><br><span class="line"><span class="attribute">X-Requested-With</span>: XMLHttpRequest</span><br><span class="line"><span class="attribute">User-Agent</span>: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36</span><br><span class="line"><span class="attribute">Sec-Fetch-Site</span>: same-origin</span><br><span class="line"><span class="attribute">Sec-Fetch-Mode</span>: cors</span><br><span class="line"><span class="attribute">Referer</span>: http://localhost:8080/</span><br><span class="line"><span class="attribute">Accept-Encoding</span>: gzip, deflate, br</span><br><span class="line"><span class="attribute">Accept-Language</span>: zh-CN,zh;q=0.9</span><br><span class="line"><span class="attribute">Cookie</span>: Idea-43a43cdb=b61fe043-32cd-4285-a7ca-ee6d7dc5b478; JSESSIONID=3B5EDF7D0AFFFCE19CD524B2BF10E087</span><br></pre></td></tr></table></figure></p>
-<p>1.请求行</p>
-<blockquote>
-<p>请求方式  请求url  请求协议/版本</p>
-</blockquote>
-<blockquote>
-<p>请求方式：HTTP协议有7种请求方式，常用的由两种</p>
-<ul>
-<li>GET：</li>
-<li>请求参数在请求行中，在url后</li>
-<li>请求的url长度有限制</li>
-<li>不安全</li>
-<li>POST：</li>
-<li>请求参数在请求体中</li>
-<li>请求的url长度无限制</li>
-<li>安全</li>
-</ul>
-</blockquote>
-<p>2.请求头</p>
-<blockquote>
-<p>请求头名称：请求头值 （即key：value模式）</p>
-</blockquote>
-<blockquote>
-<p>常见请求头：</p>
-<ul>
-<li>
-<p>&lt;font color=&quot;red&quot;&gt;User-Agent:&lt;/font&gt;浏览器的版本信息</p>
-</li>
-<li>
-<p>Accept：浏览器支持解析的数据格式</p>
-</li>
-<li>
-<p>Accept-Language：浏览器支持的语言</p>
-</li>
-<li>
-<p>Accpet-Encoding:浏览器支持的压缩格式</p>
-</li>
-<li>
-<p>&lt;font color=&quot;red&quot;&gt;Referer：&lt;/font&gt;本次发起本次请求的源地址</p>
-</li>
-</ul>
-<blockquote>
-<p>Referer作用：</p>
-<ul>
-<li>防盗链</li>
-<li>统计工作</li>
-</ul>
-</blockquote>
-</blockquote>
-<p>3.请求空行</p>
-<blockquote>
-<p>一个空行，用于分隔请求头域请求体，十分重要！</p>
-</blockquote>
-<p>4.请求体（正文）</p>
-<blockquote>
-<p>变量名 = 变量值(key = value形式)</p>
-</blockquote>
-<h3>三、响应消息数据格式</h3>
-<p>示例(响应行+响应头)</p>
-<p><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 <span class="number">200</span> OK</span><br><span class="line"><span class="attribute">Bdpagetype</span>: 1</span><br><span class="line"><span class="attribute">Bdqid</span>: 0x8c1fd4b80004c846</span><br><span class="line"><span class="attribute">Cache-Control</span>: private</span><br><span class="line"><span class="attribute">Connection</span>: keep-alive</span><br><span class="line"><span class="attribute">Content-Encoding</span>: gzip</span><br><span class="line"><span class="attribute">Content-Type</span>: text/html;charset=utf-8</span><br><span class="line"><span class="attribute">Date</span>: Sat, 11 Apr 2020 01:52:17 GMT</span><br><span class="line"><span class="attribute">Expires</span>: Sat, 11 Apr 2020 01:51:57 GMT</span><br><span class="line"><span class="attribute">Server</span>: BWS/1.1</span><br><span class="line"><span class="attribute">Set-Cookie</span>: BDSVRTM=0; path=/</span><br><span class="line"><span class="attribute">Set-Cookie</span>: BD_HOME=1; path=/</span><br><span class="line"><span class="attribute">Set-Cookie</span>: H_PS_PSSID=1463_31170_21093_31187_31271_31229_30823_26350_31163_22157; path=/; domain=.baidu.com</span><br><span class="line"><span class="attribute">Strict-Transport-Security</span>: max-age=172800</span><br><span class="line"><span class="attribute">Traceid</span>: 1586569937060619521010097022776327325766</span><br><span class="line"><span class="attribute">X-Ua-Compatible</span>: IE=Edge,chrome=1</span><br><span class="line"><span class="attribute">Transfer-Encoding</span>: chunked</span><br></pre></td></tr></table></figure></p>
-<p>1.响应行</p>
-<blockquote>
-<p>协议/版本  响应状态码  状态码描述</p>
-</blockquote>
-<blockquote>
-<p>响应状态码：</p>
-<ul>
-<li>1xx:服务器接受客户端消息，但没有接受完成，等待一段时间后，发送1xx状态码</li>
-<li>2xx：成功。</li>
-<li>200（成功）</li>
-<li>3xx：重定向。</li>
-<li>302（重定向）</li>
-<li>304（访问缓存，即原来的缓存文件未经修改，可以直接访问）</li>
-<li>4xx：客户端错误</li>
-<li>404（找不到被请求的路径）</li>
-<li>405（请求方法不被允许）</li>
-<li>5xx：服务器端错误</li>
-<li>500（服务器内部出现异常）</li>
-</ul>
-</blockquote>
-<p>2.响应头</p>
-<blockquote>
-<p>头名称：值(key:value形式)</p>
-</blockquote>
-<blockquote>
-<p>常见响应头：</p>
-<ul>
-<li>Content-Type:本次响应数据格式及编码格式</li>
-<li>Content-diposition：打开响应体数据的方式</li>
-<li>in-line（在当前页面展示），默认值</li>
-<li>attachment;filename= xxx(以附件形式打开响应体)，文件下载</li>
-</ul>
-</blockquote>
-<p>3.响应空行</p>
-<blockquote>
-<p>空行，分隔响应头与响应体，十分重要！</p>
-</blockquote>
-<p>4.响应体</p>
-<blockquote>
-<p>客户端返回的数据</p>
-</blockquote>
-
+          <h2 id="JavaWeb基础（二）-–浅谈HTTP协议"><a href="#JavaWeb基础（二）-–浅谈HTTP协议" class="headerlink" title="JavaWeb基础（二） –浅谈HTTP协议"></a>JavaWeb基础（二） –浅谈HTTP协议</h2><h3 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h3><p>1.HTTP是超文本传输协议（Hyper Text Transfer Protocol）,基于客户端/服务器模式，通常运行在TCP协议之上，指定了客户端可能给服务器发送的<strong>请求消息格式</strong>与从服务器端接收到的<strong>响应消息格式</strong></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/04/11/JavaWeb%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%20--%E6%B5%85%E8%B0%88HTTP%E5%8D%8F%E8%AE%AE/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -627,10 +393,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-04-10 09:17:28 / 修改时间：09:15:53" itemprop="dateCreated datePublished" datetime="2020-04-10T09:17:28+08:00">2020-04-10</time>
+              <time title="创建时间：2020-04-10 09:17:28" itemprop="dateCreated datePublished" datetime="2020-04-10T09:17:28+08:00">2020-04-10</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-30 15:17:52" itemprop="dateModified" datetime="2020-05-30T15:17:52+08:00">2020-05-30</time>
+              </span>
 
           
 
@@ -643,105 +415,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>JavaWeb基础（一）--关于Tomcat你必须知道的点</h2>
-<h4>1.概述</h4>
-<p>几款流行的web服务器：</p>
+          <h2 id="JavaWeb基础（一）–关于Tomcat你必须知道的点"><a href="#JavaWeb基础（一）–关于Tomcat你必须知道的点" class="headerlink" title="JavaWeb基础（一）–关于Tomcat你必须知道的点"></a>JavaWeb基础（一）–关于Tomcat你必须知道的点</h2><h4 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h4><p>几款流行的web服务器：</p>
 <ul>
-<li>webLogic:  Oracle公司，大型JavaEE服务器，支持所有javaEE规范，收费</li>
-<li>webSphere:  IBM公司，大型JavaEE服务器，支持所有javaEE规范，收费</li>
-<li>JBOSS:  JBOSS公司，大型JavaEE服务器，支持所有javaEE规范，收费</li>
-<li>Tomcat:  Apache基金组织，中小型JavaEE服务器，支持少量javaEE规范，免费</li>
-</ul>
-<h4>2.安装与卸载</h4>
-<p>安装只需下载压缩包并解压即可。</p>
-<p>卸载同样只需删除解压后的文件夹即可。</p>
-<h4>3.Tomcat目录结构</h4>
-<p>其实大多数软件都有类似的结构，掌握了Tomcat的，对日后学习新的技术也大有裨益</p>
-<ul>
-<li>bin：存放可执行文件</li>
-<li>conf：存放配置文件</li>
-<li>lib：存放依赖jar包</li>
-<li>logs：存放日志文件</li>
-<li>temp：存放临时文件</li>
-<li>webapps：存放web项目</li>
-<li>work：存放运行时数据</li>
-</ul>
-<h4>4.启动</h4>
-<p>双击运行bin/start.bat，在浏览器中输入：http://localhost:8080,即可访问tomcat默认项目页面。</p>
-<ul>
-<li>
-<p>在chrome、Firefox等高级浏览器中可省略http:</p>
+<li><p>webLogic:  Oracle公司，大型JavaEE服务器，支持所有javaEE规范，收费</p>
 </li>
-<li>
-<p>localhost = 128.0.0.1</p>
+<li><p>webSphere:  IBM公司，大型JavaEE服务器，支持所有javaEE规范，收费</p>
 </li>
-<li>
-<p>8080是端口号，可在配置文件conf/server.xml中更改</p>
+<li><p>JBOSS:  JBOSS公司，大型JavaEE服务器，支持所有javaEE规范，收费</p>
 </li>
-<li>
-<p>若将默认端口号8080改成80，则可直接通过http://localhost访问。因为80是http的默认端口号</p>
-</li>
-</ul>
-<h4>5.启动时可能遇到的问题</h4>
-<ul>
-<li>
-<p>双击start.bat后，黑窗口一闪而过：</p>
-<ul>
-<li>原因：没有正确配置JAVA_HOME系统变量</li>
-<li>解决方法：正确配置JAVA_HOME系统变量并添加至path中</li>
-</ul>
-</li>
-<li>
-<p>启动时，端口号占用</p>
-<p>1)暴力解决：杀死占用者</p>
-<blockquote>
-<p>1.在cmd命令中输入 netstat -ano，查看占用8080端口的PID（进程号）</p>
-<p>2.在任务管理其中，找到PID对应的进程，并杀死即可</p>
-</blockquote>
-<p>2)温柔解决：改变自身端口</p>
-<blockquote>
-<p>更改配置文件server.xml中的默认端口号</p>
-</blockquote>
-</li>
-</ul>
-<h4>6.关闭</h4>
-<ul>
-<li>正常关闭：
-<ul>
-<li>在黑窗口中 ctrl+c</li>
-<li>双击运行bin/shutdown.bat</li>
-</ul>
-</li>
-<li>强制关闭：
-<ul>
-<li>点击x，直接关闭黑窗口</li>
-</ul>
-</li>
-</ul>
-<h4>7.部署项目</h4>
-<ul>
-<li>直接将项目放在webapps目录下
-<ul>
-<li>访问路径：localhost:项目名/文件名</li>
-<li>简化部署：将项目打成war包。war包是一种特殊的压缩包，不仅体积小，而且在被复制进webapps后会自动解压缩</li>
-</ul>
-</li>
-<li>配置conf/server.xml（不安全，不推荐使用）
-<ul>
-<li>在server.xml中添加</li>
-</ul>
-</li>
-</ul>
-<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Context</span> <span class="attr">base</span>=<span class="string">"项目路径"</span> <span class="attr">path</span> =<span class="string">"项目名"</span>&gt;</span><span class="tag">&lt;/<span class="name">Context</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>在confi/Catalina/localhost文件夹下创建任意名称的xml文件。（推荐）
-<ul>
-<li>在文件中编写</li>
-</ul>
-</li>
-</ul>
-<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Context</span> <span class="attr">docBase</span>=<span class="string">"路径"</span>&gt;</span><span class="tag">&lt;/<span class="name">Context</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-
+<li><p>Tomcat:  Apache基金组织，中小型JavaEE服务器，支持少量javaEE规范，免费</p></li></ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/04/10/JavaWeb%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89--%E5%85%B3%E4%BA%8ETomcat%E4%BD%A0%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84%E7%82%B9/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -783,10 +473,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-04-04 12:57:03 / 修改时间：12:56:30" itemprop="dateCreated datePublished" datetime="2020-04-04T12:57:03+08:00">2020-04-04</time>
+              <time title="创建时间：2020-04-04 12:57:03" itemprop="dateCreated datePublished" datetime="2020-04-04T12:57:03+08:00">2020-04-04</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-30 15:18:30" itemprop="dateModified" datetime="2020-05-30T15:18:30+08:00">2020-05-30</time>
+              </span>
 
           
 
@@ -799,20 +495,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>使用serialize()提交form表单数据后台为null问题解决</h2>
-<p>今天在完成新增账户功能时，利用jQuery的serialize方法，希望将整张表的数据传至后台，收到的数据却全部为null：</p>
-<p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">"form-horizontal"</span> <span class="attr">id</span>=<span class="string">"account_add_form"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"accountName_add_input"</span> <span class="attr">class</span>=<span class="string">"col-sm-2 control-label"</span>&gt;</span>Name<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-10"</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">id</span>=<span class="string">"accountName_add_input"</span>  <span class="attr">placeholder</span>=<span class="string">"accountName"</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"accountMoney_add_input"</span> <span class="attr">class</span>=<span class="string">"col-sm-2 control-label"</span>&gt;</span>Money<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-10"</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">id</span>=<span class="string">"accountMoney_add_input"</span>  <span class="attr">placeholder</span>=<span class="string">"accountMoney"</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#account_save_btn"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> form = $(<span class="string">"#account_add_form"</span>).serialize()</span><br><span class="line">        <span class="built_in">console</span>.log(form);</span><br><span class="line">        alert(form);</span><br><span class="line">        <span class="comment">//1.模态框种填写的表单数据提交给服务器进行保存</span></span><br><span class="line">        <span class="comment">//2.发送ajax请求保存员工</span></span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            url:<span class="string">"/account/save"</span>,</span><br><span class="line">            type:<span class="string">"POST"</span>,</span><br><span class="line">            data:form</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure></p>
-<p>问题分析:</p>
-<p>1.<strong>console.log可以将结果打印至控制台,但是alert没有反应</strong></p>
-<p>2.上网查找资料,发现是表单的input中没有加入name属性,只有id属性</p>
-<p>​	<strong>于是,添加了name属性,但是属性值与后台Account类的属性名不一致.</strong></p>
-<p>​	此时:alert有反应,但后台得到的数据为null,即没有成功封装</p>
-<p>3.<strong>将name属性值与Account类的属性名保持一致,</strong></p>
-<p>​	封装成功,问题解决!</p>
-<p>成功代码:</p>
-<p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">"form-horizontal"</span> <span class="attr">id</span>=<span class="string">"account_add_form"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"accountName_add_input"</span> <span class="attr">class</span>=<span class="string">"col-sm-2 control-label"</span>&gt;</span>Name<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-10"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">id</span>=<span class="string">"accountName_add_input"</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">placeholder</span>=<span class="string">"accountName"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"accountMoney_add_input"</span> <span class="attr">class</span>=<span class="string">"col-sm-2 control-label"</span>&gt;</span>Money<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-10"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">id</span>=<span class="string">"accountMoney_add_input"</span> <span class="attr">name</span>=<span class="string">"money"</span> <span class="attr">placeholder</span>=<span class="string">"accountMoney"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-
+          <h2 id="使用serialize-提交form表单数据后台为null问题解决"><a href="#使用serialize-提交form表单数据后台为null问题解决" class="headerlink" title="使用serialize()提交form表单数据后台为null问题解决"></a>使用serialize()提交form表单数据后台为null问题解决</h2><p>今天在完成新增账户功能时，利用jQuery的serialize方法，希望将整张表的数据传至后台，收到的数据却全部为null：</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/04/04/%E4%BD%BF%E7%94%A8serialize()%E6%8F%90%E4%BA%A4form%E8%A1%A8%E5%8D%95%E6%95%B0%E6%8D%AE%E5%90%8E%E5%8F%B0%E4%B8%BAnull%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -854,10 +545,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-02-26 10:54:49 / 修改时间：10:53:50" itemprop="dateCreated datePublished" datetime="2020-02-26T10:54:49+08:00">2020-02-26</time>
+              <time title="创建时间：2020-02-26 10:54:49" itemprop="dateCreated datePublished" datetime="2020-02-26T10:54:49+08:00">2020-02-26</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-30 15:19:50" itemprop="dateModified" datetime="2020-05-30T15:19:50+08:00">2020-05-30</time>
+              </span>
 
           
 
@@ -870,68 +567,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1>SpringMVC学习笔记（二）</h1>
-<h2>一、请求参数的绑定</h2>
-<p>​		SpringMVC绑定请求参数的过程是通过把表单提交的请求参数，作为控制器中方法参数进行绑定的。</p>
-<p>​		请求参数类型有三种：1）基本类型数据 2）实体类对象 3）数组和集合类型数据</p>
-<p><strong>1.基本类型数据</strong></p>
-<p>​		基本类型数据包括了Java的基本类型以及String类型</p>
-<p>​		示例程序：</p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href="param/testParam?username=hehe&amp;password=123456"&gt;请求参数绑定&lt;/a&gt;</span><br></pre></td></tr></table></figure></p>
-<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/testParam"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">testParam</span><span class="params">(String username,String password)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"执行了。。。"</span>);</span><br><span class="line">        System.out.println(<span class="string">"你的用户名："</span> + username + <span class="string">" 你的密码："</span> + password);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"success"</span> ;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>2.实体类对象</strong></p>
-<p>​		将数据封装成实体类对象，也同样很简单。只需要令接收端Controller类方法以被封装类为参数，发送端jsp中将属性名与被封装类的属性名相同即可。</p>
-<p>​		示例程序：</p>
-<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Account</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String username ;</span><br><span class="line">    <span class="keyword">private</span> String password ;</span><br><span class="line">    <span class="keyword">private</span> Double money ;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> User user ;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    *省略getter、setter、toString方法</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String uname ;</span><br><span class="line">    <span class="keyword">private</span> Integer age ;</span><br><span class="line">     <span class="comment">/**</span></span><br><span class="line"><span class="comment">    *省略getter、setter、toString方法</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 把请求参数封装到一个Java类中</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="meta">@RequestMapping</span>(<span class="string">"/saveAccount"</span>)</span><br><span class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">saveAccount</span><span class="params">(Account account)</span></span>&#123;</span><br><span class="line">       System.out.println(<span class="string">"执行了。。。"</span>);</span><br><span class="line">       System.out.println(account);</span><br><span class="line">       <span class="keyword">return</span> <span class="string">"success"</span> ;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=<span class="string">"param/saveAccount"</span> method=<span class="string">"post"</span>&gt;</span><br><span class="line">        性名：&lt;input type=<span class="string">"text"</span> name=<span class="string">"username"</span>&gt;</span><br><span class="line">        密码：&lt;input type=<span class="string">"text"</span> name=<span class="string">"password"</span>&gt;</span><br><span class="line">        金额：&lt;input type=<span class="string">"text"</span> name=<span class="string">"money"</span>&gt;</span><br><span class="line"></span><br><span class="line">        用户性名：&lt;input type=<span class="string">"text"</span> name=<span class="string">"user.uname"</span>&gt;</span><br><span class="line">        用户年龄：&lt;input type=<span class="string">"text"</span> name=<span class="string">"user.age"</span>&gt;</span><br><span class="line">        &lt;input type=<span class="string">"submit"</span> value=<span class="string">"提交"</span>&gt;</span><br><span class="line">    &lt;/form&gt;</span><br></pre></td></tr></table></figure></p>
-<p><strong>3.数组或集合类型</strong></p>
-<p>​		数组或集合类型的封装与嵌套对象及其类似，同样十分简单</p>
-<p>​		示例程序：</p>
-<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Account</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String username ;</span><br><span class="line">    <span class="keyword">private</span> String password ;</span><br><span class="line">    <span class="keyword">private</span> Double money ;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> List&lt;User&gt; list ;</span><br><span class="line">    <span class="keyword">private</span> Map&lt;String,User&gt; map ;</span><br><span class="line">      <span class="comment">/**</span></span><br><span class="line"><span class="comment">    *省略getter、setter、toString方法</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 把请求参数封装到一个Java类中</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/saveAccount"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">saveAccount</span><span class="params">(Account account)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"执行了。。。"</span>);</span><br><span class="line">        System.out.println(account);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"success"</span> ;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<p><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;%-- 把数据封装到Account类中，类中存在list和map的集合   --%&gt;</span><br><span class="line">    &lt;form action=<span class="string">"param/saveAccount"</span> method=<span class="string">"post"</span>&gt;</span><br><span class="line">        性名：&lt;input type=<span class="string">"text"</span> name=<span class="string">"username"</span>&gt;  &lt;br/&gt;</span><br><span class="line">        密码：&lt;input type=<span class="string">"text"</span> name=<span class="string">"password"</span>&gt;  &lt;br/&gt;</span><br><span class="line">        金额：&lt;input type=<span class="string">"text"</span> name=<span class="string">"money"</span>&gt;     &lt;br/&gt;</span><br><span class="line"></span><br><span class="line">        用户性名：&lt;input type=<span class="string">"text"</span> name=<span class="string">"list[0].uname"</span>&gt;   &lt;br/&gt;</span><br><span class="line">        用户年龄：&lt;input type=<span class="string">"text"</span> name=<span class="string">"list[0].age"</span>&gt;     &lt;br/&gt;</span><br><span class="line"></span><br><span class="line">        用户性名：&lt;input type=<span class="string">"text"</span> name=<span class="string">"map['one'].uname"</span>&gt;    &lt;br/&gt;</span><br><span class="line">        用户年龄：&lt;input type=<span class="string">"text"</span> name=<span class="string">"map['one'].age"</span>&gt;      &lt;br/&gt;</span><br><span class="line">    &lt;input type=<span class="string">"submit"</span> value=<span class="string">"提交"</span>&gt;</span><br></pre></td></tr></table></figure></p>
-<hr>
-<p><strong>4.配置解决中文乱码的过滤器</strong></p>
-<p>​		当通过表单使用post方式发送中文数据时，会在控制台出现乱码的问题。</p>
-<p>​		要解决上述问题，只需在web.xml中配置一个过滤器即可</p>
-<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置解决中文乱码的过滤器--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>characterEncodingFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.springframework.web.filter.CharacterEncodingFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>encoding<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>characterEncodingFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>5.特殊情况</strong></p>
-<p>​		在实际开发过程中，有可能会面临前台传入的数据，与后台接受类型封装不上的情况。这时候，我们需要编写自定义的数据类型转换方法，并且向类型转换器注册，最后开启注册生效按钮。</p>
-<p>​		示例：在接受Date数据时，默认格式是yyyy/mm/dd,当我们以yyyy-mm-dd的形式传入时，会出现封装不上的情况。所以我们编写一个自定义的转换方法，并向类型转换器注册,最后开启注册生效按钮即可。</p>
-<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StringToDateConverter</span> <span class="keyword">implements</span> <span class="title">Converter</span>&lt;<span class="title">String</span>, <span class="title">Date</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Date <span class="title">convert</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//判断</span></span><br><span class="line">        <span class="keyword">if</span>(s == <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"请您传入数据"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd"</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">return</span>  sdf.parse(s);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"数据类型转换出现错误"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置自定义类型转换器 --&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"conversionService"</span> <span class="attr">class</span>=<span class="string">"org.springframework.context.support.ConversionServiceFactoryBean"</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"converters"</span> &gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">set</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"cn.itcast.utils.StringToDateConverter"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mvc:annotation-driven</span> <span class="attr">conversion-service</span>=<span class="string">"conversionService"</span>/&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>6.获取Servlet原生API</strong></p>
-<p>​		想要获取Servlet原生API，直接将ServletAPi对象作为控制器方法的参数即可。</p>
-<h2>二、常用注解</h2>
-<p><strong>1.RequestParam</strong></p>
-<p>​		作用：</p>
-<p>​				把请求中指定名称的参数给控制器中的形参赋值。</p>
-<p>​		属性：</p>
-<p>​				value：请求参数的名称</p>
-<p>​				required：请求参数中是否必须提供此参数。默认值：true，表示必须提供，如不提供则报错</p>
-<p><strong>2.RequestBody</strong></p>
-<p>​		作用：</p>
-<p>​				用于获取请求体内容。如果直接使用请求体，则会得到key=value&amp;key=value...结构的数据</p>
-<p>​				get请求方式不适用</p>
-<p>​		属性：</p>
-<p>​				required：是否必须有请求体。默认值是，true。当取值为true时，get请求方式会报错。取值为false时，get请求方式得到的是null</p>
-<p><strong>3.PathVariable</strong></p>
-<p>​		作用：</p>
-<p>​				用于绑定url中的占位符。例如：请求url中/delete/{id},这个id就是url占位符</p>
-<p>​				url支持占位符是Spring3.0之后加入的。是springmvc支持RESTful风格url的一个重要标志</p>
-<p>​		属性：</p>
-<p>​				value：用于请求url中占位符的名称</p>
-<p>​				required：是否必须提供占位符</p>
-<p><strong>4.CookieValue</strong></p>
-<p>​		作用：</p>
-<p>​				用于把指定cookie名称的值传入控制器方法参数</p>
-<p>​		属性：</p>
-<p>​				value：指定cookie的值</p>
-<p>​				required：是否必须有此cookie</p>
-
+          <h1 id="SpringMVC学习笔记（二）"><a href="#SpringMVC学习笔记（二）" class="headerlink" title="SpringMVC学习笔记（二）"></a>SpringMVC学习笔记（二）</h1><h2 id="一、请求参数的绑定"><a href="#一、请求参数的绑定" class="headerlink" title="一、请求参数的绑定"></a>一、请求参数的绑定</h2><p>​        SpringMVC绑定请求参数的过程是通过把表单提交的请求参数，作为控制器中方法参数进行绑定的。</p>
+<p>​        请求参数类型有三种：1）基本类型数据 2）实体类对象 3）数组和集合类型数据</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/26/SpringMVC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -973,10 +618,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-02-25 10:59:54 / 修改时间：10:59:07" itemprop="dateCreated datePublished" datetime="2020-02-25T10:59:54+08:00">2020-02-25</time>
+              <time title="创建时间：2020-02-25 10:59:54" itemprop="dateCreated datePublished" datetime="2020-02-25T10:59:54+08:00">2020-02-25</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-30 15:19:57" itemprop="dateModified" datetime="2020-05-30T15:19:57+08:00">2020-05-30</time>
+              </span>
 
           
 
@@ -989,111 +640,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1>SpringMVC学习笔记（一）</h1>
-<h2>一、SpringMVC概述</h2>
-<p><strong>1.概念</strong></p>
-<p>​		SpringMVC是一种基于Java的MVC设计模型的请求驱动类型的轻量级Web框架，属于Spring Framework的后续产品，已经融合在Spirng Web Flow中。使用Spring可插入的MVC架构，从而在使用Spring进行WEB开发时，可以选择SpringMVC或其他MVC集成开发框架，如Strut1（基本弃用），Struts2等。</p>
-<p>​		SpringMVC已经成为最主流的MVC框架之一，并随着Spring3.0的发布，全面超越Struts2，成为最优秀的MCVC框架。</p>
-<p>​		SpringMVC通过一套注解，让一个简单的Java类成为处理请求的控制器，而无须实现任何接口。</p>
-<p>​		SpringMVC支持RESTful编程风格的请求。</p>
-<p><strong>2.优势</strong></p>
-<blockquote>
-<p>1、清晰的角色划分：</p>
-<p>​		 前端控制器（DispatcherServlet）</p>
-<p>​		请求到处理器映射（HandlerMapping）</p>
-<p>​		 处理器适配器（HandlerAdapter）</p>
-<p>​		视图解析器（ViewResolver）</p>
-<p>​		 处理器或页面控制器（Controller）</p>
-<p>​		 验证器（ Validator）</p>
-<p>​		 命令对象（Command 请求参数绑定到的对象就叫命令对象）</p>
-<p>​		 表单对象（Form Object 提供给表单展示和提交到的对象就叫表单对象）。
-2、分工明确，而且扩展点相当灵活，可以很容易扩展，虽然几乎不需要。</p>
-<p>3、由于命令对象就是一个 POJO，无需继承框架特定 API，可以使用命令对象直接作为业务对象。</p>
-<p>4、和 Spring 其他框架无缝集成，是其它 Web 框架所不具备的。</p>
-<p>5、可适配，通过 HandlerAdapter 可以支持任意的类作为处理器。</p>
-<p>6、可定制性，HandlerMapping、ViewResolver 等能够非常简单的定制。</p>
-<p>7、功能强大的数据验证、格式化、绑定机制。</p>
-<p>8、利用 Spring 提供的 Mock 对象能够非常简单的进行 Web 层单元测试。</p>
-<p>9、本地化、主题的解析的支持，使我们更容易进行国际化和主题的切换。</p>
-<p>10、强大的 JSP 标签库，使 JSP 编写更容易。</p>
-</blockquote>
-<p><strong>3.SpringMVC与Struts2的比较（面试）</strong></p>
-<p>​		共同点：</p>
-<blockquote>
-<p>1）都是表现层框架，都是基于MVC模型编写的</p>
-<p>2）底层都离不开原始ServletAPI</p>
-<p>3）处理请求的机制都是一个核心控制器</p>
-</blockquote>
-<p>​		不同点：</p>
-<blockquote>
-<p>1）SpringMVC的入口是Servlet，Struts2的入口是Filter</p>
-<p>2）SpringMVC执行速度稍快。SpringMVC是基于方法设计的，而Struts2是基于类，每次执行都会动态创建一个动作类</p>
-<p>3）SpringMVC的使用更加简洁，同时还支持JSR303，处理ajax的请求更方便</p>
-<p>4）Struts2由于支持OGNL表达式，其开发效率更高，但是执行效率并没有SpringMVC高</p>
-</blockquote>
-<h2>二、SpringMVC入门程序</h2>
-<p>​		言归正传，接下来我们开始编写SpringMVC的入门程序。前四步为环境搭建，后两步为程序编写</p>
-<p><strong>1.创建Maven项目</strong></p>
-<p>​		打开IDEA，创建一个Maven的web-app项目。并在src目录下创建一个java目录（标记目录类型为：Sources Root）与一个resources目录（标记目录类型为Resources Root）</p>
-<p><strong>2.配置pom.xml，导入jar包坐标</strong></p>
-<p>​		在&lt;properties&gt;中,添加版本锁定</p>
-<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.build.sourceEncoding</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">maven.compiler.source</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.source</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">maven.compiler.target</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.target</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 版本锁定 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">spring.version</span>&gt;</span>5.0.2.RELEASE<span class="tag">&lt;/<span class="name">spring.version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>​		在&lt;dependencies&gt;添加以下依赖</p>
-<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-context<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-webmvc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>servlet-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet.jsp<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jsp-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>3.配置web.xml，获取servlet核心控制器</strong></p>
-<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置SpringMVC核心控制器--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>dispatcherServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 配置初始化参数，用于读取SpringMVC的配置文件 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:springmvc.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 配置Servlet对象的创建时间：应用加载时创建。</span></span><br><span class="line"><span class="comment">         取值只能是非0正整数，表示启动顺序--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">load-on-startup</span>&gt;</span>1<span class="tag">&lt;/<span class="name">load-on-startup</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>dispatcherServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>4.创建SpringMVC配置文件</strong></p>
-<p>​		首先在Resources目录下创建springmvc.xml，然后所需的导入约束，最后配置创建Spring容器要扫描的包、视图解析器、处理映射器、处理适配器。</p>
-<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:mvc</span>=<span class="string">"http://www.springframework.org/schema/mvc"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/beans</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/beans/spring-beans.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/mvc</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/mvc/spring-mvc.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/context</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/context/spring-context.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 开启注解扫描 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"cn.itcast"</span>&gt;</span><span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 配置视图解析器 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"internalResourceViewResolver"</span> <span class="attr">class</span>=<span class="string">"org.springframework.web.servlet.view.InternalResourceViewResolver"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"prefix"</span> <span class="attr">value</span>=<span class="string">"/WEB-INF/pages/"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"suffix"</span> <span class="attr">value</span>=<span class="string">".jsp"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 开启SpringMVC框架注解的支持--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mvc:annotation-driven</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>5.编写Controller方法并使用注解配置</strong></p>
-<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span>(<span class="string">"helloController"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</span><br><span class="line">	<span class="meta">@RequestMapping</span>(<span class="string">"/hello"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">sayHello</span><span class="params">()</span> </span>&#123; 		</span><br><span class="line">        System.out.println(<span class="string">"HelloController 的 sayHello 方法执行了。。。。"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>6.用jsp</strong></p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">    &lt;h3&gt;入门程序&lt;/h3&gt;</span><br><span class="line"></span><br><span class="line">    &lt;a href="hello"&gt;入门程序&lt;/a&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
-<h2>三、入门案例流程分析</h2>
-<p>​		1.服务器启动，加载web.xml配置，创建DispatcherServlet对象</p>
-<p>​		2.加载springmvc.xml文件，创建SprigIOC容器，视图解析器，处理映射器，处理适配器等</p>
-<p>​		3.浏览器发送请求，被DispatcherServlet捕获，并转发给处理映射器，匹配@RequestMapping注解内容，获取应该执行的方法(HelloController类中的sayHello方法)。</p>
-<p>​		4.通过处理适配器，执行已获取的方法，并返回方法的返回值（success）</p>
-<p>​		5.DispatcherServlet再将返回值交给视图解析器处理，得到一个结果视图(success.jsp)</p>
-<p>​		6.渲染结果视图，相应浏览器</p>
-<h2>四、入门案例设计的SpringMVC组件</h2>
-<p><strong>1.DispatcherServlet：前端控制器</strong></p>
-<blockquote>
-<p>​		用户请求到达前端控制器，它就相当于 mvc 模式中的 c，dispatcherServlet 是整个流程控制的中心，由 它调用其它组件处理用户的请求，dispatcherServlet 的存在降低了组件之间的耦合性。</p>
-</blockquote>
-<p><strong>2.HandlerMapping：处理映射器</strong></p>
-<blockquote>
-<p>​		HandlerMapping 负责根据用户请求找到 Handler 即处理器，SpringMVC 提供了不同的映射器实现不同的 映射方式，例如：配置文件方式，实现接口方式，注解方式等</p>
-</blockquote>
-<p><strong>3.HandlerAdapter:处理适配器</strong></p>
-<blockquote>
-<p>​		通过 HandlerAdapter 对处理器进行执行，这是适配器模式的应用，通过扩展适配器可以对更多类型的处理器进行执行。</p>
-</blockquote>
-<p><strong>4.ViewResolver：视图解析器</strong></p>
-<blockquote>
-<p>​		View Resolver 负责将处理结果生成 View 视图，View Resolver 首先根据逻辑视图名解析成物理视图名 即具体的页面地址，再生成 View 视图对象，最后对 View 进行渲染将处理结果通过页面展示给用户</p>
-</blockquote>
-<p><strong>5.&lt;mvc:annotation-driven&gt;说明</strong></p>
-<blockquote>
-<p>​		在 SpringMVC 的各个组件中，处理器映射器、处理器适配器、视图解析器称为 SpringMVC 的三大组件。</p>
-<p>​		使用&lt;mvc:annotation-driven&gt;自动加载 RequestMappingHandlerMapping（处理映射器）和 RequestMappingHandlerAdapter （ 处 理 适 配 器 ） ， 可 用 在 SpringMVC.xml 配 置 文 件 中 使 用 &lt;mvc:annotation-driven&gt;替代注解处理器和适配器的配置。</p>
-</blockquote>
-<h2>五、RequestMapping注解</h2>
-<p><strong>1.出现位置</strong></p>
-<p>​		由于@RequestMapping的元注解@Target中包含了ElementType.Method和ElementType.TYPE,所以此注解可以出现在方法或者类上</p>
-<p><strong>2.value与path属性</strong></p>
-<p>​		value与path是等价的，都用于指定执行此方法的获取路径</p>
-<p><strong>3.method属性</strong></p>
-<p>​		用于指定请求的方式，常见的值有RequestMethod.POST、RequestMethod.GET、RequestMethod.PUT、RequestMethod.DELETE等</p>
-<p><strong>4.param属性</strong></p>
-<p>​		用于指定限制请求参数的条件。它支持简单的表达式。要求请求参数的 key 和 value 必须和配置的一模一样。</p>
-<p>​		例如：</p>
-<p>​		params = {&quot;accountName&quot;}，表示请求参数必须有 accountName</p>
-<p>​		params = {&quot;moeny!100&quot;}，表示请求参数中 money 不能是 100。</p>
-<p><strong>5.headers属性</strong></p>
-<p>​		用于指定限制请求消息头的条件</p>
-<p>​</p>
-
+          <h1 id="SpringMVC学习笔记（一）"><a href="#SpringMVC学习笔记（一）" class="headerlink" title="SpringMVC学习笔记（一）"></a>SpringMVC学习笔记（一）</h1><h2 id="一、SpringMVC概述"><a href="#一、SpringMVC概述" class="headerlink" title="一、SpringMVC概述"></a>一、SpringMVC概述</h2><p><strong>1.概念</strong></p>
+<p>​        SpringMVC是一种基于Java的MVC设计模型的请求驱动类型的轻量级Web框架，属于Spring Framework的后续产品，已经融合在Spirng Web Flow中。使用Spring可插入的MVC架构，从而在使用Spring进行WEB开发时，可以选择SpringMVC或其他MVC集成开发框架，如Strut1（基本弃用），Struts2等。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/25/SpringMVC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1135,10 +691,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-02-22 20:05:10 / 修改时间：20:03:45" itemprop="dateCreated datePublished" datetime="2020-02-22T20:05:10+08:00">2020-02-22</time>
+              <time title="创建时间：2020-02-22 20:05:10" itemprop="dateCreated datePublished" datetime="2020-02-22T20:05:10+08:00">2020-02-22</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-30 15:17:14" itemprop="dateModified" datetime="2020-05-30T15:17:14+08:00">2020-05-30</time>
+              </span>
 
           
 
@@ -1151,110 +713,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1>Java基础强化（四）--Cookie与Session</h1>
-<h2>一、会话技术</h2>
-<p>​		<strong>1.概念</strong></p>
-<p>​				会话是指浏览器与服务器之间的信息交互。</p>
-<p>​				会话从浏览器第一次给服务器资源发送请求开始，知道有一方断开结束。一次会话包括多次请求与响应。</p>
-<p>​		<strong>2.功能：</strong></p>
-<p>​				在一次会话的范围内，共享数据</p>
-<p>​		<strong>3.方式：</strong></p>
-<p>​				1）客户端会话技术：Cookie</p>
-<p>​				2）服务器端会话技术：Session</p>
-<h2>二、Cookie</h2>
-<p>​		<strong>1.概念</strong></p>
-<p>​				客户端会话技术，将数据保存到客户端</p>
-<p>​		<strong>2.快速入门</strong></p>
-<p>​				在Demo1中创建并发送cookie</p>
-<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建cookie对象，调用new Cookie(String name,String value)</span></span><br><span class="line">Cookie cookie = <span class="keyword">new</span> Cookie(name,<span class="string">"张三"</span>);</span><br><span class="line"><span class="comment">//发送cookie对象,调用response.addCookie(Cookie cookie)</span></span><br><span class="line">response.addCookie(cookie);</span><br></pre></td></tr></table></figure></p>
-<p>​				在Demo2中获取Cookie</p>
-<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取cookie，调用 Cookie[] request.getCookies()</span></span><br><span class="line">Cookie[] cookies = request.getCookies()</span><br></pre></td></tr></table></figure></p>
-<p>​		<strong>3.Cookie实现原理</strong></p>
-<p>​				基于响应头set-cookie和请求头cookie实现</p>
-<p>​		<strong>4.cookie的细节</strong></p>
-<p>​				1）可以一次创建多个cookie，使用response调用多次addCookie方法发送cookie即可</p>
-<p>​				2）生命周期：</p>
-<blockquote>
-<p>默认情况下，关闭浏览器之后，cookie数据被销毁</p>
-<p>持久化存储：</p>
-<p>​		setMaxAge(int seconds)</p>
-<p>​				a.seconds为正数：将Cookie数据写到硬盘文件中，即持久化存储。数值越大，存活时间越长</p>
-<p>​				b.seconds为负数：默认值，存在内存中，关闭浏览器，即销毁</p>
-<p>​				c.seconds为零：删除Cookie信息</p>
-</blockquote>
-<p>​					3）在Tomcat 8之前，Cookie中不能直接存储中文数据。</p>
-<p>​										--需要将中文数据转码（一般采用url）</p>
-<p>​							   在8之后，Cookie支持中文数据</p>
-<p>​					4）共享问题</p>
-<p>​								在同一个Tomcat服务器中，部署多个web项目，默认情况下各个项目的Cookie是不能被其他项目共享的</p>
-<p>​								如果需要共享，那么可以通过调用setPath(String path)方法来改变Cookie的获取范围，将其设置为&quot;/&quot;，即服务器根目录</p>
-<p>​								写法示例：</p>
-<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建Cookie对象</span></span><br><span class="line">Cookie c1 = <span class="keyword">new</span> Cookie(<span class="string">"msg"</span>,<span class="string">"你好"</span>);</span><br><span class="line"><span class="comment">//设置Path，令当前服务器下部署的所有项目共享Cookie信息</span></span><br><span class="line">c1.setPath(<span class="string">"\")</span></span><br></pre></td></tr></table></figure></p>
-<p>​								在不同Tomcat服务器下部署的服务器若要实现共享，则需要调用setDomain(String Path)方法</p>
-<p>​								只要不同服务器之间的一级域名相同，则将path设置为以及域名，这些web项目即可共享kookie</p>
-<p>​								示例：</p>
-<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建Cookie对象</span></span><br><span class="line">Cookie c1 = <span class="keyword">new</span> Cookie(<span class="string">"msg"</span>,<span class="string">"你好"</span>);</span><br><span class="line"><span class="comment">//设置domain,令tieba.baidu.com与new.baidu.com中cookie可以共享</span></span><br><span class="line">c1.setDomain(<span class="string">".baidu.com"</span>)</span><br></pre></td></tr></table></figure></p>
-<p>​				<strong>5.Cookie特点</strong></p>
-<p>​						1）Cookie数据存储在客户端浏览器，安全性不强</p>
-<p>​						2）浏览器对单个Cookie大小有限制，并对同一个域名下的总Cookie数也有限制（一般20）</p>
-<p>​				<strong>6.Cookie作用</strong></p>
-<p>​						1）Cookie一般用在存储少量不太敏感的数据</p>
-<p>​						2）在不登陆的情况下，完成服务器对客户端的身份识别</p>
-<h2>三、Session</h2>
-<p>​		<strong>1.概念：</strong></p>
-<p>​				服务器端会话技术，在一次会话的多次请求间共享数据，将数据保存在服务器端的对象</p>
-<p>​		<strong>2.快速入门</strong></p>
-<p>​				1）获取HttpSession对象：</p>
-<p>​						HttpSession session = request.getSeesion();</p>
-<p>​				2) 使用HttpSession对象：</p>
-<p>​						Object getAttribute(String name);</p>
-<p>​						void setAttribute(String name,Object value);</p>
-<p>​						void removeAttribute(String name);</p>
-<p>​		<strong>3.原理</strong></p>
-<p>​				Session是依赖于Cookie的</p>
-<blockquote>
-<p>第一次获取Session时，没有Cookie，会在内存中创建一个新的Session对象。并在Cookie中保存该session的地址。</p>
-<p>在第二次获取Session时，Cookie会被客户端浏览器发送到服务器端，服务器端会去根据Cookie中的Session地址查找Session对象。</p>
-</blockquote>
-<p>​		<strong>4.细节</strong></p>
-<p>​				1）在第一次访问结束后，关闭客户端，不关闭服务器。再重新打开客户端，访问服务器。那么，两次访问的session是否为同一个？</p>
-<blockquote>
-<ul>
-<li>默认情况下，不是</li>
-<li>如果要求为同一个，则可以创建Cookie，键为JSESSIONID，设置最大存活时间，让cookie持久化保存</li>
-</ul>
-<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;Cookie c - <span class="keyword">new</span> Cookie (<span class="string">"JSESSIONID"</span>,session.getId());</span><br><span class="line">&gt;c.setMaxAge(<span class="number">60</span> * <span class="number">60</span>);</span><br><span class="line">&gt;response.addCookie(c);</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<p>​				2）在第一次访问结束后，关闭服务器，不关闭客户端。再重新打开服务器，并让客户端访问服务器。那么，两次访问的session是否为同一个？</p>
-<blockquote>
-<ul>
-<li>不是同一个，但是我们要确保数据不丢失</li>
-<li>session的钝化：
-<ul>
-<li>再服务器正常关闭之前，将session对象系列化到硬盘上</li>
-</ul>
-</li>
-<li>session的活化：
-<ul>
-<li>再服务器启动之后，将session文件转化为内存中的session对象即可</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>session的活化与钝化，本地Tomcat服务器会自动帮我们完成。</p>
-<p>但是如果使用IDEA工具，钝化的操作可以正常执行，活化的工作无法正常执行。</p>
-<p>但是我们也不用担心这个问题，因为未来我们不可能在IDEA本地进行部署。</p>
-</blockquote>
-</blockquote>
-<p>​		<strong>3.Session的销毁</strong></p>
-<p>​				1)服务器被关闭时，session失效</p>
-<p>​				2)session的自杀方法：invalidate()</p>
-<p>​				3)session默认失效时间：30分钟（可在web.xml中配置）</p>
-<p>​		<strong>4.Session的特点</strong>、</p>
-<p>​				1）用于存储一次会话的多次请求的数据，存在服务器端</p>
-<p>​				2）Session可以存任意类型，任意大小的数据</p>
-<p>​				3）Session数据安全，Cookie相对不安全</p>
-
+          <h1 id="Java基础强化（四）–Cookie与Session"><a href="#Java基础强化（四）–Cookie与Session" class="headerlink" title="Java基础强化（四）–Cookie与Session"></a>Java基础强化（四）–Cookie与Session</h1><h2 id="一、会话技术"><a href="#一、会话技术" class="headerlink" title="一、会话技术"></a>一、会话技术</h2><p>​        <strong>1.概念</strong>            </p>
+<p>​                会话是指浏览器与服务器之间的信息交互。</p>
+<p>​                会话从浏览器第一次给服务器资源发送请求开始，知道有一方断开结束。一次会话包括多次请求与响应。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/22/JavaWeb%E5%9F%BA%E7%A1%80%EF%BC%88%E5%9B%9B%EF%BC%89--Cookie%E4%B8%8ESession/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1296,10 +765,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-02-20 20:43:57 / 修改时间：20:43:27" itemprop="dateCreated datePublished" datetime="2020-02-20T20:43:57+08:00">2020-02-20</time>
+              <time title="创建时间：2020-02-20 20:43:57" itemprop="dateCreated datePublished" datetime="2020-02-20T20:43:57+08:00">2020-02-20</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-30 15:17:07" itemprop="dateModified" datetime="2020-05-30T15:17:07+08:00">2020-05-30</time>
+              </span>
 
           
 
@@ -1312,147 +787,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1>Java基础强化（三）-- EL与JSTL</h1>
-<p>​		EL与JSTL是Jsp开发中常用的两个简化开发的小工具，在日后的框架学习中也有可能用到。内容比较简单，主要罗列知识点，JSTL部分有示例代码，El部分容易理解，不给出实例代码。有学习兴趣的同学可以自行落实代码，加强学习。</p>
-<h2>一、EL概述</h2>
-<p>​		<strong>1.概念：</strong></p>
-<p>​				Expression Language 表达式语言</p>
-<p>​		<strong>2.作用：</strong></p>
-<p>​				替换和简化jsp页面中的java代码的编写</p>
-<p>​		<strong>3.语法：</strong></p>
-<p>​				${表达式}</p>
-<p>​		<strong>4.忽略El：</strong></p>
-<blockquote>
-<ul>
-<li>
-<p>设置jsp中page指令：isELIgnored=“true” 忽略当前jsp页面中所有的el表达式</p>
-</li>
-<li>
-<p>\${表达式}:忽略当前el表达式</p>
-</li>
-</ul>
-</blockquote>
-<h2>二、EL使用</h2>
-<p>​		<strong>1.运算：</strong></p>
-<p>​				El表达式支持以下运算符：</p>
-<blockquote>
-<p>1.算数运算符： +  -  *  /(div)   %(mod)</p>
-<p>2.比较运算符：&gt; &lt; == &gt;= &lt;= !=</p>
-<p>3.逻辑运算符：&amp;&amp;(and)  ||(or)  !(not)</p>
-<p>4.空运算符：empty(用于判断字符串、集合或数组对象是否为null或长度为0)</p>
-<p>​						举例：</p>
-<p>​						${empty list} 判断list是否为nul或长度为0，若是则返回true</p>
-<p>​						${not empty list} 判断list是长度大于0，若是则返回true</p>
-</blockquote>
-<p>​		<strong>2.获取值</strong></p>
-<p>​				el表达式只能从域中获取对象的值</p>
-<p>​				语法：</p>
-<blockquote>
-<p>1.${域名.键名}:从指定域中获取指定键的值</p>
-<p>​		域名称：</p>
-<p>​				(1)pageScope             --&gt; pageContext</p>
-<p>​				(2)requestScope        --&gt;request</p>
-<p>​				(3)sessionScope         --&gt;session</p>
-<p>​				(4)applicationScope --&gt;application(ServletContext)</p>
-<p>​		举例：</p>
-<p>​				在request域中存储了name=张三</p>
-<p>​				则可以通过${requestScope.name}的EL表达式获取张三</p>
-<p>2.${键名}:以此从最小的域中查找是否有该键名对应的值，找到即停止</p>
-<p>3.获取对象、List集合、Map集合的值</p>
-<blockquote>
-<p>(1)对象：${域名.对象名.属性名}</p>
-<p>​		属性名不是成员变量的名称，而是get方法的名称去掉get再将首字母改为小写</p>
-<p>​		其本质是调用对象的get方法</p>
-<p>(2)List集合：${域名称.键名[索引]}</p>
-<p>(3)Map集合：</p>
-<p>​			${域名称.键名.key名称}</p>
-<p>​			${域名称.键名.[&quot;key名称&quot;]</p>
-</blockquote>
-</blockquote>
-<h2>三、JSTL概述</h2>
-<p>​		1.概念：JavaServer Pages Tag Library JSP标准标签（apache组织提供的开源的免费的jsp标签）</p>
-<p>​		2.作用：用于替换和简化jsp页面上的java代码</p>
-<p>​		3.使用步骤：</p>
-<p>​				（1）导入jstl相关jar包</p>
-<p>​				（2）引入标签库：taglib指令：  &lt;%@ taglib %&gt;</p>
-<p>​								具体写法是在jsp页面上添加一句如下语句：</p>
-<p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">%</span> <span class="attr">taglib</span> <span class="attr">prefix</span>=<span class="string">"c"</span> <span class="attr">url</span>=<span class="string">"http://java.sun.com/jsp/jstl/core"</span> %&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>​				（3）使用标签</p>
-<h2>四、JSTL常用标签</h2>
-<p>​		<strong>1.if</strong></p>
-<p>​				&lt;c:if&gt;标签: 用于代替if语句</p>
-<blockquote>
-<p>属性：</p>
-<ul>
-<li>test，必备属性，接受一个boolean表达式
-	* 若表达式为真，则显示标签体的内容。若表达式为假，则不显示标签体的内容</li>
-</ul>
-</blockquote>
-<p>​				示例代码：</p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:if test="1==2"&gt;1等于2&lt;/c:if&gt;</span><br><span class="line">&lt;c:if test="1==1"&gt;1等于1&lt;/c:if&gt;</span><br></pre></td></tr></table></figure></p>
-<p>​				上述代码显示&quot;1等于1&quot;</p>
-<p>​		<strong>2.choose</strong></p>
-<p>​				&lt;c:choose &gt; 标签用于代替switch语句</p>
-<p>​				&lt;c:when&gt;相当于case</p>
-<p>​				&lt;c:otherwise&gt;相当于defualt</p>
-<p>​				示例代码：</p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;%-- </span><br><span class="line">     完成数字编号对应星期几的案例</span><br><span class="line">     	<span class="number">1</span>.域中存储数字</span><br><span class="line">     	<span class="number">2</span>.使用choose标签取出数字</span><br><span class="line">     	<span class="number">3</span>.使用when标签做出数字判断</span><br><span class="line">     	<span class="number">4</span>.使用otherwise标签做其他情况处理</span><br><span class="line">     --%&gt;</span><br><span class="line">&lt;%</span><br><span class="line">	request.setAttribute(<span class="string">"number"</span>,<span class="number">3</span>);</span><br><span class="line">%&gt;</span><br><span class="line"></span><br><span class="line">&lt;c:choose&gt;</span><br><span class="line">	&lt;c:when test="$&#123;requestScope.number&#125; == 1"&gt;星期一&lt;/c:when&gt;</span><br><span class="line">    &lt;c:when test="$&#123;requestScope.number&#125; == 2"&gt;星期二&lt;/c:when&gt;</span><br><span class="line">    &lt;c:when test="$&#123;requestScope.number&#125; == 3"&gt;星期三&lt;/c:when&gt;</span><br><span class="line">    &lt;c:when test="$&#123;requestScope.number&#125; == 4"&gt;星期四&lt;/c:when&gt;</span><br><span class="line">    &lt;c:when test="$&#123;requestScope.number&#125; == 5"&gt;星期五&lt;/c:when&gt;</span><br><span class="line">    &lt;c:when test="$&#123;requestScope.number&#125; == 6"&gt;星期六&lt;/c:when&gt;</span><br><span class="line">    &lt;c:when test="$&#123;requestScope.number&#125; == 7"&gt;星期日&lt;/c:when&gt;</span><br><span class="line">    &lt;c:otherwise&gt;数字输入错误&lt;/c:otherwise&gt;</span><br><span class="line">&lt;/c:choose&gt;</span><br></pre></td></tr></table></figure></p>
-<p>​				上述代码的显示结果为 “星期三”</p>
-<p>​		<strong>3.foreach</strong></p>
-<p>​				&lt;c:foreach&gt;相当于java中的for语句</p>
-<blockquote>
-<p>java代码中for语句的作用：</p>
-<p>​		1.完成重复的操作</p>
-<blockquote>
-<p>for（int i=1；i&lt;10;i ++){</p>
-<p>}</p>
-</blockquote>
-<p>​		2.遍历容器</p>
-<p>List  &lt;User&gt; list;</p>
-<p>for(User user:list){</p>
-<p>}</p>
-</blockquote>
-<blockquote>
-<p>属性：</p>
-<ul>
-<li>
-<p>begin：开始值</p>
-</li>
-<li>
-<p>end：结束值</p>
-</li>
-<li>
-<p>var：临时变量</p>
-</li>
-<li>
-<p>step：步长</p>
-</li>
-<li>
-<p>varStatus：循环状态对象</p>
-<pre><code>	 * index：容器中元素的索引，从0开始
-	 * count：循环次数，从1开始
-</code></pre>
-</li>
-<li>
-<p>item:容器对象</p>
-</li>
-</ul>
-</blockquote>
-<p>​				示例代码（1）：</p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:foreach begin=<span class="string">"1"</span> end=<span class="string">"10"</span> <span class="keyword">var</span>=<span class="string">"i"</span> step=<span class="string">"1"</span>&gt;</span><br><span class="line">	$&#123;i&#125;</span><br><span class="line">&lt;/c:foreach&gt;</span><br></pre></td></tr></table></figure></p>
-<p>​				显示结果:</p>
-<blockquote>
-<p>12345678910</p>
-</blockquote>
-<p>​				示例代码（2）：</p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">	List list = <span class="keyword">new</span> ArrayList();</span><br><span class="line">	list.add(<span class="string">"aaa"</span>);</span><br><span class="line">	list.add(<span class="string">"bbb"</span>);</span><br><span class="line">	list.add(<span class="string">"ccc"</span>);</span><br><span class="line"></span><br><span class="line">	request.setAttribute(<span class="string">"list"</span>,list);</span><br><span class="line">%&gt;</span><br><span class="line">&lt;c:foreach item=<span class="string">"$&#123;list&#125;"</span> <span class="keyword">var</span>=<span class="string">"strs"</span> varStatus=<span class="string">"s"</span>&gt;</span><br><span class="line">    $&#123;s.index&#125; $&#123;s.count&#125; $&#123;strs&#125; &lt;br&gt;</span><br><span class="line">&lt;/c:foreach&gt;</span><br></pre></td></tr></table></figure></p>
-<p>​				显示结果：</p>
-<blockquote>
-<p>0 1 aaa</p>
-<p>1 2 bbb</p>
-<p>2 3 ccc</p>
-</blockquote>
-
+          <h1 id="Java基础强化（三）–-EL与JSTL"><a href="#Java基础强化（三）–-EL与JSTL" class="headerlink" title="Java基础强化（三）– EL与JSTL"></a>Java基础强化（三）– EL与JSTL</h1><p>​        EL与JSTL是Jsp开发中常用的两个简化开发的小工具，在日后的框架学习中也有可能用到。内容比较简单，主要罗列知识点，JSTL部分有示例代码，El部分容易理解，不给出实例代码。有学习兴趣的同学可以自行落实代码，加强学习。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/20/JavaWeb%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%89%EF%BC%89--%20EL%E4%B8%8EJSTL/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1494,10 +837,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-02-20 08:45:35 / 修改时间：08:45:15" itemprop="dateCreated datePublished" datetime="2020-02-20T08:45:35+08:00">2020-02-20</time>
+              <time title="创建时间：2020-02-20 08:45:35" itemprop="dateCreated datePublished" datetime="2020-02-20T08:45:35+08:00">2020-02-20</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-30 15:18:05" itemprop="dateModified" datetime="2020-05-30T15:18:05+08:00">2020-05-30</time>
+              </span>
 
           
 
@@ -1510,89 +859,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1>Java基础强化（二） -- 注解</h1>
-<h2>一、注解概述</h2>
-<p>​		<strong>1.定义</strong></p>
-<p>​				注解（Annotation），也叫元数据。一种代码级别的说明。它是JDK1.5及以后版本引入的一个特性，与类、接口、枚举是在同一个层次。它可以声明在包、类、字段、方法、局部变量、方法参数等的前面，用来对这些元素进行说明，注释。</p>
-<p>​		<strong>2.作用描述</strong></p>
-<p>​				（1）编译检查：通过代码里标识的注解让编译器能够实现基本的编译检查[@Override]</p>
-<p>​				（2）编写文档：通过代码里的标识的注解生成doc文档</p>
-<p>​				（3）代码分析：通过代码里标识的注解对代码进行分析[使用反射]</p>
-<p>​		<strong>3.JDK中预定义的注解</strong></p>
-<p>​				**@Override：**检测被改注释标注的方法是否是继承自父类（接口）的</p>
-<p>​				**@Deprecated：**该注解标注的内容，标识已过时。即虽然可以使用，但是不推荐使用</p>
-<p>​				**@SuppressWarnings：**压制警告</p>
-<p>​							*一般传递参数all，@SuppressWarnings(&quot;all&quot;)</p>
-<h2>二、自定义注解</h2>
-<p>​		<strong>1.格式</strong></p>
-<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">元注解</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> 注解名称&#123;</span><br><span class="line">    属性列表;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>​		<strong>2.本质</strong></p>
-<p>​				注解本质是一个接口，该接口默认继承Annotation接口</p>
-<pre><code>&gt;
-&gt;
-&gt;假设按照上述1.格式自定义一个接口My Anno，并通过反编译的方式，我们会得到一下结果
-&gt;
-&gt;public interface MyAnno extends java.lang.annotation.Annotation{}
-</code></pre>
-<p>​		<strong>3.属性：接口中的方法</strong></p>
-<p>​				要求：</p>
-<p>​						（1）属性的返回值有一下列取值</p>
-<blockquote>
-<ul>
-<li>基本数据类型</li>
-<li>String</li>
-<li>枚举</li>
-<li>注解</li>
-<li>上述类型的数组</li>
-</ul>
-</blockquote>
-<p>​</p>
-<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyAnno&#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">show1</span> <span class="params">()</span></span>;</span><br><span class="line">    <span class="function">String <span class="title">show2</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function">Person <span class="title">show3</span><span class="params">()</span> <span class="keyword">default</span> "Person.p1"</span>;</span><br><span class="line">    <span class="meta">@Override</span> show4();</span><br><span class="line">    String[] show5();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>​						（2）定义了属性，在使用时需要给属性赋值</p>
-<p>​									（a)如果定义属性时，使用default	关键字给属性默认初始化，则使用注解时，可以不进行属性的赋值</p>
-<p>​									（b)如果只有一个属性需要赋值，且这个属性名称是value，则“value=”可以省略，直接定义值即可</p>
-<p>​									（c)数组赋值时，值使用{}包裹。如果数组中只有一个值，则{}可以省略</p>
-<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@MyAnno</span>(show1=<span class="number">1</span>,show2=<span class="string">"hello"</span>,show4=<span class="meta">@Override</span>,show5=&#123;<span class="string">"abc"</span>,<span class="string">"bcd"</span>&#125;)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">show</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>​		<strong>4.元注解：用于描述注解的注解</strong></p>
-<p>​				常用的元注解有四个：</p>
-<blockquote>
-<ul>
-<li>@Target : 描述注解能够作用的位置</li>
-</ul>
-<p>​	ElementType的取值：</p>
-<pre><code>		* Type：表示注解可以作用于类上 
-		* Method：表示注解可以作用于方法上
-		* Field：表示注解可以作用于成员变量上
-</code></pre>
-<ul>
-<li>
-<p>@Retention：描述注解被保留的阶段</p>
-</li>
-<li>
-<p>@Retention（RetentionPolicy.RUNTIME）：当前被描述的注解，会保留到class字节码文件中，并被JVM读取到</p>
-</li>
-<li>
-<p>@Documented：描述注解是否被抽取到API文档中</p>
-</li>
-<li>
-<p>@Inherited：描述注解是否被子类继承</p>
-</li>
-</ul>
-</blockquote>
-<p>​		<strong>5.程序中对注解的解析</strong></p>
-<p>​				在程序中使用（解析）注解，获取注解中定义的属性值</p>
-<p>​				（1）获取被注解的对象（类，方法，成员变量等）</p>
-<p>​				（2）获取指定的注解</p>
-<p>​								<em>通过getAnnotation(class)方法</em></p>
-<p>​				（3）调用注解中的抽象方法来获取配置的属性值</p>
-<p>​							示例程序：</p>
-<p>​									首先定义一个Prop注解，有两个属性：className用来存储类名，methodName用来存储方法名</p>
-<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(<span class="string">"ElementType.Type"</span>)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Prop&#123;</span><br><span class="line">    <span class="function">String <span class="title">className</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function">String <span class="title">methodName</span><span class="params">()</span> </span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>​										则我们可以按如下方式使用并调用注解中的属性。</p>
-<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Prop</span>(className=<span class="string">"cn.itcast.annotation.Demo1"</span>,methodName=<span class="string">"show"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReflectTest</span>	</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span> <span class="params">(String [] args)</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">        <span class="comment">//获取被注解的类字节码文件</span></span><br><span class="line">        Class&lt;ReflectTest&gt; reflectTestClass = ReflectTest<span class="class">.<span class="keyword">class</span> </span>;</span><br><span class="line">        <span class="comment">//获取类上的注解对象</span></span><br><span class="line">        Prop prop = reflectTestClass.getAnnotation(Prop<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">    	<span class="comment">//调用注解对象中定义的抽象方法，获取属性</span></span><br><span class="line">        String className = prop.className();</span><br><span class="line">        String methodName = prop.methodName();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>​											对于以上程序调用我们可以理解成Java为我们自动生成了一个如下的Prop实现类：</p>
-<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PropImpl</span> <span class="title">implments</span> <span class="title">Prop</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">className</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"cn.itcast.annotation.Demo1"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">methodName</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"show"</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
+          <h1 id="Java基础强化（二）-–-注解"><a href="#Java基础强化（二）-–-注解" class="headerlink" title="Java基础强化（二） – 注解"></a>Java基础强化（二） – 注解</h1><h2 id="一、注解概述"><a href="#一、注解概述" class="headerlink" title="一、注解概述"></a>一、注解概述</h2><p>​        <strong>1.定义</strong></p>
+<p>​                注解（Annotation），也叫元数据。一种代码级别的说明。它是JDK1.5及以后版本引入的一个特性，与类、接口、枚举是在同一个层次。它可以声明在包、类、字段、方法、局部变量、方法参数等的前面，用来对这些元素进行说明，注释。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/20/Java%E5%9F%BA%E7%A1%80%E5%BC%BA%E5%8C%96%EF%BC%88%E4%BA%8C%EF%BC%89%20--%20%E6%B3%A8%E8%A7%A3/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1682,6 +958,14 @@
       </div>
   </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/BryantZK" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;BryantZK" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/mailto:2420773703@qq.com" title="E-Mail → mailto:2420773703@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
 
 
 
