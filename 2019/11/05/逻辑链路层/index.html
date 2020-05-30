@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="一、概述   数据链路层使用物理层提供的服务在通信信道上发送和接受比特。 二、功能 向网络层提供一个定义良好的服务接口 处理传输错误 调节数据流，确保慢速的接收方不会被快速的接收方淹没   三、服务向网络层提供以下三种服务：  无确认的无连接服务 有确认的无连接服务 有确认的有连接服务   四、成帧 字节计数法  字节填充的标志字节法: 用标志字节FLAG来代表一帧的开始和结束，并用转义字符ESC">
+  <meta name="description" content="一、概述 数据链路层使用物理层提供的服务在通信信道上发送和接受比特。 二、功能  向网络层提供一个定义良好的服务接口 处理传输错误 调节数据流，确保慢速的接收方不会被快速的接收方淹没   三、服务 向网络层提供以下三种服务：  无确认的无连接服务 有确认的无连接服务 有确认的有连接服务   四、成帧   字节计数法   字节填充的标志字节法: 用标志字节FLAG来代表一帧的开始和结束，并用转义字符">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机网络--逻辑链路层">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;05&#x2F;%E9%80%BB%E8%BE%91%E9%93%BE%E8%B7%AF%E5%B1%82&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="一、概述   数据链路层使用物理层提供的服务在通信信道上发送和接受比特。 二、功能 向网络层提供一个定义良好的服务接口 处理传输错误 调节数据流，确保慢速的接收方不会被快速的接收方淹没   三、服务向网络层提供以下三种服务：  无确认的无连接服务 有确认的无连接服务 有确认的有连接服务   四、成帧 字节计数法  字节填充的标志字节法: 用标志字节FLAG来代表一帧的开始和结束，并用转义字符ESC">
+<meta property="og:description" content="一、概述 数据链路层使用物理层提供的服务在通信信道上发送和接受比特。 二、功能  向网络层提供一个定义良好的服务接口 处理传输错误 调节数据流，确保慢速的接收方不会被快速的接收方淹没   三、服务 向网络层提供以下三种服务：  无确认的无连接服务 有确认的无连接服务 有确认的有连接服务   四、成帧   字节计数法   字节填充的标志字节法: 用标志字节FLAG来代表一帧的开始和结束，并用转义字符">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;github.com&#x2F;BryantZK&#x2F;pictures&#x2F;raw&#x2F;master&#x2F;3-1.png">
 <meta property="og:updated_time" content="2019-11-06T08:09:18.281Z">
@@ -199,29 +199,43 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>   数据链路层使用物理层提供的服务在通信信道上发送和接受比特。</p>
-<h2 id="二、功能"><a href="#二、功能" class="headerlink" title="二、功能"></a>二、功能</h2><ol>
+        <h2>一、概述</h2>
+<p>数据链路层使用物理层提供的服务在通信信道上发送和接受比特。</p>
+<h2>二、功能</h2>
+<ol>
 <li>向网络层提供一个定义良好的服务接口</li>
 <li>处理传输错误</li>
 <li>调节数据流，确保慢速的接收方不会被快速的接收方淹没</li>
 </ol>
 <hr>
-<h2 id="三、服务"><a href="#三、服务" class="headerlink" title="三、服务"></a>三、服务</h2><p>向网络层提供以下三种服务：</p>
+<h2>三、服务</h2>
+<p>向网络层提供以下三种服务：</p>
 <ol>
 <li>无确认的无连接服务</li>
 <li>有确认的无连接服务</li>
 <li>有确认的有连接服务</li>
 </ol>
 <hr>
-<h2 id="四、成帧"><a href="#四、成帧" class="headerlink" title="四、成帧"></a>四、成帧</h2><ol>
-<li><p>字节计数法</p>
+<h2>四、成帧</h2>
+<ol>
+<li>
+<p>字节计数法</p>
 </li>
-<li><p>字节填充的标志字节法:<br> 用标志字节FLAG来代表一帧的开始和结束，并用转义字符ESC来解决透明传输问题  </p>
-<h3 id="例题"><a href="#例题" class="headerlink" title=" 例题: "></a><font color="00ffff"> 例题: </font></h3><p> <img src="https://github.com/BryantZK/pictures/raw/master/3-1.png" alt="例题3-1"></p>
-<h3 id="Answer"><a href="#Answer" class="headerlink" title=" Answer: "></a><font color="00ffff"> Answer: </font></h3><pre><code>ESC ESC C ESC ESC ESC FLAG G ESC FLAG D </code></pre></li>
-<li><p>比特填充的标志比特法<br>011111110或十六进制0x7E作为标志字节。若传输的数据遇到连续五个1，则在其后添加一个0，打断六个以上的连续1字节流</p>
+<li>
+<p>字节填充的标志字节法:<br>
+用标志字节FLAG来代表一帧的开始和结束，并用转义字符ESC来解决透明传输问题</p>
+<h3>&lt;font color = &quot;00ffff&quot;&gt; 例题: &lt;/font&gt;</h3>
+<p><img src="https://github.com/BryantZK/pictures/raw/master/3-1.png" alt="例题3-1"></p>
+<h3>&lt;font color = &quot;00ffff&quot; &gt; Answer: &lt;/font&gt;</h3>
+<pre><code> ESC ESC C ESC ESC ESC FLAG G ESC FLAG D 
+</code></pre>
 </li>
-<li><p>物理层编码违禁法</p>
+<li>
+<p>比特填充的标志比特法
+011111110或十六进制0x7E作为标志字节。若传输的数据遇到连续五个1，则在其后添加一个0，打断六个以上的连续1字节流</p>
+</li>
+<li>
+<p>物理层编码违禁法</p>
 </li>
 </ol>
 <hr>
@@ -302,7 +316,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、概述"><span class="nav-number">1.</span> <span class="nav-text">一、概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、功能"><span class="nav-number">2.</span> <span class="nav-text">二、功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、服务"><span class="nav-number">3.</span> <span class="nav-text">三、服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、成帧"><span class="nav-number">4.</span> <span class="nav-text">四、成帧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例题"><span class="nav-number">4.1.</span> <span class="nav-text"> 例题: </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Answer"><span class="nav-number">4.2.</span> <span class="nav-text"> Answer: </span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">一、概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">二、功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">三、服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.</span> <span class="nav-text">四、成帧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">4.1.</span> <span class="nav-text">&lt;font color = &quot;00ffff&quot;&gt; 例题: &lt;/font&gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">4.2.</span> <span class="nav-text">&lt;font color = &quot;00ffff&quot; &gt; Answer: &lt;/font&gt;</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
