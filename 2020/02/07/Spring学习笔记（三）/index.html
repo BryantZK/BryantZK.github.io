@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"github.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="在前两个学习笔记中，我们掌握了Spring的第一个核心IOC，现在我们开始学习Spring的另一个核心，AOP  一、AOP简介 ​		1.概述： ​				AOP为Aspect Oriented Programming的缩写，即面向切面编程。AOP是通过预编译方式和运行期间动态代理实现程序功能的统一维护的一种技术。 ​				简单的说，AOP可以将我们重复的代码抽取出来，在需要执行时，采用动态">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring学习笔记（三）">
+<meta property="og:url" content="https://github.com/BryantZK/BryantZK.github.io.git/2020/02/07/Spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/index.html">
+<meta property="og:site_name" content="BryantZK个人博客">
+<meta property="og:description" content="在前两个学习笔记中，我们掌握了Spring的第一个核心IOC，现在我们开始学习Spring的另一个核心，AOP  一、AOP简介 ​		1.概述： ​				AOP为Aspect Oriented Programming的缩写，即面向切面编程。AOP是通过预编译方式和运行期间动态代理实现程序功能的统一维护的一种技术。 ​				简单的说，AOP可以将我们重复的代码抽取出来，在需要执行时，采用动态">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-02-07T07:30:30.000Z">
+<meta property="article:modified_time" content="2020-05-31T02:11:53.704Z">
+<meta property="article:author" content="不来的恩特">
+<meta property="article:tag" content="SSM">
+<meta property="article:tag" content="Spring">
+<meta property="article:tag" content="IOC">
+<meta property="article:tag" content="AOP">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://github.com/BryantZK/BryantZK.github.io.git/2020/02/07/Spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Spring学习笔记（三） | BryantZK个人博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">BryantZK个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">技术熔炉，心灵驿站</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">18</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">10</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">23</span></a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/BryantZk" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/BryantZK/BryantZK.github.io.git/2020/02/07/Spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/kobe.jpg">
+      <meta itemprop="name" content="不来的恩特">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BryantZK个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Spring学习笔记（三）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-07 15:30:30" itemprop="dateCreated datePublished" datetime="2020-02-07T15:30:30+08:00">2020-02-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-31 10:11:53" itemprop="dateModified" datetime="2020-05-31T10:11:53+08:00">2020-05-31</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/SSM/" itemprop="url" rel="index"><span itemprop="name">SSM</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/SSM/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <pre><code>	在前两个学习笔记中，我们掌握了Spring的第一个核心IOC，现在我们开始学习Spring的另一个核心，AOP
+</code></pre>
+<h2>一、AOP简介</h2>
+<p>​		1.<strong>概述：</strong></p>
+<p>​				AOP为Aspect Oriented Programming的缩写，即面向切面编程。AOP是通过预编译方式和运行期间动态代理实现程序功能的统一维护的一种技术。</p>
+<p>​				简单的说，AOP可以将我们重复的代码抽取出来，在需要执行时，采用动态代理的技术，在不修改源码的基础上，对原有方法进行增强</p>
+<p>&lt;!-- more --&gt;</p>
+<p>​		2.<strong>优势：</strong></p>
+<p>​				减少重复代码</p>
+<p>​				提高开发效率</p>
+<p>​				方便维护</p>
+<h2>二、AOP引入：</h2>
+<p>​		1.<strong>问题抛出：</strong></p>
+<p>​				在Spring学习笔记（二）中，我们实现了对Account对象的增删改查的持久层与业务层操作，并通过IOC配置，降低了程序的耦合。现我们增加一个transfer（即转账）操作，实现账户A向账户B的转账：</p>
+<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">transfer</span><span class="params">(Integer giveAccountId, Integer recieveAccountId, Double money)</span></span>&#123;</span><br><span class="line">            <span class="comment">//1.获取转出账户</span></span><br><span class="line">            Account giveAccount = accountDao.findById(giveAccountId);</span><br><span class="line">            <span class="comment">//2.获取转入账户</span></span><br><span class="line">            Account recieveAccount = accountDao.findById(recieveAccountId);</span><br><span class="line">            <span class="comment">//3.转出账户减钱</span></span><br><span class="line">            giveAccount.setMoney(giveAccount.getMoney()-money);</span><br><span class="line">            <span class="comment">//4/转入账户价钱</span></span><br><span class="line">            recieveAccount.setMoney(recieveAccount.getMoney()+money);</span><br><span class="line">            <span class="comment">//5.更新转出账户</span></span><br><span class="line">            accountDao.update(giveAccount);</span><br><span class="line">            <span class="comment">//6.更新转入账户</span></span><br><span class="line">            accountDao.update(recieveAccount);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>​				如此简单的实现，很容易出现不同步的问题：如果在&lt;font size=&quot;2&quot;&gt;第五步--更新转出账户&lt;/font&gt;操作之后,程序出现了异常（例如在第五步后添加一句 int a = 1/0;)，那么第六步将不会成功执行，就会产生一个可怕的后果：转出账户的钱减少了，但是转入账户的前没有增加。</p>
+<p>​		<strong>2.问题分析：</strong></p>
+<p>​				为了解决这个问题我们需要加入事务控制，使得这些操作由一个连接来操作，而且使它们一起成功或者一起失败。</p>
+<p>​				为此，我们编写了connectionUtils与TransactionManager类来进行事务控制。</p>
+<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itheima.utils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.sql.DataSource;</span><br><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConnectionUtils</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> ThreadLocal&lt;Connection&gt; tl = <span class="keyword">new</span> ThreadLocal&lt;Connection&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> DataSource dataSource ;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setDataSource</span><span class="params">(DataSource dataSource)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.dataSource = dataSource;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Connection <span class="title">getThreadConnection</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//1.先从ThreadLocal上获取</span></span><br><span class="line">        Connection conn = tl.get();</span><br><span class="line">        <span class="comment">//2.判断当前线程上是否有连接</span></span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(conn==<span class="keyword">null</span>)&#123;</span><br><span class="line">                <span class="comment">//3.从数据源中获取一个连接，并且存入ThreadLocal中</span></span><br><span class="line">                conn = dataSource.getConnection();</span><br><span class="line">                tl.set(conn);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//4.返回当前线程上的连接</span></span><br><span class="line">            <span class="keyword">return</span> conn ;</span><br><span class="line">        &#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 把连接和线程解绑</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">removeConnection</span><span class="params">()</span></span>&#123;</span><br><span class="line">        tl.remove();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itheima.utils;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 和事务管理相关的工具类，它包含了，开启事务，提交事务，回滚事务和释放连接</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TransactionManager</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> ConnectionUtils connectionUtils ;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setConnectionUtils</span><span class="params">(ConnectionUtils connectionUtils)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.connectionUtils = connectionUtils;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 开启事务</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">beginTransaction</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            connectionUtils.getThreadConnection().setAutoCommit(<span class="keyword">false</span>);</span><br><span class="line">        &#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 提交事务</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">commit</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            connectionUtils.getThreadConnection().commit();</span><br><span class="line">        &#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 回滚事务</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">rollback</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            connectionUtils.getThreadConnection().rollback();</span><br><span class="line">        &#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 释放连接</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">release</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            connectionUtils.getThreadConnection().close(); <span class="comment">//还回连接池中</span></span><br><span class="line">            connectionUtils.removeConnection();</span><br><span class="line">        &#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>​				接下来就需要整合我们的转账操作与事务控制，使得能够保证转入与转出操作能够同步执行。这时候就会面临一个关键的问题：</p>
+<p>​				<strong>如果直接将这些事务控制加到业务层接口实现类中，这会导致大量的代码重复，提升程序耦合性，而且需要修改源码。&lt;font color=&quot;red&quot;&gt;这样的作法是我们极不提倡的&lt;/font&gt;</strong></p>
+<p>​				于是我们可以通过动态代理的方式，来解决上述问题。自己编写动态代理类，对于大神来说很轻松，但是对于小白来说，甚至会无从下手。而Spring技术可以通过AOP配置的方式，来帮我们自动实现动态代理，这就极大的方便了对原方法增强的操作。</p>
+<h2>三、AOP细节</h2>
+<p>​		<strong>1.AOP相关术语</strong></p>
+<p>​				（1）Joinpoint（连接点）：连接点是那些被拦截的点。在Spring中，这些点值的是被增强类的所有方法。</p>
+<p>​				（2）Pointcut（切入点）：切入点是指我们要对哪些JoinPoint进行拦截的定义。即所有被增强的方法。<em>注意：所有切入点都是连接点，但连接点不一定是切入点。</em></p>
+<p>​				（3）Target（目标对象）：被代理对象</p>
+<p>​				（4）Proxy（代理）：一个类被织入增强后，产生的代理对象</p>
+<p>​				（5）Weaving（织入）：把增强应用到目标对象来创建新的代理对象的过程。spring使用动态代理植入。</p>
+<p>​				（6）Advice（通知/增强）：通知时拦截到连接点之后需要增加的代码。通知有五种类型：前置通知、后置通知、异常通知、最终通知、环绕通知</p>
+<p>​				（7）Introduction（引介）：引介是一种特殊的通知，在不修改类代码的前提下，Introduction可以在运行期为类动态地添加一些方法或Field。</p>
+<p>​				（8）Aspect（切面）：切入点与通知的结合</p>
+<p>​		<strong>2.代理的选择</strong></p>
+<p>​				在Spring中，框架会根据目标类是否实现了接口来决定采用哪种动态代理的方式</p>
+<h2>四、基于XML的AOP配置</h2>
+<p>​		<strong>1.导入jar包：</strong></p>
+<p>​				mysql、spring-framework、spring-test、commons-dbutils、c3p0、junit，aspectjweaver</p>
+<p>​		<strong>2.在bean.xml文件中导入约束</strong></p>
+<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:aop</span>=<span class="string">"http://www.springframework.org/schema/aop"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/beans/spring-beans.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/aop</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/aop/spring-aop.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/context</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/context/spring-context.xsd"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>​		<strong>3.配置通知bean对象:</strong></p>
+<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置事务管理器 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"TxManager"</span> <span class="attr">class</span>=<span class="string">"com.itheima.utils.TransactionManager"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 注入connectionUtils--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"connectionUtils"</span> <span class="attr">ref</span>=<span class="string">"connectionUtils"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>​		<strong>4.配置切面：</strong></p>
+<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置AOP--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">aop:config</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 配置切面 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">aop:aspect</span> <span class="attr">id</span>=<span class="string">"TxManager"</span> <span class="attr">ref</span>=<span class="string">"TxManager"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">aop:pointcut</span> <span class="attr">id</span>=<span class="string">"pt1"</span> <span class="attr">expression</span>=<span class="string">"execution(* *..AccountServiceImpl.*(..))"</span>&gt;</span><span class="tag">&lt;/<span class="name">aop:pointcut</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">aop:before</span> <span class="attr">method</span>=<span class="string">"beginTransaction"</span> <span class="attr">pointcut-ref</span>=<span class="string">"pt1"</span>&gt;</span><span class="tag">&lt;/<span class="name">aop:before</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">aop:after-returning</span> <span class="attr">method</span>=<span class="string">"commit"</span> <span class="attr">pointcut-ref</span>=<span class="string">"pt1"</span>&gt;</span><span class="tag">&lt;/<span class="name">aop:after-returning</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">aop:after-throwing</span> <span class="attr">method</span>=<span class="string">"rollback"</span> <span class="attr">pointcut-ref</span>=<span class="string">"pt1"</span>&gt;</span><span class="tag">&lt;/<span class="name">aop:after-throwing</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">aop:after</span> <span class="attr">method</span>=<span class="string">"release"</span> <span class="attr">pointcut-ref</span>=<span class="string">"pt1"</span>&gt;</span><span class="tag">&lt;/<span class="name">aop:after</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">aop:aspect</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">aop:config</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>​				&lt;aop:config&gt;标签用于标识开始AOP配置</p>
+<p>​				&lt;aop:aspect&gt;标签用于标识开始AOP切面配置</p>
+<p>​				&lt;aop:pointcut&gt;标签用于配置切入点表达式，id属性指定该切入点表达式的标识符，expression指定被配置的切入点表达式</p>
+<p>​				&lt;aop:before&gt;标签用于配置前置通知，method属性指定作为前置通知的方法，pointcut-ref属性中填写切入点表达式，指定被增强的方法</p>
+<p>​				&lt;aop:after-returning&gt;标签用于配置后置通知，作用同上</p>
+<p>​				&lt;aop:after-throwing&gt;标签用于配置异常通知，作用同上</p>
+<p>​				&lt;aop:after&gt;标签用于配置最终通知，作用同上</p>
+<p>​		<strong>5.配置完成，测试结果</strong></p>
+<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 测试转账操作</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testTransfer</span><span class="params">()</span></span>&#123;</span><br><span class="line">       <span class="comment">//执行转账操作</span></span><br><span class="line">       as.transfer(<span class="number">2</span>,<span class="number">1</span>,<span class="number">450.0</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<p>​				该测试类调用转账操作，我们在更新转出账户之后添加了异常语句（int a =1/0;），执行。</p>
+<p>​				执行结果失败，但是事务回滚成功，转出账户的money没有减少。成功！</p>
+<h2>五、基于注解的AOP配置</h2>
+<p>​		<strong>1.导入jar包</strong></p>
+<p>​				同4.1</p>
+<p>​		<strong>2.在bean.xml中导入约束</strong></p>
+<p>​				同4.2</p>
+<p>​		<strong>3.在通知类上添加@Aspect注解</strong></p>
+<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TransactionManager</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>​		<strong>4.在相应的通知前加上相应的注解</strong>(@Before @AfterReturning@AfterThrowing@After)</p>
+<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 开启事务</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"><span class="meta">@Before</span>(<span class="string">"execution(* *..AccountServiceImpl(..))"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">beginTransaction</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            connectionUtils.getThreadConnection().setAutoCommit(<span class="keyword">false</span>);</span><br><span class="line">        &#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>​			注解的小括号中写好切入点表达式</p>
+<p>​		<strong>5.在Sprig配置文件中开启Spring对注解AOP的支持（一句配置即可）</strong></p>
+<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">aop:aspectj-autoproxy</span>/&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2>六、环绕通知的配置</h2>
+<p>​		环绕通知是一种很特殊的通知，通过配置环绕通知甚至可以实现所有其他四种通知的配置。</p>
+<p>​		<strong>1.bean.xml中配置环绕通知</strong></p>
+<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">aop:config</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:pointcut</span> <span class="attr">expression</span>=<span class="string">"execution(* com.itheima.service.impl.*.*(..))"</span><span class="attr">id</span>=<span class="string">"pt1"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:aspect</span> <span class="attr">id</span>=<span class="string">"txAdvice"</span> <span class="attr">ref</span>=<span class="string">"txManager"</span>&gt;</span> </span><br><span class="line">        <span class="comment">&lt;!-- 配置环绕通知 --&gt;</span> </span><br><span class="line">        <span class="tag">&lt;<span class="name">aop:around</span> <span class="attr">method</span>=<span class="string">"transactionAround"</span> <span class="attr">pointcut-ref</span>=<span class="string">"pt1"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">aop:aspect</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">aop:config</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>​		<strong>2.编写transactionAround方法</strong></p>
+<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** * 环绕通知 </span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> pjp </span></span><br><span class="line"><span class="comment">* spring 框架为我们提供了一个接口：ProceedingJoinPoint，它可以作为环绕通知的方法参数。</span></span><br><span class="line"><span class="comment">* 在环绕通知执行时，spring 框架会为我们提供该接口的实现类对象，我们直接使用就行。</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">transactionAround</span><span class="params">(ProceedingJoinPoint pjp)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//定义返回值</span></span><br><span class="line">    Object rtValue = <span class="keyword">null</span>; <span class="keyword">try</span> &#123;</span><br><span class="line">		<span class="comment">//获取方法执行所需的参数</span></span><br><span class="line">        Object[] args = pjp.getArgs();</span><br><span class="line">    	<span class="comment">//前置通知：开启事务</span></span><br><span class="line">        beginTransaction();</span><br><span class="line">    	<span class="comment">//执行方法 </span></span><br><span class="line">        rtValue = pjp.proceed(args);</span><br><span class="line">    	<span class="comment">//后置通知：提交事务</span></span><br><span class="line">        commit();</span><br><span class="line">		&#125;<span class="keyword">catch</span>(Throwable e) &#123;</span><br><span class="line">    	<span class="comment">//异常通知：回滚事务</span></span><br><span class="line">    	rollback();</span><br><span class="line">    	e.printStackTrace();</span><br><span class="line">		&#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">    	<span class="comment">//最终通知：释放资源 </span></span><br><span class="line">    	release();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> rtValue; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>​		若是采用注解配置的方式，则整合以上两步，在transactionAround方法上添加注解@Around即可</p>
+<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** * 环绕通知 </span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> pjp </span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span> </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">@Around</span>(<span class="string">"execution(* com.itheima.service.impl.*.*(..))"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">transactionAround</span><span class="params">(ProceedingJoinPoint pjp)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//定义返回值</span></span><br><span class="line">    Object rtValue = <span class="keyword">null</span>; <span class="keyword">try</span> &#123;</span><br><span class="line">		<span class="comment">//获取方法执行所需的参数</span></span><br><span class="line">        Object[] args = pjp.getArgs();</span><br><span class="line">    	<span class="comment">//前置通知：开启事务</span></span><br><span class="line">        beginTransaction();</span><br><span class="line">    	<span class="comment">//执行方法 </span></span><br><span class="line">        rtValue = pjp.proceed(args);</span><br><span class="line">    	<span class="comment">//后置通知：提交事务</span></span><br><span class="line">        commit();</span><br><span class="line">		&#125;<span class="keyword">catch</span>(Throwable e) &#123;</span><br><span class="line">    	<span class="comment">//异常通知：回滚事务</span></span><br><span class="line">    	rollback();</span><br><span class="line">    	e.printStackTrace();</span><br><span class="line">		&#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">    	<span class="comment">//最终通知：释放资源 </span></span><br><span class="line">    	release();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> rtValue; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束,感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>s
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/SSM/" rel="tag"># SSM</a>
+              <a href="/tags/Spring/" rel="tag"># Spring</a>
+              <a href="/tags/IOC/" rel="tag"># IOC</a>
+              <a href="/tags/AOP/" rel="tag"># AOP</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/04/Spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/" rel="prev" title="Spring学习笔记（二）">
+      <i class="fa fa-chevron-left"></i> Spring学习笔记（二）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/02/10/Spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89/" rel="next" title="Spring学习笔记（四）">
+      Spring学习笔记（四） <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">1.</span> <span class="nav-text">一、AOP简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">2.</span> <span class="nav-text">二、AOP引入：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">3.</span> <span class="nav-text">三、AOP细节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">4.</span> <span class="nav-text">四、基于XML的AOP配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">5.</span> <span class="nav-text">五、基于注解的AOP配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">6.</span> <span class="nav-text">六、环绕通知的配置</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="不来的恩特"
+      src="/images/kobe.jpg">
+  <p class="site-author-name" itemprop="name">不来的恩特</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/BryantZK" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;BryantZK"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://mp.csdn.net/console/article" title="CSDN → https:&#x2F;&#x2F;mp.csdn.net&#x2F;console&#x2F;article" rel="noopener" target="_blank"><i class="crosshairs fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">不来的恩特</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" 
+src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js">
+</script>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_sphere.min.js"></script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
+</html>
