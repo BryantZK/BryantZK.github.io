@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"gitee.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="1.概述 几款流行的web服务器：   webLogic:  Oracle公司，大型JavaEE服务器，支持所有javaEE规范，收费   webSphere:  IBM公司，大型JavaEE服务器，支持所有javaEE规范，收费   JBOSS:  JBOSS公司，大型JavaEE服务器，支持所有javaEE规范，收费   Tomcat:  Apache基金组织，中小型JavaEE服务器，支持少">
+  <meta name="description" content="1.概述几款流行的web服务器：  webLogic:  Oracle公司，大型JavaEE服务器，支持所有javaEE规范，收费  webSphere:  IBM公司，大型JavaEE服务器，支持所有javaEE规范，收费  JBOSS:  JBOSS公司，大型JavaEE服务器，支持所有javaEE规范，收费  Tomcat:  Apache基金组织，中小型JavaEE服务器，支持少量java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaWeb基础（一） 关于Tomcat你必须知道的点">
 <meta property="og:url" content="https:&#x2F;&#x2F;gitee.com&#x2F;BryantZK&#x2F;BryantZK.git&#x2F;2020&#x2F;04&#x2F;19&#x2F;JavaWeb%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89--%E5%85%B3%E4%BA%8ETomcat%E4%BD%A0%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84%E7%82%B9&#x2F;index.html">
 <meta property="og:site_name" content="BryantZK个人小站">
-<meta property="og:description" content="1.概述 几款流行的web服务器：   webLogic:  Oracle公司，大型JavaEE服务器，支持所有javaEE规范，收费   webSphere:  IBM公司，大型JavaEE服务器，支持所有javaEE规范，收费   JBOSS:  JBOSS公司，大型JavaEE服务器，支持所有javaEE规范，收费   Tomcat:  Apache基金组织，中小型JavaEE服务器，支持少">
+<meta property="og:description" content="1.概述几款流行的web服务器：  webLogic:  Oracle公司，大型JavaEE服务器，支持所有javaEE规范，收费  webSphere:  IBM公司，大型JavaEE服务器，支持所有javaEE规范，收费  JBOSS:  JBOSS公司，大型JavaEE服务器，支持所有javaEE规范，收费  Tomcat:  Apache基金组织，中小型JavaEE服务器，支持少量java">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2020-05-31T02:14:43.926Z">
 <meta name="twitter:card" content="summary">
@@ -219,28 +219,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4>1.概述</h4>
-<p>几款流行的web服务器：</p>
+        <h4 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h4><p>几款流行的web服务器：</p>
 <ul>
-<li>
-<p>webLogic:  Oracle公司，大型JavaEE服务器，支持所有javaEE规范，收费</p>
+<li><p>webLogic:  Oracle公司，大型JavaEE服务器，支持所有javaEE规范，收费</p>
 </li>
-<li>
-<p>webSphere:  IBM公司，大型JavaEE服务器，支持所有javaEE规范，收费</p>
+<li><p>webSphere:  IBM公司，大型JavaEE服务器，支持所有javaEE规范，收费</p>
 </li>
-<li>
-<p>JBOSS:  JBOSS公司，大型JavaEE服务器，支持所有javaEE规范，收费</p>
+<li><p>JBOSS:  JBOSS公司，大型JavaEE服务器，支持所有javaEE规范，收费</p>
 </li>
-<li>
-<p>Tomcat:  Apache基金组织，中小型JavaEE服务器，支持少量javaEE规范，免费</p>
-<p>&lt;!-- more --&gt;</p>
+<li><p>Tomcat:  Apache基金组织，中小型JavaEE服务器，支持少量javaEE规范，免费</p>
+<a id="more"></a>
+
 </li>
 </ul>
-<h4>2.安装与卸载</h4>
-<p>安装只需下载压缩包并解压即可。</p>
+<h4 id="2-安装与卸载"><a href="#2-安装与卸载" class="headerlink" title="2.安装与卸载"></a>2.安装与卸载</h4><p>安装只需下载压缩包并解压即可。</p>
 <p>卸载同样只需删除解压后的文件夹即可。</p>
-<h4>3.Tomcat目录结构</h4>
-<p>其实大多数软件都有类似的结构，掌握了Tomcat的，对日后学习新的技术也大有裨益</p>
+<h4 id="3-Tomcat目录结构"><a href="#3-Tomcat目录结构" class="headerlink" title="3.Tomcat目录结构"></a>3.Tomcat目录结构</h4><p>其实大多数软件都有类似的结构，掌握了Tomcat的，对日后学习新的技术也大有裨益</p>
 <ul>
 <li>bin：存放可执行文件</li>
 <li>conf：存放配置文件</li>
@@ -250,33 +244,25 @@
 <li>webapps：存放web项目</li>
 <li>work：存放运行时数据</li>
 </ul>
-<h4>4.启动</h4>
-<p>双击运行bin/start.bat，在浏览器中输入：http://localhost:8080,即可访问tomcat默认项目页面。</p>
+<h4 id="4-启动"><a href="#4-启动" class="headerlink" title="4.启动"></a>4.启动</h4><p>双击运行bin/start.bat，在浏览器中输入：<a href="http://localhost:8080,即可访问tomcat默认项目页面。" target="_blank" rel="noopener">http://localhost:8080,即可访问tomcat默认项目页面。</a></p>
 <ul>
-<li>
-<p>在chrome、Firefox等高级浏览器中可省略http:</p>
+<li><p>在chrome、Firefox等高级浏览器中可省略http:</p>
 </li>
-<li>
-<p>localhost = 128.0.0.1</p>
+<li><p>localhost = 128.0.0.1</p>
 </li>
-<li>
-<p>8080是端口号，可在配置文件conf/server.xml中更改</p>
+<li><p>8080是端口号，可在配置文件conf/server.xml中更改</p>
 </li>
-<li>
-<p>若将默认端口号8080改成80，则可直接通过http://localhost访问。因为80是http的默认端口号</p>
+<li><p>若将默认端口号8080改成80，则可直接通过<a href="http://localhost访问。因为80是http的默认端口号" target="_blank" rel="noopener">http://localhost访问。因为80是http的默认端口号</a></p>
 </li>
 </ul>
-<h4>5.启动时可能遇到的问题</h4>
-<ul>
-<li>
-<p>双击start.bat后，黑窗口一闪而过：</p>
+<h4 id="5-启动时可能遇到的问题"><a href="#5-启动时可能遇到的问题" class="headerlink" title="5.启动时可能遇到的问题"></a>5.启动时可能遇到的问题</h4><ul>
+<li><p>双击start.bat后，黑窗口一闪而过：</p>
 <ul>
 <li>原因：没有正确配置JAVA_HOME系统变量</li>
 <li>解决方法：正确配置JAVA_HOME系统变量并添加至path中</li>
 </ul>
 </li>
-<li>
-<p>启动时，端口号占用</p>
+<li><p>启动时，端口号占用</p>
 <p>1)暴力解决：杀死占用者</p>
 <blockquote>
 <p>1.在cmd命令中输入 netstat -ano，查看占用8080端口的PID（进程号）</p>
@@ -288,44 +274,37 @@
 </blockquote>
 </li>
 </ul>
-<h4>6.关闭</h4>
-<ul>
-<li>正常关闭：
-<ul>
+<h4 id="6-关闭"><a href="#6-关闭" class="headerlink" title="6.关闭"></a>6.关闭</h4><ul>
+<li>正常关闭：<ul>
 <li>在黑窗口中 ctrl+c</li>
 <li>双击运行bin/shutdown.bat</li>
 </ul>
 </li>
-<li>强制关闭：
-<ul>
+<li>强制关闭：<ul>
 <li>点击x，直接关闭黑窗口</li>
 </ul>
 </li>
 </ul>
-<h4>7.部署项目</h4>
-<ul>
-<li>直接将项目放在webapps目录下
-<ul>
+<h4 id="7-部署项目"><a href="#7-部署项目" class="headerlink" title="7.部署项目"></a>7.部署项目</h4><ul>
+<li>直接将项目放在webapps目录下<ul>
 <li>访问路径：localhost:项目名/文件名</li>
 <li>简化部署：将项目打成war包。war包是一种特殊的压缩包，不仅体积小，而且在被复制进webapps后会自动解压缩</li>
 </ul>
 </li>
-<li>配置conf/server.xml（不安全，不推荐使用）
-<ul>
+<li>配置conf/server.xml（不安全，不推荐使用）<ul>
 <li>在server.xml中添加</li>
 </ul>
 </li>
 </ul>
-<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Context</span> <span class="attr">base</span>=<span class="string">"项目路径"</span> <span class="attr">path</span> =<span class="string">"项目名"</span>&gt;</span><span class="tag">&lt;/<span class="name">Context</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Context</span> <span class="attr">base</span>=<span class="string">"项目路径"</span> <span class="attr">path</span> =<span class="string">"项目名"</span>&gt;</span><span class="tag">&lt;/<span class="name">Context</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>在confi/Catalina/localhost文件夹下创建任意名称的xml文件。（推荐）
-<ul>
+<li>在confi/Catalina/localhost文件夹下创建任意名称的xml文件。（推荐）<ul>
 <li>在文件中编写</li>
 </ul>
 </li>
 </ul>
-<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Context</span> <span class="attr">docBase</span>=<span class="string">"路径"</span>&gt;</span><span class="tag">&lt;/<span class="name">Context</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Context</span> <span class="attr">docBase</span>=<span class="string">"路径"</span>&gt;</span><span class="tag">&lt;/<span class="name">Context</span>&gt;</span></span><br></pre></td></tr></table></figure>
       
         <div>
     
@@ -413,7 +392,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">1.概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">2.安装与卸载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">3.Tomcat目录结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">4.</span> <span class="nav-text">4.启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">5.</span> <span class="nav-text">5.启动时可能遇到的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">6.</span> <span class="nav-text">6.关闭</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">7.</span> <span class="nav-text">7.部署项目</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-概述"><span class="nav-number">1.</span> <span class="nav-text">1.概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-安装与卸载"><span class="nav-number">2.</span> <span class="nav-text">2.安装与卸载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Tomcat目录结构"><span class="nav-number">3.</span> <span class="nav-text">3.Tomcat目录结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-启动"><span class="nav-number">4.</span> <span class="nav-text">4.启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-启动时可能遇到的问题"><span class="nav-number">5.</span> <span class="nav-text">5.启动时可能遇到的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-关闭"><span class="nav-number">6.</span> <span class="nav-text">6.关闭</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-部署项目"><span class="nav-number">7.</span> <span class="nav-text">7.部署项目</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
