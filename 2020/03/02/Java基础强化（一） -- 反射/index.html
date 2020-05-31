@@ -17,21 +17,21 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"bryantzk.gitee.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="在学习完MyBatis与Spring技术之后，笔者决定先去巩固一些之前不牢固的java以及javaWeb基础。主要内容包括：反射、注解、并发与线程、servlet、request、response、EL表达式、JSTL、监听器、过滤器、Maven。在扎实基础之后，再前往学习Spring的后续内容。">
 <meta name="keywords" content="反射">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java基础强化（一）--反射">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;02&#x2F;Java%E5%9F%BA%E7%A1%80%E5%BC%BA%E5%8C%96%EF%BC%88%E4%B8%80%EF%BC%89%20--%20%E5%8F%8D%E5%B0%84&#x2F;index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;bryantzk.gitee.io&#x2F;blog&#x2F;2020&#x2F;03&#x2F;02&#x2F;Java%E5%9F%BA%E7%A1%80%E5%BC%BA%E5%8C%96%EF%BC%88%E4%B8%80%EF%BC%89%20--%20%E5%8F%8D%E5%B0%84&#x2F;index.html">
 <meta property="og:site_name" content="BryantZK个人小站">
 <meta property="og:description" content="在学习完MyBatis与Spring技术之后，笔者决定先去巩固一些之前不牢固的java以及javaWeb基础。主要内容包括：反射、注解、并发与线程、servlet、request、response、EL表达式、JSTL、监听器、过滤器、Maven。在扎实基础之后，再前往学习Spring的后续内容。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2020-05-31T02:19:37.255Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2020/03/02/Java%E5%9F%BA%E7%A1%80%E5%BC%BA%E5%8C%96%EF%BC%88%E4%B8%80%EF%BC%89%20--%20%E5%8F%8D%E5%B0%84/">
+<link rel="canonical" href="http://bryantzk.gitee.io/blog/2020/03/02/Java%E5%9F%BA%E7%A1%80%E5%BC%BA%E5%8C%96%EF%BC%88%E4%B8%80%EF%BC%89%20--%20%E5%8F%8D%E5%B0%84/">
 
 
 <script id="page-configurations">
@@ -167,7 +167,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/02/Java%E5%9F%BA%E7%A1%80%E5%BC%BA%E5%8C%96%EF%BC%88%E4%B8%80%EF%BC%89%20--%20%E5%8F%8D%E5%B0%84/">
+    <link itemprop="mainEntityOfPage" href="http://bryantzk.gitee.io/blog/2020/03/02/Java%E5%9F%BA%E7%A1%80%E5%BC%BA%E5%8C%96%EF%BC%88%E4%B8%80%EF%BC%89%20--%20%E5%8F%8D%E5%B0%84/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/kobe.jpg">
